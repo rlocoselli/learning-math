@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mathematics Mastery — free, multilingual step-by-step math lessons from arithmetic to university-level calculus." />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>Mathematics Mastery — Step-by-Step Math Lessons</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="logo">🔢</span>
+        <div class="brand-text">
+          <h1 data-i18n="appTitle">Mathematics Mastery</h1>
+          <span class="tagline">Math, explained simply.</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
+          <button class="lang-btn" data-lang="pt">🇧🇷 Português</button>
+          <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="theme-icon-moon">🌙</span>
+          <span class="theme-icon-sun">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="level-nav" aria-label="Difficulty levels">
+    <div class="level-nav-inner">
+      <button class="level-btn active" data-level="all">All Levels</button>
+      <button class="level-btn" data-level="beginner">Beginner</button>
+      <button class="level-btn" data-level="intermediate">Intermediate</button>
+      <button class="level-btn" data-level="advanced">Advanced (University)</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-kicker" data-i18n="heroKicker">Learn at your own pace</p>
+        <h2 class="hero-title" data-i18n="heroTitle">Master mathematics, step by step</h2>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">Clear worked examples in English, Portuguese and French — from arithmetic to calculus.</p>
+      </div>
+      <span class="hero-symbol s1">∑</span>
+      <span class="hero-symbol s2">∫</span>
+      <span class="hero-symbol s3">π</span>
+      <span class="hero-symbol s4">√</span>
+    </section>
+
+    <!-- Topic Cards -->
+    <h2 class="section-label"><span data-i18n="topics">Browse topics</span> <span class="count" id="topicCount">0</span></h2>
+    <section id="topicList" class="topic-list" aria-live="polite">
+      <!-- Populated by JS -->
+    </section>
+
+    <!-- Topic Detail View (hidden by default) -->
+    <section id="topicDetail" class="topic-detail hidden">
+      <div class="breadcrumb">
+        <button class="back-btn" id="backBtn">← Back</button>
+      </div>
+      <div class="topic-head">
+        <h2 class="topic-title" id="topicTitle"></h2>
+        <div class="topic-meta">
+          <span class="badge" id="topicLevel"></span>
+          <span class="badge lang" id="topicLang"></span>
+        </div>
+        <p class="topic-desc" id="topicDesc"></p>
+        <figure class="figure hidden" id="topicFigure"></figure>
+        <div class="video-section hidden" id="videoSection">
+          <h3 class="video-title" data-i18n="watchVideo">🎬 Watch the video lesson</h3>
+          <video class="topic-video" id="topicVideo" controls playsinline preload="metadata"></video>
+        </div>
+        <div class="topic-actions">
+          <button class="primary-btn" id="playLessonBtn" data-i18n="playLesson">▶ Play lesson</button>
+          <button class="primary-btn outline" id="startQuizBtn" data-i18n="takeQuiz">🎯 Take the quiz</button>
+        </div>
+      </div>
+      <div class="steps-section" id="stepsContainer">
+        <!-- Steps rendered by JS -->
+      </div>
+      <div class="quiz-section hidden" id="quizSection"></div>
+    </section>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state hidden">
+      <span class="empty-icon">🧮</span>
+      <p data-i18n="noContent">Select a topic to see step-by-step examples.</p>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>Mathematics Mastery — free, multilingual math learning.</p>
+  </footer>
+
+  <div id="lessonPlayer" class="lesson-player hidden" role="dialog" aria-modal="true">
+    <div class="lesson-backdrop" id="lessonBackdrop"></div>
+    <div class="lesson-modal">
+      <div class="lesson-topbar">
+        <div class="lesson-title" id="lessonTitle">Lesson</div>
+        <button class="lesson-close" id="lessonClose" aria-label="Close">✕</button>
+      </div>
+      <div class="lesson-stage" id="lessonStage"></div>
+      <div class="lesson-progress"><div class="lesson-progress-fill" id="lessonProgressFill"></div></div>
+      <div class="lesson-controls">
+        <button class="lesson-btn" id="lessonPrev" aria-label="Previous">⏮</button>
+        <button class="lesson-btn play" id="lessonPlay" aria-label="Play">▶</button>
+        <button class="lesson-btn" id="lessonNext" aria-label="Next">⏭</button>
+        <span class="lesson-counter" id="lessonCounter">1 / 1</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
