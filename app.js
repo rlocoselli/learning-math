@@ -67,6 +67,7 @@ const UIStrings = {
     rewardQuiz: '+{points} stars! Quiz complete!',
     rewardPotential: '⭐ Up to 30 stars',
     rewardPractice: '+{points} stars! Practice round cleared!',
+    rewardDailyQuest: '+{points} bonus stars! Daily quest cleared!',
     authSignIn: 'Sign in with AUDELA',
     authSignOut: 'Sign out',
     authConnected: 'AUDELA account connected',
@@ -78,6 +79,11 @@ const UIStrings = {
     boardCleared: 'Cleared',
     boardNext: 'Next quest',
     boardReady: 'Ready when you are',
+    dailyQuestLabel: 'Today’s side quest',
+    dailyQuestAction: 'Finish a lesson, quiz, or practice round in {topic}.',
+    dailyQuestDone: 'Quest cleared! A new trail appears tomorrow.',
+    dailyQuestGo: 'Play this quest →',
+    dailyQuestDoneButton: 'Cleared ✓',
     learnerLabel: 'Choose your learning style',
     learnerYoung: '🌱 Young learner',
     learnerStudent: '🎓 Student',
@@ -197,6 +203,7 @@ const UIStrings = {
     rewardQuiz: '+{points} estrelas! Quiz concluído!',
     rewardPotential: '⭐ Até 30 estrelas',
     rewardPractice: '+{points} estrelas! Rodada concluída!',
+    rewardDailyQuest: '+{points} estrelas bônus! Missão diária concluída!',
     authSignIn: 'Entrar com AUDELA',
     authSignOut: 'Sair',
     authConnected: 'Conta AUDELA conectada',
@@ -208,6 +215,11 @@ const UIStrings = {
     boardCleared: 'Concluído',
     boardNext: 'Próxima missão',
     boardReady: 'Pronto quando você estiver',
+    dailyQuestLabel: 'Missão extra de hoje',
+    dailyQuestAction: 'Conclua uma aula, um quiz ou uma rodada de exercícios em {topic}.',
+    dailyQuestDone: 'Missão concluída! Amanhã tem uma nova trilha.',
+    dailyQuestGo: 'Jogar esta missão →',
+    dailyQuestDoneButton: 'Concluída ✓',
     learnerLabel: 'Escolha seu jeito de aprender',
     learnerYoung: '🌱 Aprendiz jovem',
     learnerStudent: '🎓 Estudante',
@@ -327,6 +339,7 @@ const UIStrings = {
     rewardQuiz: '+{points} étoiles ! Quiz terminé !',
     rewardPotential: '⭐ Jusqu’à 30 étoiles',
     rewardPractice: '+{points} étoiles ! Série terminée !',
+    rewardDailyQuest: '+{points} étoiles bonus ! Mission du jour terminée !',
     authSignIn: 'Se connecter avec AUDELA',
     authSignOut: 'Se déconnecter',
     authConnected: 'Compte AUDELA connecté',
@@ -338,6 +351,11 @@ const UIStrings = {
     boardCleared: 'Terminé',
     boardNext: 'Prochaine mission',
     boardReady: 'Prêt quand vous l’êtes',
+    dailyQuestLabel: 'Mission bonus du jour',
+    dailyQuestAction: 'Terminez une leçon, un quiz ou une série sur {topic}.',
+    dailyQuestDone: 'Mission terminée ! Un nouveau parcours arrive demain.',
+    dailyQuestGo: 'Jouer cette mission →',
+    dailyQuestDoneButton: 'Terminé ✓',
     learnerLabel: 'Choisissez votre façon d’apprendre',
     learnerYoung: '🌱 Jeune apprenant',
     learnerStudent: '🎓 Étudiant',
@@ -2028,6 +2046,34 @@ function isTopicExplored(id) {
   return isLessonDone(id) || getQuizPercent(id) !== null || isPracticeDone(id);
 }
 
+function todayKey() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+function dailyQuestTopic() {
+  const choices = allTopics().filter((topic) => topic.level !== 'advanced');
+  if (!choices.length) return null;
+  const date = todayKey();
+  const seed = [...date].reduce((value, char) => ((value * 31) + char.charCodeAt(0)) >>> 0, 7);
+  return choices[seed % choices.length];
+}
+
+function isDailyQuestDone(topicId) {
+  const topic = dailyQuestTopic();
+  if (!topic || (topicId && topic.id !== topicId)) return false;
+  try { return localStorage.getItem('dailyQuestDone') === `${todayKey()}_${topic.id}`; } catch (e) { return false; }
+}
+
+function completeDailyQuest(topicId) {
+  const topic = dailyQuestTopic();
+  if (!topic || topic.id !== topicId || isDailyQuestDone(topicId)) return false;
+  try {
+    localStorage.setItem('dailyQuestDone', `${todayKey()}_${topic.id}`);
+    return true;
+  } catch (e) { return false; }
+}
+
 function renderAdventureMap() {
   const board = document.getElementById('mathBoard');
   if (!board) return;
@@ -2298,6 +2344,10 @@ function updateQuestStats() {
   const meter = document.querySelector('.quest-meter');
   const meterFill = document.getElementById('questMeterFill');
   const subtitle = document.getElementById('questSubtitle');
+  const dailyCard = document.getElementById('dailyQuest');
+  const dailyText = document.getElementById('dailyQuestText');
+  const dailyButton = document.getElementById('dailyQuestPlay');
+  const dailyIcon = document.querySelector('.daily-quest-icon');
 
   if (pointEl) pointEl.textContent = points.toLocaleString(currentLang);
   if (exploredEl) exploredEl.textContent = `${explored}/${topics.length}`;
@@ -2325,17 +2375,35 @@ function updateQuestStats() {
   }
   if (meterFill) meterFill.style.width = `${percent}%`;
   if (meter) meter.setAttribute('aria-valuenow', String(Math.round(percent)));
+
+  const dailyTopic = dailyQuestTopic();
+  if (dailyTopic && dailyText && dailyButton) {
+    const dailyDone = isDailyQuestDone(dailyTopic.id);
+    dailyText.textContent = dailyDone
+      ? t(currentLang, 'dailyQuestDone')
+      : t(currentLang, 'dailyQuestAction', { topic: dailyTopic.title[currentLang] || dailyTopic.title.en });
+    dailyButton.textContent = t(currentLang, dailyDone ? 'dailyQuestDoneButton' : 'dailyQuestGo');
+    dailyButton.disabled = dailyDone;
+    dailyButton.setAttribute('aria-label', `${dailyButton.textContent}: ${dailyTopic.title[currentLang] || dailyTopic.title.en}`);
+    if (dailyCard) dailyCard.classList.toggle('is-cleared', dailyDone);
+    if (dailyIcon) dailyIcon.textContent = dailyDone ? '🏆' : '🧭';
+  }
 }
 
 function awardStars(topicId, kind, amount) {
   const rewardKey = `${kind}Rewarded_${topicId}`;
   try {
-    if (localStorage.getItem(rewardKey) === '1') return false;
-    const total = readStarPoints() + amount;
-    localStorage.setItem(rewardKey, '1');
+    const dailyCleared = completeDailyQuest(topicId);
+    const alreadyRewarded = localStorage.getItem(rewardKey) === '1';
+    if (alreadyRewarded && !dailyCleared) return false;
+    const dailyBonus = dailyCleared ? 10 : 0;
+    const earned = (alreadyRewarded ? 0 : amount) + dailyBonus;
+    const total = readStarPoints() + earned;
+    if (!alreadyRewarded) localStorage.setItem(rewardKey, '1');
     localStorage.setItem('mathStarPoints', String(total));
     updateQuestStats();
-    showRewardToast(kind === 'lesson' ? 'rewardLesson' : kind === 'practice' ? 'rewardPractice' : 'rewardQuiz', amount);
+    showRewardToast(dailyCleared ? 'rewardDailyQuest' : kind === 'lesson' ? 'rewardLesson' : kind === 'practice' ? 'rewardPractice' : 'rewardQuiz', dailyCleared ? dailyBonus : amount);
+    celebrateReward();
     return true;
   } catch (e) { return false; }
 }
@@ -2348,6 +2416,41 @@ function showRewardToast(key, points) {
   toast.classList.remove('hidden');
   if (rewardToastTimer) window.clearTimeout(rewardToastTimer);
   rewardToastTimer = window.setTimeout(() => toast.classList.add('hidden'), 3000);
+}
+
+function celebrateReward() {
+  const card = document.querySelector('.quest-card');
+  const mascot = document.querySelector('.quest-mascot');
+  const points = document.getElementById('starPoints');
+  if (points) {
+    points.classList.remove('points-pop');
+    void points.offsetWidth;
+    points.classList.add('points-pop');
+  }
+  if (mascot) {
+    mascot.classList.remove('is-cheering');
+    void mascot.offsetWidth;
+    mascot.classList.add('is-cheering');
+    window.setTimeout(() => mascot.classList.remove('is-cheering'), 850);
+  }
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!card || reduceMotion) return;
+  const burst = document.createElement('div');
+  burst.className = 'sparkle-burst';
+  burst.setAttribute('aria-hidden', 'true');
+  const sparkles = ['⭐', '✨', '🌟'];
+  for (let index = 0; index < 14; index += 1) {
+    const sparkle = document.createElement('span');
+    const angle = (Math.PI * 2 * index) / 14;
+    const distance = 38 + Math.random() * 95;
+    sparkle.textContent = sparkles[index % sparkles.length];
+    sparkle.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+    sparkle.style.setProperty('--dy', `${Math.sin(angle) * distance}px`);
+    sparkle.style.setProperty('--delay', `${(index % 5) * 35}ms`);
+    burst.append(sparkle);
+  }
+  card.append(burst);
+  window.setTimeout(() => burst.remove(), 1100);
 }
 
 function markLessonDone(id) {
@@ -2578,6 +2681,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePracticeAvailability();
   });
   document.getElementById('surpriseBtn').addEventListener('click', chooseSurpriseTopic);
+  document.getElementById('dailyQuestPlay').addEventListener('click', () => {
+    const topic = dailyQuestTopic();
+    if (topic) showTopicDetail(topic.id);
+  });
   document.getElementById('backBtn').addEventListener('click', () => {
     const v = document.getElementById('topicVideo');
     if (v) v.pause();

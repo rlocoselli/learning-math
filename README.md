@@ -6,7 +6,7 @@ A multilingual math learning app for children and students, with short step-by-s
 
 - **15 math topics** from arithmetic to university-level calculus, in English, Portuguese, and French
 - **Geometry lessons** that explain shapes, perimeter as a fence, area as covered space, circles, and triangle angles in small steps
-- **Adventure map** with cleared quests, the next recommended stop, stars, and badges; all topics remain open to explore
+- **Adventure map** with themed learning worlds, cleared quests, a daily side quest with bonus stars, the next recommended stop, and badges; all topics remain open to explore
 - **AI practice rounds** with five multiple-choice questions, selectable learner style and difficulty, hints, worked explanations, and optional spoken answers
 - **AUDELA OIDC sign-in** using server-side authorization-code exchange; the client secret and AI key stay on the server
 - **Narrated MP4 explainer videos** with an original piano accompaniment, paced step-by-step explanations, searchable topics, KaTeX formulas, dark mode, and local progress

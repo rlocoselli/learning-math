@@ -91,6 +91,11 @@
         <div class="quest-stat"><span class="quest-stat-icon" aria-hidden="true">⭐</span><div><strong id="starPoints">0</strong><span data-i18n="starPoints">star points</span></div></div>
         <div class="quest-stat"><span class="quest-stat-icon" aria-hidden="true">🗺️</span><div><strong id="questsCleared">0/15</strong><span data-i18n="questsClearedLabel">topics explored</span></div></div>
         <div class="quest-level"><div class="quest-level-row"><span id="questRank"></span><span id="questProgressLabel"></span></div><div class="quest-meter" role="progressbar" aria-label="Progress to next math badge" data-i18n-aria="badgeProgressLabel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="questMeterFill"></span></div></div>
+        <div class="daily-quest" id="dailyQuest">
+          <span class="daily-quest-icon" aria-hidden="true">🧭</span>
+          <div class="daily-quest-copy"><strong data-i18n="dailyQuestLabel">Today’s side quest</strong><span id="dailyQuestText"></span></div>
+          <button class="daily-quest-btn" id="dailyQuestPlay" type="button" data-i18n="dailyQuestGo">Play this quest →</button>
+        </div>
       </div>
     </section>
     <div id="rewardToast" class="reward-toast hidden" role="status" aria-live="polite"></div>

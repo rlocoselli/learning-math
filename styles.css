@@ -656,8 +656,10 @@ img, svg, video, canvas { max-width: 100%; display: block; }
 }
 .quiz-option:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-soft); }
 .quiz-option:disabled { cursor: default; opacity: 0.92; }
-.quiz-option.correct { border-color: var(--success); background: var(--success-soft); color: var(--success); font-weight: 700; }
-.quiz-option.wrong { border-color: var(--danger); background: var(--danger-soft); color: var(--danger); }
+.quiz-option.correct { border-color: var(--success); background: var(--success-soft); color: var(--success); font-weight: 700; animation: answer-pop 0.38s cubic-bezier(.2, 1.5, .4, 1); }
+.quiz-option.wrong { border-color: var(--danger); background: var(--danger-soft); color: var(--danger); animation: answer-wiggle 0.32s ease-in-out; }
+@keyframes answer-pop { 50% { transform: scale(1.025); } }
+@keyframes answer-wiggle { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 .quiz-feedback { margin: 0.6rem 0 0; font-size: 0.9rem; }
 .quiz-feedback.ok { color: var(--success); }
 .quiz-feedback.bad { color: var(--danger); }
@@ -1017,6 +1019,26 @@ body.no-scroll { overflow: hidden; }
 .quest-meter { height: 9px; overflow: hidden; border-radius: 999px; background: #e9e5f4; }
 .quest-meter > span { display: block; width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ffbd48, #f38e57, #9363de); transition: width 0.45s ease; }
 [data-theme="dark"] .quest-meter { background: #37324b; }
+.daily-quest { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.65rem; padding: 0.62rem 0.7rem; border: 1px dashed #d8c7ff; border-radius: 13px; background: rgba(246, 241, 255, 0.76); transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+[data-theme="dark"] .daily-quest { border-color: #554679; background: rgba(49, 40, 73, 0.6); }
+.daily-quest-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 11px; background: #fff1c8; font-size: 1.15rem; }
+.daily-quest-copy { display: grid; min-width: 0; line-height: 1.35; }
+.daily-quest-copy strong { color: var(--text); font-size: 0.7rem; font-weight: 850; }
+.daily-quest-copy span { margin-top: 0.12rem; color: var(--text-muted); font-size: 0.65rem; }
+.daily-quest-btn { border: 1px solid #d7c9ff; border-radius: 999px; padding: 0.43rem 0.65rem; background: #fff; color: #5942b3; font: 800 0.65rem var(--font-body); cursor: pointer; transition: transform var(--transition), background var(--transition); white-space: nowrap; }
+.daily-quest-btn:hover:not(:disabled) { transform: translateY(-2px) rotate(-1deg); background: #f1ebff; }
+.daily-quest-btn:disabled { cursor: default; opacity: 0.78; }
+[data-theme="dark"] .daily-quest-btn { border-color: #5c4c7d; background: #2b2441; color: #e1d5ff; }
+.daily-quest.is-cleared { border-style: solid; border-color: #a7e3c5; background: rgba(236, 253, 245, 0.8); }
+[data-theme="dark"] .daily-quest.is-cleared { border-color: #397659; background: rgba(24, 53, 43, 0.72); }
+.daily-quest.is-cleared .daily-quest-icon { background: #d9f8e9; }
+.points-pop { animation: points-pop 0.52s cubic-bezier(.2, 1.6, .4, 1); }
+@keyframes points-pop { 45% { transform: scale(1.35) rotate(-5deg); color: #e08b19; } }
+.quest-mascot.is-cheering { animation: mascot-cheer 0.72s cubic-bezier(.2, 1.5, .4, 1); }
+@keyframes mascot-cheer { 25% { transform: translateY(-12px) rotate(-12deg) scale(1.16); } 55% { transform: translateY(2px) rotate(10deg) scale(.96); } 78% { transform: translateY(-5px) rotate(-5deg) scale(1.06); } }
+.sparkle-burst { position: absolute; z-index: 4; inset: 0; overflow: hidden; pointer-events: none; }
+.sparkle-burst span { position: absolute; top: 50%; left: 50%; font-size: 1.1rem; opacity: 0; animation: sparkle-flight 0.95s cubic-bezier(.1, .7, .3, 1) var(--delay) forwards; }
+@keyframes sparkle-flight { 12% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(110deg) scale(.35); } }
 .reward-toast { position: fixed; z-index: 300; right: 1.2rem; bottom: 1.2rem; max-width: min(92vw, 380px); padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,.18); border-radius: 14px; background: #282447; color: #fff; box-shadow: 0 16px 40px rgba(20, 17, 52, .3); font-weight: 800; animation: toast-pop 0.25s ease-out; }
 .reward-toast::before { content: '✨'; margin-right: 0.5rem; }
 @keyframes toast-pop { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
@@ -1035,6 +1057,8 @@ body.no-scroll { overflow: hidden; }
   .quest-intro h2 { font-size: 1.08rem; }
   .quest-subtitle { font-size: 0.75rem; }
   .quest-scoreboard { padding: 0.65rem; }
+  .daily-quest { grid-template-columns: auto minmax(0, 1fr); }
+  .daily-quest-btn { grid-column: 2; justify-self: start; }
 }
 
 /* ---------- Adventure map and AI practice ---------- */
@@ -1052,12 +1076,24 @@ body.no-scroll { overflow: hidden; }
 .board-heading { align-items: center; margin-bottom: 1rem; }
 .math-board { display: grid; gap: 0.9rem; }
 .board-track { min-width: 0; padding: 0.85rem 0.85rem 1rem; border: 1px solid var(--border); border-radius: 16px; background: color-mix(in srgb, var(--surface) 88%, var(--primary-soft)); }
+.board-track.beginner { border-color: #c9e8c7; background: linear-gradient(125deg, color-mix(in srgb, var(--surface) 82%, #daf4d8), var(--surface)); }
+.board-track.intermediate { border-color: #f1d7ad; background: linear-gradient(125deg, color-mix(in srgb, var(--surface) 82%, #fff0d3), var(--surface)); }
+.board-track.advanced { border-color: #d8c9f6; background: linear-gradient(125deg, color-mix(in srgb, var(--surface) 82%, #ece2ff), var(--surface)); }
+[data-theme="dark"] .board-track.beginner { border-color: #31553e; background: linear-gradient(125deg, #182d25, var(--surface)); }
+[data-theme="dark"] .board-track.intermediate { border-color: #655034; background: linear-gradient(125deg, #2b251d, var(--surface)); }
+[data-theme="dark"] .board-track.advanced { border-color: #493862; background: linear-gradient(125deg, #251d35, var(--surface)); }
 .board-track-title { margin: 0 0 0.65rem; color: var(--text-muted); font: 800 0.75rem var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; }
+.board-track.beginner .board-track-title::before { content: '🌿'; margin-right: 0.45rem; }
+.board-track.intermediate .board-track-title::before { content: '⛰️'; margin-right: 0.45rem; }
+.board-track.advanced .board-track-title::before { content: '🚀'; margin-right: 0.45rem; }
 .board-path { display: flex; align-items: center; gap: 0.4rem; overflow-x: auto; padding: 0.3rem 0.1rem 0.6rem; scrollbar-width: thin; }
 .board-node { position: relative; display: flex; flex: 0 0 130px; min-height: 112px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 0.2rem; border: 1px solid var(--border); border-radius: 16px; padding: 0.65rem; background: var(--surface); color: var(--text); text-align: left; cursor: pointer; transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
 .board-node:hover { z-index: 1; transform: translateY(-3px) rotate(-1deg); border-color: var(--primary); box-shadow: var(--shadow); }
+.board-node:active { transform: translateY(1px) scale(.97); }
 .board-node.is-cleared { border-color: #9ce1c2; background: linear-gradient(145deg, #f0fff7, var(--surface)); }
 .board-node.is-next { border: 2px solid #9b7cec; box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12); animation: map-glow 2.8s ease-in-out infinite; }
+.board-node.is-next::after { content: '➜'; position: absolute; top: -0.42rem; right: -0.28rem; border-radius: 999px; padding: 0.12rem 0.38rem; background: #8059d6; color: #fff; font-size: 0.7rem; font-weight: 900; transform: rotate(-12deg); }
+.board-node.is-cleared::after { content: '⭐'; position: absolute; top: 0.25rem; right: 0.32rem; font-size: 0.67rem; filter: drop-shadow(0 1px 1px rgba(120, 83, 20, .2)); }
 [data-theme="dark"] .board-node.is-cleared { border-color: #397659; background: linear-gradient(145deg, #18352b, var(--surface)); }
 .board-node-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 11px; background: var(--primary-soft); font-size: 1.15rem; }
 .board-node.is-cleared .board-node-icon { background: var(--success-soft); color: var(--success); font-weight: 900; }
@@ -1091,8 +1127,8 @@ body.no-scroll { overflow: hidden; }
 .exercise-options { display: grid; gap: 0.42rem; }
 .exercise-option { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 0.56rem 0.65rem; background: var(--surface-2); color: var(--text); font: 650 0.78rem/1.4 var(--font-body); text-align: left; cursor: pointer; transition: border-color var(--transition), background var(--transition); }
 .exercise-option:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-soft); }
-.exercise-option.correct { border-color: #5ac28e; background: var(--success-soft); color: var(--success); font-weight: 800; }
-.exercise-option.wrong { border-color: #ee879c; background: var(--danger-soft); color: var(--danger); }
+.exercise-option.correct { border-color: #5ac28e; background: var(--success-soft); color: var(--success); font-weight: 800; animation: answer-pop 0.38s cubic-bezier(.2, 1.5, .4, 1); }
+.exercise-option.wrong { border-color: #ee879c; background: var(--danger-soft); color: var(--danger); animation: answer-wiggle 0.32s ease-in-out; }
 .exercise-option:disabled { cursor: default; }
 .exercise-hint, .exercise-explanation { margin-top: 0.65rem; border-radius: 10px; padding: 0.52rem 0.65rem; background: var(--surface-2); color: var(--text-muted); font-size: 0.75rem; }
 .exercise-hint summary, .exercise-explanation summary { color: var(--primary-strong); font-weight: 800; cursor: pointer; }
@@ -1126,4 +1162,5 @@ body.no-scroll { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .quest-mascot { animation: none; }
   .reward-toast { animation: none; }
+  .points-pop, .quest-mascot.is-cheering, .sparkle-burst span, .quiz-option.correct, .quiz-option.wrong, .exercise-option.correct, .exercise-option.wrong { animation: none; }
 }
