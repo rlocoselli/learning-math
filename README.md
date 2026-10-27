@@ -9,7 +9,7 @@ A multilingual math learning app for children and students, with short step-by-s
 - **Adventure map** with cleared quests, the next recommended stop, stars, and badges; all topics remain open to explore
 - **AI practice rounds** with five multiple-choice questions, selectable learner style and difficulty, hints, worked explanations, and optional spoken answers
 - **AUDELA OIDC sign-in** using server-side authorization-code exchange; the client secret and AI key stay on the server
-- **Short MP4 explainer videos**, searchable topics, KaTeX formulas, dark mode, and local progress
+- **Narrated MP4 explainer videos** with an original piano accompaniment, paced step-by-step explanations, searchable topics, KaTeX formulas, dark mode, and local progress
 
 Progress stars and lesson completion are stored in the learner's browser. AUDELA sign-in is used to protect AI exercise generation; the app does not send the account name or email to the AI provider.
 
@@ -48,12 +48,12 @@ The in-memory login session is intended for a single app process/container. Keep
 ## Regenerate the videos
 
 ```bash
-python3 generate_videos.py              # all languages and topics
-python3 generate_videos.py pt           # Portuguese only
-python3 generate_videos.py fr quadratic-equations   # one language and topic
+python3 generate_videos.py                        # all languages and topics
+python3 generate_videos.py pt                     # Portuguese only
+python3 generate_videos.py fr quadratic-equations # one language and topic
 ```
 
-Requires Python 3, [Pillow](https://pillow.readthedocs.io/) and [ffmpeg](https://ffmpeg.org/).
+Requires Python 3, [Pillow](https://pillow.readthedocs.io/), [gTTS](https://gtts.readthedocs.io/), NumPy, and [ffmpeg](https://ffmpeg.org/). Narration generation uses Google text-to-speech and requires internet access. Generating the original piano track also needs libfluidsynth and a General MIDI SoundFont; set `MATH_SOUNDFONT` if it is not at `/usr/share/sounds/sf2/TimGM6mb.sf2`. Speech clips are cached in `.video-cache/` so reruns can reuse them.
 
 ## Structure
 

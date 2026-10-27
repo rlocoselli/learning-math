@@ -1,0 +1,77 @@
+{
+  "arithmetic": {
+    "en": "Addition puts groups together; subtraction takes some away. Multiplication is a quick way to add equal groups. For example, twelve times fourteen is twelve times ten, plus twelve times four: one hundred twenty plus forty-eight makes one hundred sixty-eight. In a mixed calculation, do multiplication and division before addition and subtraction.",
+    "pt": "A adição junta quantidades; a subtração retira uma parte. A multiplicação é uma forma rápida de somar grupos iguais. Por exemplo, doze vezes quatorze é doze vezes dez mais doze vezes quatro: cento e vinte mais quarenta e oito, que dá cento e sessenta e oito. Em uma conta com várias operações, faça multiplicação e divisão antes da adição e da subtração.",
+    "fr": "L’addition rassemble des quantités et la soustraction en retire une partie. La multiplication permet d’additionner rapidement des groupes égaux. Par exemple, douze fois quatorze, c’est douze fois dix plus douze fois quatre : cent vingt plus quarante-huit, soit cent soixante-huit. Dans un calcul avec plusieurs opérations, faites les multiplications et les divisions avant les additions et les soustractions."
+  },
+  "fractions": {
+    "en": "A fraction describes equal parts of one whole. The bottom number tells how many equal parts make the whole; the top number tells how many parts we have. To add fractions, first rename them with the same bottom number. For one third plus two fifths, fifteenths work: five fifteenths plus six fifteenths equals eleven fifteenths.",
+    "pt": "Uma fração representa partes iguais de um todo. O número de baixo diz em quantas partes iguais o todo foi dividido; o de cima diz quantas partes temos. Para somar frações, primeiro use o mesmo denominador. Um terço mais dois quintos vira cinco quinze avos mais seis quinze avos, que resulta em onze quinze avos.",
+    "fr": "Une fraction représente des parts égales d’un tout. Le nombre du bas indique en combien de parts égales on partage le tout ; celui du haut indique combien de parts on prend. Pour additionner des fractions, utilisez d’abord le même dénominateur. Un tiers plus deux cinquièmes devient cinq quinzièmes plus six quinzièmes, soit onze quinzièmes."
+  },
+  "percentages-ratios": {
+    "en": "Percent means out of one hundred, so twenty-five percent is twenty-five out of one hundred, or one quarter. To find a percent of an amount, turn the percent into a decimal and multiply. Twenty percent of eighty is sixteen. Ratios compare amounts; keep a proportion balanced by multiplying both parts by the same number.",
+    "pt": "Por cento significa a cada cem. Então, vinte e cinco por cento é vinte e cinco de cada cem, ou um quarto. Para encontrar uma porcentagem de uma quantidade, transforme a porcentagem em decimal e multiplique. Vinte por cento de oitenta é dezesseis. Razões comparam quantidades; para manter uma proporção, multiplique os dois lados pelo mesmo número.",
+    "fr": "Pour cent signifie sur cent : vingt-cinq pour cent, c’est vingt-cinq sur cent, soit un quart. Pour calculer un pourcentage d’une quantité, écrivez le pourcentage en nombre décimal puis multipliez. Vingt pour cent de quatre-vingts font seize. Les rapports comparent des quantités ; dans une proportion, multipliez les deux termes par le même nombre."
+  },
+  "statistics-data": {
+    "en": "The mean is the total shared equally: add the values and divide by how many there are. The median is the middle value after sorting the numbers. The mode is the value that appears most often. The range shows the spread: subtract the smallest value from the largest.",
+    "pt": "A média é o total dividido igualmente: some os valores e divida pela quantidade. A mediana é o valor do meio depois de ordenar os números. A moda é o valor que mais aparece. A amplitude mostra a variação: subtraia o menor valor do maior.",
+    "fr": "La moyenne est le total partagé équitablement : additionnez les valeurs et divisez par leur nombre. La médiane est la valeur du milieu après avoir trié les nombres. Le mode est la valeur la plus fréquente. L’étendue mesure la dispersion : soustrayez la plus petite valeur de la plus grande."
+  },
+  "geometry-basics": {
+    "en": "Geometry is a way to describe shapes and measure them. Perimeter is like a fence around the outside: add the sides. Area is like floor tiles inside: multiply for a rectangle, or take half of base times height for a triangle. For circles, circumference goes around and area covers the inside. Triangle angles always add to one hundred eighty degrees. Use cm for lengths and cm squared for areas.",
+    "pt": "A geometria descreve formas e como medi-las. O perímetro é como uma cerca ao redor: some os lados. A área é como o piso dentro da forma: multiplique no retângulo ou use metade da base vezes a altura no triângulo. No círculo, a circunferência mede o contorno e a área mede o espaço interno. Os ângulos de um triângulo sempre somam cento e oitenta graus. Use cm para comprimentos e cm quadrados para áreas.",
+    "fr": "La géométrie décrit les figures et leurs mesures. Le périmètre ressemble à une clôture autour de la figure : additionnez les côtés. L’aire ressemble aux carreaux du sol à l’intérieur : multipliez pour un rectangle, ou prenez la moitié de la base fois la hauteur pour un triangle. Pour un cercle, la circonférence fait le tour et l’aire couvre l’intérieur. Les angles d’un triangle totalisent toujours cent quatre-vingts degrés. Utilisez cm pour les longueurs et cm carrés pour les aires."
+  },
+  "linear-equations": {
+    "en": "An equation is like a balanced scale: whatever you do to one side, do to the other. To solve three x plus five equals fourteen, subtract five from both sides. That leaves three x equals nine. Divide both sides by three, so x equals three. Check by putting three back into the original equation.",
+    "pt": "Uma equação funciona como uma balança: tudo o que você faz de um lado, faça também do outro. Para resolver três x mais cinco igual a quatorze, subtraia cinco dos dois lados. Fica três x igual a nove. Divida os dois lados por três: x é igual a três. Confira substituindo o três na equação original.",
+    "fr": "Une équation ressemble à une balance : faites la même opération des deux côtés. Pour résoudre trois x plus cinq égal quatorze, soustrayez cinq des deux côtés. Il reste trois x égal neuf. Divisez les deux côtés par trois : x vaut trois. Vérifiez en remplaçant x par trois dans l’équation de départ."
+  },
+  "quadratic-equations": {
+    "en": "A quadratic equation includes a squared variable and can have two solutions. First identify a, b, and c in standard form. The quadratic formula uses these three values to calculate the solutions. For x squared minus five x plus six equals zero, the solutions are two and three. Substituting either value makes the equation equal zero.",
+    "pt": "Uma equação quadrática tem uma variável ao quadrado e pode ter duas soluções. Primeiro identifique a, b e c na forma padrão. A fórmula quadrática usa esses três valores para calcular as soluções. Para x ao quadrado menos cinco x mais seis igual a zero, as soluções são dois e três. Ao substituir qualquer uma delas, a equação resulta em zero.",
+    "fr": "Une équation du second degré contient une variable au carré et peut avoir deux solutions. Repérez d’abord a, b et c dans la forme standard. La formule quadratique utilise ces trois valeurs pour calculer les solutions. Pour x au carré moins cinq x plus six égal zéro, les solutions sont deux et trois. Chacune rend l’équation égale à zéro."
+  },
+  "functions": {
+    "en": "Think of a function as a machine: give it an input, follow its rule, and get one output. For f of x equals two x plus three, an input of four gives two times four plus three, which equals eleven. The domain is the set of inputs the machine accepts.",
+    "pt": "Pense em uma função como uma máquina: você fornece um valor, segue a regra e recebe um resultado. Se f de x é igual a dois x mais três, a entrada quatro dá dois vezes quatro mais três, que é onze. O domínio é o conjunto de entradas aceitas pela função.",
+    "fr": "Imaginez une fonction comme une machine : donnez-lui une entrée, suivez sa règle et obtenez une sortie. Si f de x vaut deux x plus trois, l’entrée quatre donne deux fois quatre plus trois, soit onze. Le domaine est l’ensemble des entrées acceptées par la fonction."
+  },
+  "trigonometry": {
+    "en": "Trigonometry connects an angle in a right triangle to its side lengths. Remember SOH, CAH, TOA: sine is opposite over hypotenuse, cosine is adjacent over hypotenuse, and tangent is opposite over adjacent. Name the sides from the angle you are using, then choose the matching ratio.",
+    "pt": "A trigonometria relaciona um ângulo de um triângulo retângulo com os comprimentos dos lados. Lembre-se: seno é cateto oposto sobre hipotenusa; cosseno é cateto adjacente sobre hipotenusa; tangente é cateto oposto sobre cateto adjacente. Identifique os lados em relação ao ângulo e escolha a razão correspondente.",
+    "fr": "La trigonométrie relie un angle d’un triangle rectangle aux longueurs de ses côtés. Le sinus est le côté opposé sur l’hypoténuse ; le cosinus, le côté adjacent sur l’hypoténuse ; la tangente, le côté opposé sur le côté adjacent. Repérez les côtés par rapport à l’angle choisi, puis prenez le rapport correspondant."
+  },
+  "exponents-logarithms": {
+    "en": "An exponent tells how many times to multiply a number by itself: two to the third power means two times two times two, which is eight. A logarithm asks the reverse question: what exponent makes a given number? Since two to the fourth power is sixteen, the logarithm base two of sixteen is four.",
+    "pt": "Um expoente indica quantas vezes multiplicar um número por ele mesmo: dois elevado à terceira potência significa dois vezes dois vezes dois, que é oito. O logaritmo faz a pergunta inversa: qual expoente produz um número? Como dois elevado à quarta potência é dezesseis, o logaritmo de dezesseis na base dois é quatro.",
+    "fr": "Un exposant indique combien de fois multiplier un nombre par lui-même : deux puissance trois signifie deux fois deux fois deux, soit huit. Le logarithme pose la question inverse : quel exposant donne un nombre ? Comme deux puissance quatre vaut seize, le logarithme de seize en base deux vaut quatre."
+  },
+  "limits-continuity": {
+    "en": "A limit describes the value a function approaches when x gets close to a point. The function does not even need to have a value at that point. For example, simplifying x squared minus nine over x minus three gives x plus three, as long as x is not three. As x approaches three, the result approaches six.",
+    "pt": "Um limite descreve o valor ao qual uma função se aproxima quando x chega perto de um ponto. A função nem precisa estar definida nesse ponto. Por exemplo, simplificar x ao quadrado menos nove sobre x menos três resulta em x mais três, desde que x não seja três. Quando x se aproxima de três, o resultado se aproxima de seis.",
+    "fr": "Une limite décrit la valeur dont une fonction se rapproche lorsque x approche un point. La fonction n’a même pas besoin d’être définie en ce point. Par exemple, simplifier x au carré moins neuf sur x moins trois donne x plus trois, tant que x n’est pas trois. Quand x approche trois, le résultat approche six."
+  },
+  "derivatives-chain-rule": {
+    "en": "A derivative measures how quickly a function changes at one point. For a nested function, use the chain rule: differentiate the outside rule, keep the inside, then multiply by the derivative of the inside. For sine of x squared, that gives cosine of x squared times two x.",
+    "pt": "A derivada mede a rapidez com que uma função muda em um ponto. Para uma função dentro de outra, use a regra da cadeia: derive a parte de fora, mantenha a parte de dentro e multiplique pela derivada da parte de dentro. Para seno de x ao quadrado, o resultado é cosseno de x ao quadrado vezes dois x.",
+    "fr": "Une dérivée mesure la vitesse de variation d’une fonction en un point. Pour une fonction imbriquée, utilisez la règle de la chaîne : dérivez la fonction extérieure, gardez la fonction intérieure, puis multipliez par la dérivée de l’intérieur. Pour le sinus de x au carré, on obtient le cosinus de x au carré fois deux x."
+  },
+  "integration-definite": {
+    "en": "A definite integral adds up tiny pieces to find the signed area under a curve between two endpoints. First find an antiderivative, then evaluate it at the upper endpoint and subtract its value at the lower endpoint. For the integral of two x from zero to three, the area is nine.",
+    "pt": "Uma integral definida soma pequenas partes para encontrar a área com sinal sob uma curva entre dois limites. Primeiro encontre uma antiderivada; depois calcule seu valor no limite superior e subtraia o valor no limite inferior. A integral de dois x, de zero a três, resulta em nove.",
+    "fr": "Une intégrale définie additionne de petites portions pour trouver l’aire algébrique sous une courbe entre deux bornes. Trouvez d’abord une primitive, puis calculez sa valeur à la borne supérieure et soustrayez celle de la borne inférieure. L’intégrale de deux x entre zéro et trois vaut neuf."
+  },
+  "linear-algebra-matrices": {
+    "en": "A matrix is a rectangular table of numbers. You can add matrices entry by entry when their sizes match. To multiply two matrices, the number of columns in the first must equal the number of rows in the second. For a two by two matrix, the determinant is a times d minus b times c.",
+    "pt": "Uma matriz é uma tabela retangular de números. Some matrizes posição por posição quando elas têm o mesmo tamanho. Para multiplicar duas matrizes, o número de colunas da primeira deve ser igual ao número de linhas da segunda. Em uma matriz dois por dois, o determinante é a vezes d menos b vezes c.",
+    "fr": "Une matrice est un tableau rectangulaire de nombres. Additionnez les éléments qui occupent la même position si les matrices ont la même taille. Pour multiplier deux matrices, le nombre de colonnes de la première doit égaler le nombre de lignes de la seconde. Pour une matrice deux par deux, le déterminant vaut a fois d moins b fois c."
+  },
+  "probability-normal": {
+    "en": "A normal distribution is the familiar bell-shaped curve, centered at its mean. The standard deviation describes how spread out the values are. A z-score tells how many standard deviations a value is from the mean. For a normal distribution, about sixty-eight percent of values lie within one standard deviation of the mean.",
+    "pt": "Uma distribuição normal tem o formato familiar de um sino e fica centrada na média. O desvio padrão indica o quanto os valores estão espalhados. O escore z mostra quantos desvios padrão separam um valor da média. Em uma distribuição normal, cerca de sessenta e oito por cento dos valores ficam a um desvio padrão da média.",
+    "fr": "Une loi normale a la forme familière d’une cloche, centrée sur sa moyenne. L’écart-type indique la dispersion des valeurs. Le score z indique combien d’écarts-types séparent une valeur de la moyenne. Dans une loi normale, environ soixante-huit pour cent des valeurs se trouvent à moins d’un écart-type de la moyenne."
+  }
+}
