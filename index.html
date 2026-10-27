@@ -18,19 +18,23 @@
   <header class="app-header">
     <div class="header-inner">
       <div class="brand">
-        <span class="logo">🔢</span>
+        <span class="logo" aria-hidden="true">∑</span>
         <div class="brand-text">
           <h1 data-i18n="appTitle">Mathematics Mastery</h1>
-          <span class="tagline">Math, explained simply.</span>
+          <span class="tagline" data-i18n="tagline">Math, explained simply.</span>
         </div>
       </div>
       <div class="header-actions">
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language">
-          <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
-          <button class="lang-btn" data-lang="pt">🇧🇷 Português</button>
-          <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language" data-i18n-aria="languageLabel">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸 English</button>
+          <button class="lang-btn" data-lang="pt" aria-label="Português">🇧🇷 Português</button>
+          <button class="lang-btn" data-lang="fr" aria-label="Français">🇫🇷 Français</button>
         </div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <div class="auth-widget">
+          <span class="auth-status" id="authStatus" role="status" aria-live="polite" data-i18n="authSetupNeeded">Login needs setup in AUDELA Deploy</span>
+          <button class="auth-btn" id="authButton" type="button" data-i18n="authSignIn">Sign in with AUDELA</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria="toggleTheme" data-i18n-title="toggleTheme">
           <span class="theme-icon-moon">🌙</span>
           <span class="theme-icon-sun">☀️</span>
         </button>
@@ -38,22 +42,28 @@
     </div>
   </header>
 
-  <nav class="level-nav" aria-label="Difficulty levels">
+  <nav class="level-nav" id="levelNav" aria-label="Difficulty levels" data-i18n-aria="difficultyLabel">
     <div class="level-nav-inner">
-      <button class="level-btn active" data-level="all">All Levels</button>
-      <button class="level-btn" data-level="beginner">Beginner</button>
-      <button class="level-btn" data-level="intermediate">Intermediate</button>
-      <button class="level-btn" data-level="advanced">Advanced (University)</button>
+      <button class="level-btn active" data-level="all" data-i18n="all">All Levels</button>
+      <button class="level-btn" data-level="beginner" data-i18n="beginner">Beginner</button>
+      <button class="level-btn" data-level="intermediate" data-i18n="intermediate">Intermediate</button>
+      <button class="level-btn" data-level="advanced" data-i18n="advanced">Advanced (University)</button>
     </div>
   </nav>
 
   <main class="container">
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="homeHero">
       <div class="hero-inner">
-        <p class="hero-kicker" data-i18n="heroKicker">Learn at your own pace</p>
-        <h2 class="hero-title" data-i18n="heroTitle">Master mathematics, step by step</h2>
-        <p class="hero-subtitle" data-i18n="heroSubtitle">Clear worked examples in English, Portuguese and French — from arithmetic to calculus.</p>
+        <div class="hero-copy">
+          <p class="hero-kicker" data-i18n="heroKicker">Math, made clearer</p>
+          <h2 class="hero-title" data-i18n="heroTitle">One small step at a time.</h2>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">Choose a topic, watch a short lesson, then try it yourself. Simple explanations from first numbers to calculus.</p>
+          <div class="hero-actions">
+            <a class="primary-btn hero-cta" href="#lessonBrowser" data-i18n="browseLessons">Browse lessons <span aria-hidden="true">↓</span></a>
+            <a class="hero-link" href="#videoLibrary" data-i18n="exploreVideos">Watch a video <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </div>
       <span class="hero-symbol s1">∑</span>
       <span class="hero-symbol s2">∫</span>
@@ -61,16 +71,100 @@
       <span class="hero-symbol s4">√</span>
     </section>
 
+    <aside class="continue-card hidden" id="continueCard" aria-label="Continue learning">
+      <span class="continue-mark" aria-hidden="true">↗</span>
+      <div><p data-i18n="continueLabel">Pick up where you left off</p><strong id="continueTitle"></strong></div>
+      <button class="continue-btn" id="continueBtn" type="button" data-i18n="continue">Continue →</button>
+    </aside>
+
+    <section class="quest-card" aria-labelledby="questTitle">
+      <div class="quest-intro">
+        <span class="quest-mascot" aria-hidden="true">🦉</span>
+        <div>
+          <p class="section-eyebrow" data-i18n="questEyebrow">Your math adventure</p>
+          <h2 id="questTitle" data-i18n="questHeading">Little steps earn big stars.</h2>
+          <p class="quest-subtitle" id="questSubtitle" data-i18n="questSubtitle">Finish a lesson or try a quiz to collect star points.</p>
+          <button class="surprise-btn" id="surpriseBtn" type="button" data-i18n="surpriseMe">🎲 Surprise me</button>
+        </div>
+      </div>
+      <div class="quest-scoreboard">
+        <div class="quest-stat"><span class="quest-stat-icon" aria-hidden="true">⭐</span><div><strong id="starPoints">0</strong><span data-i18n="starPoints">star points</span></div></div>
+        <div class="quest-stat"><span class="quest-stat-icon" aria-hidden="true">🗺️</span><div><strong id="questsCleared">0/15</strong><span data-i18n="questsClearedLabel">topics explored</span></div></div>
+        <div class="quest-level"><div class="quest-level-row"><span id="questRank"></span><span id="questProgressLabel"></span></div><div class="quest-meter" role="progressbar" aria-label="Progress to next math badge" data-i18n-aria="badgeProgressLabel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="questMeterFill"></span></div></div>
+      </div>
+    </section>
+    <div id="rewardToast" class="reward-toast hidden" role="status" aria-live="polite"></div>
+
+    <section class="adventure-map" aria-labelledby="boardTitle">
+      <div class="section-heading board-heading">
+        <div>
+          <p class="section-eyebrow" data-i18n="boardEyebrow">Your adventure map</p>
+          <h2 class="section-title" id="boardTitle" data-i18n="boardTitle">Pick a stop on your math trail</h2>
+          <p class="section-description" data-i18n="boardDescription">Every completed quest moves you forward. Explore any topic whenever you like.</p>
+        </div>
+        <span class="section-pill" id="boardProgress">0 / 15</span>
+      </div>
+      <div class="math-board" id="mathBoard" aria-label="Math learning map" data-i18n-aria="boardTitle"></div>
+    </section>
+
+    <section class="practice-studio" aria-labelledby="practiceTitle">
+      <div class="practice-studio-heading">
+        <div class="practice-studio-mascot" aria-hidden="true">🦊</div>
+        <div>
+          <p class="section-eyebrow" data-i18n="practiceEyebrow">Your AI practice lab</p>
+          <h2 class="section-title" id="practiceTitle" data-i18n="practiceTitle">Build a fresh practice round</h2>
+          <p class="section-description" data-i18n="practiceDescription">Choose a topic and challenge. Your questions are sent without your name or account details.</p>
+        </div>
+      </div>
+      <div class="practice-controls">
+        <label class="practice-select-label"><span data-i18n="practiceTopic">Topic</span><select id="practiceTopic"></select></label>
+        <label class="practice-select-label"><span data-i18n="practiceDifficulty">Challenge</span><select id="practiceDifficulty"><option value="gentle" data-i18n="practiceGentle">Gentle</option><option value="steady" selected data-i18n="practiceSteady">Steady</option><option value="challenge" data-i18n="practiceChallenge">Challenge</option></select></label>
+        <div class="learner-mode-group" role="group" aria-label="Choose your learning style" data-i18n-aria="learnerLabel">
+          <span data-i18n="learnerLabel">Choose your learning style</span>
+          <div><button type="button" class="learner-mode-btn active" data-mode="young" aria-pressed="true" data-i18n="learnerYoung">🌱 Young learner</button><button type="button" class="learner-mode-btn" data-mode="student" aria-pressed="false" data-i18n="learnerStudent">🎓 Student</button></div>
+        </div>
+        <button class="generate-practice-btn" id="generatePractice" type="button" disabled data-i18n="generatePractice">✨ Make 5 questions</button>
+      </div>
+      <p class="practice-status" id="practiceStatus" role="status" aria-live="polite" data-i18n="practiceStatusReady">Choose a topic to begin.</p>
+      <div class="generated-exercises" id="generatedExercises" aria-live="polite"></div>
+    </section>
+
+    <section class="video-library" id="videoLibrary" aria-labelledby="videoLibraryTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-eyebrow" data-i18n="videoEyebrow">Watch and learn</p>
+          <h2 class="section-title" id="videoLibraryTitle" data-i18n="videoLibraryTitle">Short videos. Clear ideas.</h2>
+          <p class="section-description" data-i18n="videoLibrarySubtitle">Press play for a quick blackboard lesson, or open a topic to keep learning.</p>
+        </div>
+        <span class="section-pill" id="videoCount">15 videos</span>
+      </div>
+      <section id="videoList" class="video-list" aria-label="Video lessons" data-i18n-aria="videoListLabel"></section>
+      <button class="video-more-btn hidden" id="showAllVideos" type="button"></button>
+    </section>
+
     <!-- Topic Cards -->
-    <h2 class="section-label"><span data-i18n="topics">Browse topics</span> <span class="count" id="topicCount">0</span></h2>
-    <section id="topicList" class="topic-list" aria-live="polite">
+    <section class="lesson-browser" id="lessonBrowser" aria-labelledby="topicsTitle">
+      <div class="section-heading browse-heading">
+        <div>
+          <p class="section-eyebrow" data-i18n="startHere">Find your next step</p>
+          <h2 class="section-title" id="topicsTitle"><span data-i18n="topics">Browse topics</span> <span class="count" id="topicCount">0</span></h2>
+          <p class="section-description" data-i18n="topicSubtitle">Pick a subject that feels useful today. You can go at your own pace.</p>
+        </div>
+      </div>
+      <label class="search-box" for="topicSearch">
+        <span aria-hidden="true">⌕</span>
+        <input type="search" id="topicSearch" autocomplete="off" data-i18n-placeholder="searchPlaceholder" data-i18n-aria="searchLabel" placeholder="Search lessons, e.g. fractions or graphs" />
+        <span class="search-shortcut" data-i18n="searchHint">15 lessons</span>
+      </label>
+      <section id="topicList" class="topic-list" aria-live="polite">
       <!-- Populated by JS -->
+      </section>
     </section>
 
     <!-- Topic Detail View (hidden by default) -->
     <section id="topicDetail" class="topic-detail hidden">
       <div class="breadcrumb">
-        <button class="back-btn" id="backBtn">← Back</button>
+        <button class="back-btn" id="backBtn" data-i18n="back">← Back</button>
       </div>
       <div class="topic-head">
         <h2 class="topic-title" id="topicTitle"></h2>
@@ -84,6 +178,20 @@
           <h3 class="video-title" data-i18n="watchVideo">🎬 Watch the video lesson</h3>
           <video class="topic-video" id="topicVideo" controls playsinline preload="metadata"></video>
         </div>
+        <section class="voice-explanation" aria-labelledby="voiceExplanationTitle">
+          <div class="voice-copy">
+            <span class="voice-icon" aria-hidden="true">🔊</span>
+            <div>
+              <h3 id="voiceExplanationTitle" data-i18n="voiceTitle">Hear the idea</h3>
+              <p id="voiceTranscript"></p>
+            </div>
+          </div>
+          <div class="voice-actions">
+            <button class="voice-btn" id="speakBtn" type="button" data-i18n="listen">▶ Listen</button>
+            <button class="voice-stop hidden" id="stopSpeakBtn" type="button" data-i18n="stop">Stop</button>
+          </div>
+          <p class="voice-status" id="voiceStatus" aria-live="polite"></p>
+        </section>
         <div class="topic-actions">
           <button class="primary-btn" id="playLessonBtn" data-i18n="playLesson">▶ Play lesson</button>
           <button class="primary-btn outline" id="startQuizBtn" data-i18n="takeQuiz">🎯 Take the quiz</button>
@@ -103,7 +211,7 @@
   </main>
 
   <footer class="app-footer">
-    <p>Mathematics Mastery — free, multilingual math learning.</p>
+    <p data-i18n="footer">Math, one clear step at a time.</p>
   </footer>
 
   <div id="lessonPlayer" class="lesson-player hidden" role="dialog" aria-modal="true">
@@ -125,5 +233,6 @@
   </div>
 
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

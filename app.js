@@ -6,9 +6,102 @@
 const UIStrings = {
   en: {
     appTitle: 'Mathematics Mastery',
-    heroKicker: 'Learn at your own pace',
-    heroTitle: 'Master mathematics, step by step',
-    heroSubtitle: 'Clear worked examples in English, Portuguese and French — from arithmetic to calculus.',
+    languageLabel: 'Language',
+    toggleTheme: 'Toggle dark mode',
+    difficultyLabel: 'Difficulty levels',
+    searchLabel: 'Search topics',
+    videoListLabel: 'Video lessons',
+    tagline: 'Math can be fun.',
+    heroKicker: 'Your next math adventure starts here',
+    heroTitle: 'Learn math. Earn stars.',
+    heroSubtitle: 'Pick a short quest. Watch, learn, then try a question. No pressure, just progress.',
+    browseLessons: 'Choose a quest ↓',
+    exploreVideos: 'Watch a video →',
+    videoEyebrow: 'New video lessons',
+    videoLibraryTitle: 'See the idea. Then try it.',
+    videoLibrarySubtitle: 'Start with two new, practical lessons, or open any topic for step-by-step practice and a spoken explanation.',
+    videoCount: '{count} video lessons',
+    showAllVideos: 'See all {count} videos ↓',
+    showFeaturedVideos: 'Show featured videos ↑',
+    previewPrefix: 'Preview video:',
+    videoLabel: 'Video lesson',
+    openLesson: 'Open lesson →',
+    startHere: 'Find your next step',
+    topicSubtitle: 'Pick a subject that feels useful today. You can go at your own pace.',
+    searchPlaceholder: 'Search lessons, e.g. fractions or graphs',
+    searchHint: '{count} lessons',
+    noMatches: 'No lessons match that search. Try another word.',
+    noTopics: 'No topics are available at this level yet.',
+    clearSearch: 'Clear search',
+    stepsShort: 'steps',
+    videoAvailable: 'video',
+    previewVideo: 'Play preview',
+    continueLabel: 'Pick up where you left off',
+    continue: 'Continue →',
+    voiceTitle: 'Hear the idea',
+    listen: '▶ Listen',
+    pauseVoice: '⏸ Pause',
+    resumeVoice: '▶ Continue',
+    stop: 'Stop',
+    speaking: 'Playing the spoken explanation.',
+    voicePaused: 'Explanation paused.',
+    voiceStopped: 'Explanation stopped.',
+    speechUnavailable: 'Text to speech is not available in this browser.',
+    footer: 'Math, one clear step at a time.',
+    questEyebrow: 'Your math adventure',
+    questHeading: 'Little steps earn big stars.',
+    questSubtitle: 'Finish a lesson or try a quiz to collect star points.',
+    questSubtitleProgress: 'You have explored {count} topics. Keep going to unlock your next badge!',
+    surpriseMe: '🎲 Surprise me',
+    starPoints: 'star points',
+    questsClearedLabel: 'topics explored',
+    rankNewcomer: 'Curious Cub',
+    rankCurious: 'Curious Calculator',
+    rankPatternFinder: 'Pattern Finder',
+    rankProblemSolver: 'Problem Solver',
+    rankMathWizard: 'Math Wizard',
+    badgeProgressAt: 'Next badge at {points} points',
+    badgeProgressMax: 'Top rank reached!',
+    badgeProgressLabel: 'Progress to next math badge',
+    rewardLesson: '+{points} stars! Lesson cleared!',
+    rewardQuiz: '+{points} stars! Quiz complete!',
+    rewardPotential: '⭐ Up to 30 stars',
+    rewardPractice: '+{points} stars! Practice round cleared!',
+    authSignIn: 'Sign in with AUDELA',
+    authSignOut: 'Sign out',
+    authConnected: 'AUDELA account connected',
+    authSetupNeeded: 'Login needs setup in AUDELA Deploy',
+    authError: 'We could not sign in. Please try again.',
+    boardEyebrow: 'Your adventure map',
+    boardTitle: 'Pick a stop on your math trail',
+    boardDescription: 'Every completed quest moves you forward. Explore any topic whenever you like.',
+    boardCleared: 'Cleared',
+    boardNext: 'Next quest',
+    boardReady: 'Ready when you are',
+    learnerLabel: 'Choose your learning style',
+    learnerYoung: '🌱 Young learner',
+    learnerStudent: '🎓 Student',
+    practiceEyebrow: 'Your AI practice lab',
+    practiceTitle: 'Build a fresh practice round',
+    practiceDescription: 'Choose a topic and challenge. Your questions are sent without your name or account details.',
+    practiceTopic: 'Topic',
+    practiceDifficulty: 'Challenge',
+    practiceGentle: 'Gentle',
+    practiceSteady: 'Steady',
+    practiceChallenge: 'Challenge',
+    generatePractice: '✨ Make 5 questions',
+    practiceLoginNeeded: 'Sign in with AUDELA to make a question set.',
+    practiceSetupNeeded: 'AI practice is not set up yet. Ask the app owner to configure it.',
+    practiceLoading: 'Making your questions…',
+    practiceError: 'We could not make this round. Please try again.',
+    practiceHint: 'Show a hint',
+    practiceCorrect: 'That is right! Nice work.',
+    practiceWrong: 'Good try. Let’s learn from it.',
+    practiceExplanation: 'Answer and explanation',
+    practiceRoundDone: 'Round complete! You got {correct} of 5 right. Your adventure map is updated.',
+    practiceRoundReady: 'Pick an answer below. You can open a hint first.',
+    practiceAiLabel: 'AI-made practice',
+    practiceStatusReady: 'Choose a topic to begin.',
     topics: 'Browse topics',
     playLesson: '▶ Play lesson',
     takeQuiz: '🎯 Take the quiz',
@@ -20,6 +113,7 @@ const UIStrings = {
     restartQuiz: 'Restart quiz',
     noQuiz: 'No quiz available for this topic yet.',
     completed: 'Completed',
+    practiceDoneLabel: 'Practice',
     noContent: 'Select a topic to see step-by-step examples.',
     beginner: 'Beginner',
     intermediate: 'Intermediate',
@@ -42,9 +136,102 @@ const UIStrings = {
   },
   pt: {
     appTitle: 'Domine a Matemática',
-    heroKicker: 'Aprenda no seu ritmo',
-    heroTitle: 'Domine a matemática, passo a passo',
-    heroSubtitle: 'Exemplos resolvidos claros em inglês, português e francês — da aritmética ao cálculo.',
+    languageLabel: 'Idioma',
+    toggleTheme: 'Alternar tema escuro',
+    difficultyLabel: 'Níveis de dificuldade',
+    searchLabel: 'Buscar temas',
+    videoListLabel: 'Videoaulas',
+    tagline: 'Matemática pode ser divertida.',
+    heroKicker: 'Sua próxima aventura matemática começa aqui',
+    heroTitle: 'Aprenda matemática. Ganhe estrelas.',
+    heroSubtitle: 'Escolha uma missão curta. Assista, aprenda e responda. Sem pressão, só progresso.',
+    browseLessons: 'Escolher missão ↓',
+    exploreVideos: 'Assistir a um vídeo →',
+    videoEyebrow: 'Novas videoaulas',
+    videoLibraryTitle: 'Veja a ideia. Depois pratique.',
+    videoLibrarySubtitle: 'Comece com duas aulas práticas novas ou abra um tema para praticar passo a passo e ouvir uma explicação.',
+    videoCount: '{count} videoaulas',
+    showAllVideos: 'Ver todos os {count} vídeos ↓',
+    showFeaturedVideos: 'Mostrar vídeos em destaque ↑',
+    previewPrefix: 'Prévia do vídeo:',
+    videoLabel: 'Videoaula',
+    openLesson: 'Abrir aula →',
+    startHere: 'Encontre seu próximo passo',
+    topicSubtitle: 'Escolha um assunto que seja útil hoje. Aprenda no seu ritmo.',
+    searchPlaceholder: 'Buscar aulas, por exemplo frações ou gráficos',
+    searchHint: '{count} aulas',
+    noMatches: 'Nenhuma aula corresponde à busca. Tente outra palavra.',
+    noTopics: 'Ainda não há temas neste nível.',
+    clearSearch: 'Limpar busca',
+    stepsShort: 'etapas',
+    videoAvailable: 'vídeo',
+    previewVideo: 'Ver prévia',
+    continueLabel: 'Continue de onde parou',
+    continue: 'Continuar →',
+    voiceTitle: 'Ouça a ideia',
+    listen: '▶ Ouvir',
+    pauseVoice: '⏸ Pausar',
+    resumeVoice: '▶ Continuar',
+    stop: 'Parar',
+    speaking: 'Reproduzindo a explicação em áudio.',
+    voicePaused: 'Explicação pausada.',
+    voiceStopped: 'Explicação interrompida.',
+    speechUnavailable: 'A leitura em voz alta não está disponível neste navegador.',
+    footer: 'Matemática, um passo claro de cada vez.',
+    questEyebrow: 'Sua aventura matemática',
+    questHeading: 'Pequenos passos valem estrelas.',
+    questSubtitle: 'Conclua uma aula ou tente um quiz para ganhar estrelas.',
+    questSubtitleProgress: 'Você já explorou {count} temas. Continue para liberar sua próxima medalha!',
+    surpriseMe: '🎲 Me surpreenda',
+    starPoints: 'pontos estrela',
+    questsClearedLabel: 'temas explorados',
+    rankNewcomer: 'Aprendiz curioso',
+    rankCurious: 'Calculador curioso',
+    rankPatternFinder: 'Caçador de padrões',
+    rankProblemSolver: 'Solucionador',
+    rankMathWizard: 'Mago da matemática',
+    badgeProgressAt: 'Próxima medalha: {points} pontos',
+    badgeProgressMax: 'Nível máximo alcançado!',
+    badgeProgressLabel: 'Progresso até a próxima medalha',
+    rewardLesson: '+{points} estrelas! Aula concluída!',
+    rewardQuiz: '+{points} estrelas! Quiz concluído!',
+    rewardPotential: '⭐ Até 30 estrelas',
+    rewardPractice: '+{points} estrelas! Rodada concluída!',
+    authSignIn: 'Entrar com AUDELA',
+    authSignOut: 'Sair',
+    authConnected: 'Conta AUDELA conectada',
+    authSetupNeeded: 'O login precisa ser configurado no AUDELA Deploy',
+    authError: 'Não foi possível entrar. Tente novamente.',
+    boardEyebrow: 'Seu mapa de aventuras',
+    boardTitle: 'Escolha uma parada na sua trilha matemática',
+    boardDescription: 'Cada missão concluída leva você adiante. Explore qualquer tema quando quiser.',
+    boardCleared: 'Concluído',
+    boardNext: 'Próxima missão',
+    boardReady: 'Pronto quando você estiver',
+    learnerLabel: 'Escolha seu jeito de aprender',
+    learnerYoung: '🌱 Aprendiz jovem',
+    learnerStudent: '🎓 Estudante',
+    practiceEyebrow: 'Seu laboratório de prática com IA',
+    practiceTitle: 'Monte uma nova rodada de exercícios',
+    practiceDescription: 'Escolha um tema e um desafio. As perguntas são enviadas sem seu nome ou dados da conta.',
+    practiceTopic: 'Tema',
+    practiceDifficulty: 'Desafio',
+    practiceGentle: 'Leve',
+    practiceSteady: 'Regular',
+    practiceChallenge: 'Desafio',
+    generatePractice: '✨ Criar 5 perguntas',
+    practiceLoginNeeded: 'Entre com a AUDELA para criar uma lista de perguntas.',
+    practiceSetupNeeded: 'A prática com IA ainda não está configurada. Peça ao responsável pelo app para configurá-la.',
+    practiceLoading: 'Preparando suas perguntas…',
+    practiceError: 'Não foi possível criar esta rodada. Tente novamente.',
+    practiceHint: 'Mostrar uma dica',
+    practiceCorrect: 'Isso mesmo! Muito bem.',
+    practiceWrong: 'Boa tentativa. Vamos aprender com ela.',
+    practiceExplanation: 'Resposta e explicação',
+    practiceRoundDone: 'Rodada concluída! Você acertou {correct} de 5. Seu mapa de aventuras foi atualizado.',
+    practiceRoundReady: 'Escolha uma resposta abaixo. Se quiser, veja uma dica antes.',
+    practiceAiLabel: 'Exercícios criados por IA',
+    practiceStatusReady: 'Escolha um tema para começar.',
     topics: 'Explorar tópicos',
     playLesson: '▶ Assistir aula',
     takeQuiz: '🎯 Fazer o quiz',
@@ -56,6 +243,7 @@ const UIStrings = {
     restartQuiz: 'Refazer o quiz',
     noQuiz: 'Ainda não há quiz para este tópico.',
     completed: 'Concluído',
+    practiceDoneLabel: 'Prática',
     noContent: 'Selecione um tópico para ver exemplos passo a passo.',
     beginner: 'Iniciante',
     intermediate: 'Intermediário',
@@ -78,9 +266,102 @@ const UIStrings = {
   },
   fr: {
     appTitle: 'Maîtrise des Mathématiques',
-    heroKicker: 'Apprenez à votre rythme',
-    heroTitle: 'Maîtrisez les mathématiques, étape par étape',
-    heroSubtitle: 'Des exemples résolus clairs en anglais, portugais et français — de l’arithmétique au calcul.',
+    languageLabel: 'Langue',
+    toggleTheme: 'Activer le thème sombre',
+    difficultyLabel: 'Niveaux de difficulté',
+    searchLabel: 'Rechercher des sujets',
+    videoListLabel: 'Leçons vidéo',
+    tagline: 'Les maths peuvent être amusantes.',
+    heroKicker: 'Votre prochaine aventure mathématique commence ici',
+    heroTitle: 'Apprenez les maths. Gagnez des étoiles.',
+    heroSubtitle: 'Choisissez une petite mission. Regardez, apprenez, puis répondez. Sans pression, à votre rythme.',
+    browseLessons: 'Choisir une mission ↓',
+    exploreVideos: 'Voir une vidéo →',
+    videoEyebrow: 'Nouvelles leçons vidéo',
+    videoLibraryTitle: 'Voyez l’idée, puis essayez.',
+    videoLibrarySubtitle: 'Commencez par deux nouvelles leçons pratiques, ou ouvrez un sujet pour pratiquer et écouter une explication.',
+    videoCount: '{count} leçons vidéo',
+    showAllVideos: 'Voir les {count} vidéos ↓',
+    showFeaturedVideos: 'Voir les vidéos à la une ↑',
+    previewPrefix: 'Aperçu vidéo :',
+    videoLabel: 'Leçon vidéo',
+    openLesson: 'Ouvrir la leçon →',
+    startHere: 'Trouvez votre prochaine étape',
+    topicSubtitle: 'Choisissez un sujet utile aujourd’hui. Avancez à votre rythme.',
+    searchPlaceholder: 'Rechercher une leçon, par ex. fractions ou graphiques',
+    searchHint: '{count} leçons',
+    noMatches: 'Aucune leçon ne correspond. Essayez un autre mot.',
+    noTopics: 'Aucun sujet n’est encore disponible à ce niveau.',
+    clearSearch: 'Effacer la recherche',
+    stepsShort: 'étapes',
+    videoAvailable: 'vidéo',
+    previewVideo: 'Voir l’aperçu',
+    continueLabel: 'Reprenez là où vous en étiez',
+    continue: 'Continuer →',
+    voiceTitle: 'Écoutez l’idée',
+    listen: '▶ Écouter',
+    pauseVoice: '⏸ Pause',
+    resumeVoice: '▶ Reprendre',
+    stop: 'Arrêter',
+    speaking: 'Lecture de l’explication audio.',
+    voicePaused: 'Explication en pause.',
+    voiceStopped: 'Explication arrêtée.',
+    speechUnavailable: 'La synthèse vocale n’est pas disponible dans ce navigateur.',
+    footer: 'Les maths, une étape claire à la fois.',
+    questEyebrow: 'Votre aventure mathématique',
+    questHeading: 'Chaque petit pas fait gagner des étoiles.',
+    questSubtitle: 'Terminez une leçon ou essayez un quiz pour gagner des étoiles.',
+    questSubtitleProgress: 'Vous avez exploré {count} sujets. Continuez pour débloquer votre prochain badge !',
+    surpriseMe: '🎲 Surprenez-moi',
+    starPoints: 'points étoile',
+    questsClearedLabel: 'sujets explorés',
+    rankNewcomer: 'Curieux débutant',
+    rankCurious: 'Calculateur curieux',
+    rankPatternFinder: 'Détective des motifs',
+    rankProblemSolver: 'As des problèmes',
+    rankMathWizard: 'Magicien des maths',
+    badgeProgressAt: 'Prochain badge à {points} points',
+    badgeProgressMax: 'Niveau maximal atteint !',
+    badgeProgressLabel: 'Progression vers le prochain badge',
+    rewardLesson: '+{points} étoiles ! Leçon terminée !',
+    rewardQuiz: '+{points} étoiles ! Quiz terminé !',
+    rewardPotential: '⭐ Jusqu’à 30 étoiles',
+    rewardPractice: '+{points} étoiles ! Série terminée !',
+    authSignIn: 'Se connecter avec AUDELA',
+    authSignOut: 'Se déconnecter',
+    authConnected: 'Compte AUDELA connecté',
+    authSetupNeeded: 'La connexion doit être configurée dans AUDELA Deploy',
+    authError: 'Connexion impossible. Réessayez.',
+    boardEyebrow: 'Votre carte d’aventure',
+    boardTitle: 'Choisissez une étape de votre parcours maths',
+    boardDescription: 'Chaque mission terminée vous fait avancer. Explorez n’importe quel sujet quand vous voulez.',
+    boardCleared: 'Terminé',
+    boardNext: 'Prochaine mission',
+    boardReady: 'Prêt quand vous l’êtes',
+    learnerLabel: 'Choisissez votre façon d’apprendre',
+    learnerYoung: '🌱 Jeune apprenant',
+    learnerStudent: '🎓 Étudiant',
+    practiceEyebrow: 'Votre atelier d’exercices IA',
+    practiceTitle: 'Créez une nouvelle série d’exercices',
+    practiceDescription: 'Choisissez un sujet et un défi. Les questions sont envoyées sans votre nom ni les détails du compte.',
+    practiceTopic: 'Sujet',
+    practiceDifficulty: 'Défi',
+    practiceGentle: 'Doux',
+    practiceSteady: 'Régulier',
+    practiceChallenge: 'Défi',
+    generatePractice: '✨ Créer 5 questions',
+    practiceLoginNeeded: 'Connectez-vous avec AUDELA pour créer une série de questions.',
+    practiceSetupNeeded: 'Les exercices IA ne sont pas configurés. Demandez au responsable de l’application de les activer.',
+    practiceLoading: 'Création de vos questions…',
+    practiceError: 'Impossible de créer cette série. Réessayez.',
+    practiceHint: 'Afficher un indice',
+    practiceCorrect: 'Exact ! Bravo.',
+    practiceWrong: 'Bien essayé. Apprenons de cette réponse.',
+    practiceExplanation: 'Réponse et explication',
+    practiceRoundDone: 'Série terminée ! Vous avez {correct} bonnes réponses sur 5. Votre carte est mise à jour.',
+    practiceRoundReady: 'Choisissez une réponse ci-dessous. Vous pouvez lire un indice avant.',
+    practiceAiLabel: 'Exercices créés par IA',
+    practiceStatusReady: 'Choisissez un sujet pour commencer.',
     topics: 'Parcourir les sujets',
     playLesson: '▶ Suivre la leçon',
     takeQuiz: '🎯 Faire le quiz',
@@ -92,6 +373,7 @@ const UIStrings = {
     restartQuiz: 'Recommencer le quiz',
     noQuiz: 'Pas encore de quiz pour ce sujet.',
     completed: 'Terminé',
+    practiceDoneLabel: 'Exercices',
     noContent: 'Sélectionnez un sujet pour voir des exemples étape par étape.',
     beginner: 'Débutant',
     intermediate: 'Intermédiaire',
@@ -118,6 +400,17 @@ function t(lang, key, params) {
   const str = UIStrings[lang] && UIStrings[lang][key] ? UIStrings[lang][key] : UIStrings.en[key];
   if (!params) return str;
   return str.replace(/{(\w+)}/g, (m, k) => (params[k] !== undefined ? params[k] : m));
+}
+
+function localizedContent(value) {
+  if (value && typeof value === 'object' && !Array.isArray(value)) {
+    return value[currentLang] || value.en || '';
+  }
+  return value == null ? '' : String(value);
+}
+
+function isFinalAnswer(text) {
+  return /^(final answer|resposta final|réponse finale)\b/i.test(String(text || '').trim());
 }
 
 function renderMath(element) {
@@ -308,42 +601,217 @@ const beginnerTopics = [
   },
 
   {
+    id: 'percentages-ratios',
+    level: 'beginner',
+    title: { en: 'Percentages and Ratios', pt: 'Porcentagens, Razões e Proporções', fr: 'Pourcentages et Proportions' },
+    description: {
+      en: 'Make sense of percentages, compare quantities with ratios, and solve simple proportions.',
+      pt: 'Entenda porcentagens, compare quantidades com razões e resolva proporções simples.',
+      fr: 'Comprenez les pourcentages, comparez des quantités avec des rapports et résolvez des proportions simples.',
+    },
+    langs: ['English', 'Português', 'Français'],
+    steps: [
+      {
+        title: 'What Does Percent Mean?',
+        body: 'Percent means “out of one hundred.” Convert a percent to a fraction over 100, then simplify.',
+        formulas: [math('25\\% = \\frac{25}{100} = \\frac{1}{4}')],
+        examples: [{
+          title: 'Write 25% as a fraction',
+          steps: [
+            'Step 1: Percent means out of 100, so 25% = 25/100.',
+            'Step 2: Divide the numerator and denominator by 25.',
+            'Final answer: 25% = 1/4.',
+          ],
+        }],
+      },
+      {
+        title: 'Find a Percentage of a Number',
+        body: 'Change the percent to a decimal, then multiply by the whole amount.',
+        formulas: [math('20\\% \\text{ of } 80 = 0.20 \\times 80 = 16')],
+        examples: [{
+          title: 'A 25% discount on $80',
+          steps: [
+            'Step 1: Find the discount: 0.25 × 80 = 20 dollars.',
+            'Step 2: Subtract the discount from the original price: 80 − 20 = 60.',
+            'Final answer: The sale price is $60.',
+          ],
+        }],
+      },
+      {
+        title: 'Ratios and Proportions',
+        body: 'A ratio compares two amounts. In a proportion, two ratios are equal; use the missing value to keep the comparison balanced.',
+        formulas: [math('\\frac{2}{3} = \\frac{x}{12} \\quad \\Rightarrow \\quad x = 8')],
+        examples: [{
+          title: 'Scale the ratio 2 to 3',
+          steps: [
+            'Step 1: Set up the equal ratios: 2/3 = x/12.',
+            'Step 2: Since 3 becomes 12 by multiplying by 4, multiply 2 by 4 too.',
+            'Final answer: x = 8.',
+          ],
+        }],
+      },
+    ],
+  },
+
+  {
+    id: 'statistics-data',
+    level: 'beginner',
+    title: { en: 'Mean, Median, and Range', pt: 'Média, Mediana e Amplitude', fr: 'Moyenne, Médiane et Étendue' },
+    description: {
+      en: 'Summarize a group of numbers with the mean, median, mode, and range.',
+      pt: 'Resuma um conjunto de números usando média, mediana, moda e amplitude.',
+      fr: 'Résumez un ensemble de nombres avec la moyenne, la médiane, le mode et l’étendue.',
+    },
+    langs: ['English', 'Português', 'Français'],
+    steps: [
+      {
+        title: 'Find the Mean',
+        body: 'The mean is the total divided equally among all values: add the numbers, then divide by how many there are.',
+        formulas: [math('\\text{mean} = \\frac{\\text{sum of values}}{\\text{number of values}}')],
+        examples: [{
+          title: 'Mean of 4, 6, and 8',
+          steps: [
+            'Step 1: Add the values: 4 + 6 + 8 = 18.',
+            'Step 2: There are 3 values, so divide 18 by 3.',
+            'Final answer: The mean is 6.',
+          ],
+        }],
+      },
+      {
+        title: 'Find the Median',
+        body: 'The median is the middle value after the numbers are sorted from smallest to largest.',
+        formulas: [math('2, 4, \\boxed{7}, 9, 12')],
+        examples: [{
+          title: 'Median of 9, 2, 12, 7, and 4',
+          steps: [
+            'Step 1: Sort the values: 2, 4, 7, 9, 12.',
+            'Step 2: The middle value is 7.',
+            'Final answer: The median is 7.',
+          ],
+        }],
+      },
+      {
+        title: 'Find the Mode and Range',
+        body: 'The mode appears most often. The range is the largest value minus the smallest value.',
+        formulas: [math('2, 3, 3, 5, 7 \\quad \\text{mode} = 3 \\quad \\text{range} = 7 - 2 = 5')],
+        examples: [{
+          title: 'Mode and range of 2, 3, 3, 5, and 7',
+          steps: [
+            'Step 1: 3 appears most often, so it is the mode.',
+            'Step 2: Subtract the smallest from the largest: 7 − 2 = 5.',
+            'Final answer: Mode = 3 and range = 5.',
+          ],
+        }],
+      },
+    ],
+  },
+
+  {
     id: 'geometry-basics',
     level: 'beginner',
     title: { en: 'Basic Geometry: Shapes and Perimeter', pt: 'Geometria Básica: Formas e Perímetro', fr: 'Géométrie de Base: Formes et Périmètre' },
     description: {
       en: 'Explore common 2D shapes, their properties, and how to calculate perimeter and area.',
       pt: 'Explore as formas 2D comuns, suas propriedades e como calcular perímetro e área.',
-      fr: 'Explorez les formes 2D courantes, leurs propriétés et comment calculer o périmètre et a surface.',
+      fr: 'Explorez les formes 2D courantes, leurs propriétés et le calcul du périmètre et de l’aire.',
     },
     langs: ['English', 'Português', 'Français'],
     steps: [
       {
-        title: 'Common 2D Shapes',
-        body: 'Triangles, rectangles, squares, and circles. Each has specific properties and formulas.',
-        formulas: [
-          math('\\text{Perimeter of rectangle} = 2(l + w)'),
-          math('\\text{Area of square} = s^2'),
-        ],
-        examples: [
-          {
-            title: 'Perimeter of a rectangle: length = 8 cm, width = 5 cm',
-            steps: [
-              'Step 1: P = 2 × (8 + 5).',
-              'Step 2: 8 + 5 = 13.',
-              'Step 3: 2 × 13 = 26.',
-              'Final answer: 26 cm.',
-            ],
-          },
-          {
-            title: 'Area of a square: side = 6 cm',
-            steps: [
-              'Step 1: A = s² = 6².',
-              'Step 2: 6 × 6 = 36.',
-              'Final answer: 36 cm².',
-            ],
-          },
-        ],
+        title: { en: '1. Meet the shapes', pt: '1. Conheça as formas', fr: '1. Découvrons les formes' },
+        body: {
+          en: 'A 2D shape is flat. Sides make its outline, and corners are vertices. A square has four equal sides; a rectangle has four right angles; a triangle has three sides; a circle has no straight sides or corners.',
+          pt: 'Uma forma 2D é plana. Os lados formam seu contorno, e os cantos são vértices. O quadrado tem quatro lados iguais; o retângulo tem quatro ângulos retos; o triângulo tem três lados; o círculo não tem lados retos nem cantos.',
+          fr: 'Une figure en 2D est plate. Ses côtés forment son contour et ses coins sont des sommets. Un carré a quatre côtés égaux ; un rectangle a quatre angles droits ; un triangle a trois côtés ; un cercle n’a ni côté droit ni coin.',
+        },
+        formulas: [math('\\text{square: 4 equal sides} \\qquad \\text{triangle: 3 sides}')],
+        examples: [{
+          title: { en: 'Spot the shape', pt: 'Reconheça a forma', fr: 'Reconnaître la figure' },
+          steps: [
+            { en: 'A stop sign has 8 sides, so it is an octagon.', pt: 'Uma placa de pare tem 8 lados, então é um octógono.', fr: 'Un panneau stop a 8 côtés : c’est un octogone.' },
+            { en: 'A notebook cover with opposite sides equal is a rectangle.', pt: 'Uma capa de caderno com lados opostos iguais é um retângulo.', fr: 'Une couverture de cahier avec des côtés opposés égaux est un rectangle.' },
+          ],
+        }],
+      },
+      {
+        title: { en: '2. Perimeter is the fence', pt: '2. O perímetro é a cerca', fr: '2. Le périmètre, c’est la clôture' },
+        body: {
+          en: 'Perimeter is the distance all the way around. Add every outside side. A rectangle has two lengths and two widths, so P = 2 × (length + width). Use ordinary length units such as cm or m.',
+          pt: 'Perímetro é a distância ao redor da figura. Some todos os lados de fora. Um retângulo tem dois comprimentos e duas larguras, então P = 2 × (comprimento + largura). Use unidades de comprimento, como cm ou m.',
+          fr: 'Le périmètre est la distance tout autour de la figure. Additionnez tous les côtés extérieurs. Un rectangle a deux longueurs et deux largeurs : P = 2 × (longueur + largeur). Utilisez des unités de longueur comme cm ou m.',
+        },
+        formulas: [math('P_{\\text{rectangle}} = 2(l+w)')],
+        examples: [{
+          title: { en: 'Fence a garden: 8 m by 5 m', pt: 'Cerca de um jardim: 8 m por 5 m', fr: 'Clôturer un jardin : 8 m sur 5 m' },
+          steps: [
+            { en: 'Write the sides: 8 + 5 + 8 + 5.', pt: 'Escreva os lados: 8 + 5 + 8 + 5.', fr: 'Écrivez les côtés : 8 + 5 + 8 + 5.' },
+            { en: 'Add them: 8 + 5 + 8 + 5 = 26.', pt: 'Some: 8 + 5 + 8 + 5 = 26.', fr: 'Additionnez : 8 + 5 + 8 + 5 = 26.' },
+            { en: 'Final answer: The garden needs 26 m of fence.', pt: 'Resposta final: o jardim precisa de 26 m de cerca.', fr: 'Réponse finale : il faut 26 m de clôture.' },
+          ],
+        }, {
+          title: { en: 'Walk around a triangle: 3 cm, 4 cm, 5 cm', pt: 'Contorne um triângulo: 3 cm, 4 cm, 5 cm', fr: 'Faire le tour d’un triangle : 3 cm, 4 cm, 5 cm' },
+          steps: [
+            { en: 'Add the three sides: 3 + 4 + 5 = 12.', pt: 'Some os três lados: 3 + 4 + 5 = 12.', fr: 'Additionnez les trois côtés : 3 + 4 + 5 = 12.' },
+            { en: 'Final answer: The perimeter is 12 cm.', pt: 'Resposta final: o perímetro é 12 cm.', fr: 'Réponse finale : le périmètre est de 12 cm.' },
+          ],
+        }],
+      },
+      {
+        title: { en: '3. Area is the floor', pt: '3. A área é o piso', fr: '3. L’aire, c’est le sol' },
+        body: {
+          en: 'Area tells how much flat space is inside a shape. Imagine covering it with equal square tiles. Rectangle area is length × width. Triangle area is half of base × height. Area uses square units such as cm².',
+          pt: 'Área mostra quanto espaço plano existe dentro da forma. Imagine cobri-la com quadradinhos iguais. A área do retângulo é comprimento × largura. A área do triângulo é metade da base × altura. A área usa unidades quadradas, como cm².',
+          fr: 'L’aire mesure l’espace plat à l’intérieur d’une figure. Imaginez la couvrir avec des carreaux carrés identiques. L’aire du rectangle vaut longueur × largeur. Celle du triangle vaut la moitié de base × hauteur. L’aire s’exprime en unités carrées, comme cm².',
+        },
+        formulas: [math('A_{\\text{rectangle}} = lw'), math('A_{\\text{triangle}} = \\frac{bh}{2}')],
+        examples: [{
+          title: { en: 'Tile a rectangle: 6 cm by 4 cm', pt: 'Cubra um retângulo: 6 cm por 4 cm', fr: 'Carreler un rectangle : 6 cm sur 4 cm' },
+          steps: [
+            { en: 'Multiply length by width: 6 × 4 = 24.', pt: 'Multiplique comprimento por largura: 6 × 4 = 24.', fr: 'Multipliez la longueur par la largeur : 6 × 4 = 24.' },
+            { en: 'Final answer: The area is 24 cm².', pt: 'Resposta final: a área é 24 cm².', fr: 'Réponse finale : l’aire est de 24 cm².' },
+          ],
+        }, {
+          title: { en: 'Find half of a triangle: base 6 cm, height 4 cm', pt: 'Ache metade de um triângulo: base 6 cm, altura 4 cm', fr: 'Trouver la moitié d’un triangle : base 6 cm, hauteur 4 cm' },
+          steps: [
+            { en: 'Multiply base by height: 6 × 4 = 24.', pt: 'Multiplique base por altura: 6 × 4 = 24.', fr: 'Multipliez la base par la hauteur : 6 × 4 = 24.' },
+            { en: 'Take half: 24 ÷ 2 = 12.', pt: 'Pegue a metade: 24 ÷ 2 = 12.', fr: 'Prenez la moitié : 24 ÷ 2 = 12.' },
+            { en: 'Final answer: The area is 12 cm².', pt: 'Resposta final: a área é 12 cm².', fr: 'Réponse finale : l’aire est de 12 cm².' },
+          ],
+        }],
+      },
+      {
+        title: { en: '4. Circles: around or inside?', pt: '4. Círculos: contorno ou espaço interno?', fr: '4. Cercle : contour ou intérieur ?' },
+        body: {
+          en: 'The radius goes from the center to the edge. The diameter goes across the circle through the center, so it is twice the radius. Circumference is the distance around; area is the space inside. Use π ≈ 3.14.',
+          pt: 'O raio vai do centro até a borda. O diâmetro atravessa o círculo pelo centro e vale o dobro do raio. A circunferência é a distância ao redor; a área é o espaço interno. Use π ≈ 3,14.',
+          fr: 'Le rayon va du centre au bord. Le diamètre traverse le cercle en passant par le centre : il vaut deux fois le rayon. La circonférence est la distance autour ; l’aire est l’espace intérieur. Utilisez π ≈ 3,14.',
+        },
+        formulas: [math('d=2r'), math('C=2\\pi r \\qquad A=\\pi r^2')],
+        examples: [{
+          title: { en: 'A circle with radius 3 cm', pt: 'Um círculo com raio de 3 cm', fr: 'Un cercle de rayon 3 cm' },
+          steps: [
+            { en: 'Around: C ≈ 2 × 3.14 × 3 = 18.84 cm.', pt: 'Contorno: C ≈ 2 × 3,14 × 3 = 18,84 cm.', fr: 'Contour : C ≈ 2 × 3,14 × 3 = 18,84 cm.' },
+            { en: 'Inside: A ≈ 3.14 × 3 × 3 = 28.26 cm².', pt: 'Espaço interno: A ≈ 3,14 × 3 × 3 = 28,26 cm².', fr: 'Intérieur : A ≈ 3,14 × 3 × 3 = 28,26 cm².' },
+            { en: 'Notice the units: circumference uses cm; area uses cm².', pt: 'Observe as unidades: circunferência usa cm; área usa cm².', fr: 'Observez les unités : la circonférence utilise cm ; l’aire utilise cm².' },
+          ],
+        }],
+      },
+      {
+        title: { en: '5. Triangle angle mystery', pt: '5. O mistério dos ângulos do triângulo', fr: '5. Le mystère des angles du triangle' },
+        body: {
+          en: 'The three inside angles of every triangle add to 180°. If you know two, subtract their sum from 180° to find the missing angle.',
+          pt: 'Os três ângulos internos de qualquer triângulo somam 180°. Se você conhece dois, subtraia a soma deles de 180° para encontrar o ângulo que falta.',
+          fr: 'Les trois angles intérieurs d’un triangle totalisent 180°. Si vous en connaissez deux, soustrayez leur somme de 180° pour trouver l’angle manquant.',
+        },
+        formulas: [math('a+b+c=180^\\circ')],
+        examples: [{
+          title: { en: 'Two angles are 50° and 60°. Find the last one.', pt: 'Dois ângulos medem 50° e 60°. Encontre o último.', fr: 'Deux angles mesurent 50° et 60°. Trouvez le dernier.' },
+          steps: [
+            { en: 'Add the known angles: 50° + 60° = 110°.', pt: 'Some os ângulos conhecidos: 50° + 60° = 110°.', fr: 'Additionnez les angles connus : 50° + 60° = 110°.' },
+            { en: 'Subtract from 180°: 180° − 110° = 70°.', pt: 'Subtraia de 180°: 180° − 110° = 70°.', fr: 'Soustrayez à 180° : 180° − 110° = 70°.' },
+            { en: 'Final answer: The missing angle is 70°.', pt: 'Resposta final: o ângulo que falta mede 70°.', fr: 'Réponse finale : l’angle manquant mesure 70°.' },
+          ],
+        }],
       },
     ],
   },
@@ -847,6 +1315,8 @@ const advancedTopics = [
 const topicIcons = {
   arithmetic: '➕',
   fractions: '🍕',
+  'percentages-ratios': '💯',
+  'statistics-data': '📊',
   'geometry-basics': '📐',
   'linear-equations': '⚖️',
   'quadratic-equations': '📈',
@@ -898,6 +1368,11 @@ Object.assign(topicDiagrams, {
   'probability-normal': figure(`<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Normal bell curve with mean and standard deviation"><text class="fill-text" x="230" y="40" text-anchor="middle" style="font-size:18px;font-weight:700">Normal distribution</text><line x1="40" y1="230" x2="430" y2="230" class="axis" stroke-width="2"/><path d="M150 200 C 165 150 195 110 230 100 C 265 110 295 150 310 200 L 310 230 L 150 230 Z" class="fill-primary" opacity="0.18"/><path d="M60 226 C 120 226 150 40 230 40 C 310 40 340 226 400 226" fill="none" class="stroke-primary" stroke-width="3"/><line x1="230" y1="40" x2="230" y2="230" class="stroke-muted" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="150" y1="120" x2="150" y2="230" class="stroke-accent" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="310" y1="120" x2="310" y2="230" class="stroke-accent" stroke-width="1.5" stroke-dasharray="4 4"/><text class="fill-muted" x="230" y="252" text-anchor="middle">μ</text><text class="fill-muted" x="150" y="252" text-anchor="middle">μ − σ</text><text class="fill-muted" x="310" y="252" text-anchor="middle">μ + σ</text></svg>`, 'The normal (bell) distribution'),
 });
 
+Object.assign(topicDiagrams, {
+  'percentages-ratios': figure(`<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One quarter highlighted to represent 25 percent"><text class="fill-text" x="230" y="38" text-anchor="middle" style="font-size:18px;font-weight:700">25% = 1/4</text><circle cx="165" cy="158" r="84" class="fill-surface stroke-primary" stroke-width="3"/><path d="M165 158 L165 74 A84 84 0 0 1 249 158 Z" class="fill-primary" opacity="0.72"/><line x1="81" y1="158" x2="249" y2="158" class="stroke-primary" stroke-width="2"/><line x1="165" y1="74" x2="165" y2="242" class="stroke-primary" stroke-width="2"/><text class="fill-text" x="315" y="145" text-anchor="middle" style="font-size:21px;font-weight:700">25 of 100</text><text class="fill-muted" x="315" y="176" text-anchor="middle">one quarter</text></svg>`, 'One quarter is 25 percent'),
+  'statistics-data': figure(`<svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart for the values two, three, three, five, and seven"><text class="fill-text" x="230" y="38" text-anchor="middle" style="font-size:18px;font-weight:700">2, 3, 3, 5, 7</text><line x1="58" y1="224" x2="410" y2="224" class="axis" stroke-width="2"/><line x1="70" y1="230" x2="70" y2="67" class="axis" stroke-width="2"/><rect x="105" y="176" width="42" height="48" rx="6" class="fill-primary" opacity="0.78"/><rect x="165" y="152" width="42" height="72" rx="6" class="fill-accent" opacity="0.78"/><rect x="225" y="152" width="42" height="72" rx="6" class="fill-accent" opacity="0.78"/><rect x="285" y="104" width="42" height="120" rx="6" class="fill-primary" opacity="0.78"/><rect x="345" y="56" width="42" height="168" rx="6" class="fill-primary" opacity="0.78"/><text class="fill-muted" x="126" y="246" text-anchor="middle">2</text><text class="fill-muted" x="186" y="246" text-anchor="middle">3</text><text class="fill-muted" x="246" y="246" text-anchor="middle">3</text><text class="fill-muted" x="306" y="246" text-anchor="middle">5</text><text class="fill-muted" x="366" y="246" text-anchor="middle">7</text></svg>`, 'A small data set displayed as a bar chart'),
+});
+
 const quizzes = {};
 
 Object.assign(quizzes, {
@@ -911,10 +1386,22 @@ Object.assign(quizzes, {
     { q: 'What is 2/3 × 4/5?', options: ['8/15', '6/8', '8/8', '6/15'], answer: 0, explain: 'Multiply straight across: (2 × 4) / (3 × 5) = 8/15.' },
     { q: 'What is 3/4 ÷ 1/2?', options: ['3/8', '3/2', '3/4', '6/2'], answer: 1, explain: 'Multiply by the reciprocal: 3/4 × 2/1 = 6/4 = 3/2.' },
   ],
+  'percentages-ratios': [
+    { q: 'What is 25% as a simplified fraction?', options: ['1/4', '1/25', '25/10', '4/25'], answer: 0, explain: '25% = 25/100. Divide top and bottom by 25 to get 1/4.' },
+    { q: 'What is 20% of 80?', options: ['16', '20', '80', '4'], answer: 0, explain: '20% = 0.20, and 0.20 × 80 = 16.' },
+    { q: 'If 2/3 = x/12, what is x?', options: ['8', '6', '9', '4'], answer: 0, explain: 'The denominator 3 is multiplied by 4 to get 12, so multiply 2 by 4 as well.' },
+  ],
+  'statistics-data': [
+    { q: 'What is the mean of 4, 6, and 8?', options: ['6', '18', '3', '8'], answer: 0, explain: 'Add the values (18), then divide by the 3 values: 18 ÷ 3 = 6.' },
+    { q: 'What is the median of 9, 2, 12, 7, and 4?', options: ['7', '9', '4', '12'], answer: 0, explain: 'Sort them: 2, 4, 7, 9, 12. The middle value is 7.' },
+    { q: 'For 2, 3, 3, 5, 7, what are the mode and range?', options: ['Mode 3, range 5', 'Mode 2, range 7', 'Mode 5, range 3', 'Mode 7, range 2'], answer: 0, explain: '3 appears most often, and the range is 7 − 2 = 5.' },
+  ],
   'geometry-basics': [
-    { q: 'What is the perimeter of a rectangle with length 6 and width 4?', options: ['24', '10', '20', '12'], answer: 2, explain: 'Perimeter = 2(l + w) = 2(6 + 4) = 20.' },
-    { q: 'What is the area of a square with side 5?', options: ['20', '25', '10', '15'], answer: 1, explain: 'Area = s² = 5² = 25.' },
-    { q: 'What is the area of a circle with radius 2? (use π ≈ 3.14)', options: ['6.28', '12.56', '3.14', '25.12'], answer: 1, explain: 'Area = πr² ≈ 3.14 × 4 = 12.56.' },
+    { q: 'A rectangular garden is 8 m by 5 m. How much fence goes around it?', options: ['13 m', '26 m', '40 m', '80 m'], answer: 1, explain: 'Perimeter = 2(8 + 5) = 26 m. A fence goes around the outside.' },
+    { q: 'A square has side length 5 cm. What is its area?', options: ['20 cm²', '25 cm²', '10 cm²', '15 cm²'], answer: 1, explain: 'Area = side × side = 5 × 5 = 25 cm².' },
+    { q: 'A triangle has base 6 cm and height 4 cm. What is its area?', options: ['24 cm²', '10 cm²', '12 cm²', '20 cm²'], answer: 2, explain: 'Triangle area = base × height ÷ 2 = 6 × 4 ÷ 2 = 12 cm².' },
+    { q: 'A circle has radius 2 cm. About how far is it around? Use π ≈ 3.14.', options: ['6.28 cm', '12.56 cm', '3.14 cm', '25.12 cm'], answer: 1, explain: 'Circumference = 2πr ≈ 2 × 3.14 × 2 = 12.56 cm.' },
+    { q: 'Two angles in a triangle are 50° and 60°. What is the third angle?', options: ['70°', '80°', '110°', '120°'], answer: 0, explain: 'Triangle angles total 180°. The missing angle is 180° − 50° − 60° = 70°.' },
   ],
   'linear-equations': [
     { q: 'Solve 3x + 5 = 14.', options: ['3', '4', '5', '9'], answer: 0, explain: '3x = 9, so x = 3.' },
@@ -974,23 +1461,155 @@ Object.assign(quizzes, {
   ],
 });
 
+// Short, plain-language summaries used by the optional spoken explanation.
+// They are written for listening, so formulas are read as words rather than symbols.
+const spokenExplanations = {
+  arithmetic: {
+    en: 'Addition puts groups together; subtraction takes some away. Multiplication is a quick way to add equal groups. For example, twelve times fourteen is twelve times ten, plus twelve times four: one hundred twenty plus forty-eight makes one hundred sixty-eight. In a mixed calculation, do multiplication and division before addition and subtraction.',
+    pt: 'A adição junta quantidades; a subtração retira uma parte. A multiplicação é uma forma rápida de somar grupos iguais. Por exemplo, doze vezes quatorze é doze vezes dez mais doze vezes quatro: cento e vinte mais quarenta e oito, que dá cento e sessenta e oito. Em uma conta com várias operações, faça multiplicação e divisão antes da adição e da subtração.',
+    fr: 'L’addition rassemble des quantités et la soustraction en retire une partie. La multiplication permet d’additionner rapidement des groupes égaux. Par exemple, douze fois quatorze, c’est douze fois dix plus douze fois quatre : cent vingt plus quarante-huit, soit cent soixante-huit. Dans un calcul avec plusieurs opérations, faites les multiplications et les divisions avant les additions et les soustractions.',
+  },
+  fractions: {
+    en: 'A fraction describes equal parts of one whole. The bottom number tells how many equal parts make the whole; the top number tells how many parts we have. To add fractions, first rename them with the same bottom number. For one third plus two fifths, fifteenths work: five fifteenths plus six fifteenths equals eleven fifteenths.',
+    pt: 'Uma fração representa partes iguais de um todo. O número de baixo diz em quantas partes iguais o todo foi dividido; o de cima diz quantas partes temos. Para somar frações, primeiro use o mesmo denominador. Um terço mais dois quintos vira cinco quinze avos mais seis quinze avos, que resulta em onze quinze avos.',
+    fr: 'Une fraction représente des parts égales d’un tout. Le nombre du bas indique en combien de parts égales on partage le tout ; celui du haut indique combien de parts on prend. Pour additionner des fractions, utilisez d’abord le même dénominateur. Un tiers plus deux cinquièmes devient cinq quinzièmes plus six quinzièmes, soit onze quinzièmes.',
+  },
+  'percentages-ratios': {
+    en: 'Percent means out of one hundred, so twenty-five percent is twenty-five out of one hundred, or one quarter. To find a percent of an amount, turn the percent into a decimal and multiply. Twenty percent of eighty is sixteen. Ratios compare amounts; keep a proportion balanced by multiplying both parts by the same number.',
+    pt: 'Por cento significa a cada cem. Então, vinte e cinco por cento é vinte e cinco de cada cem, ou um quarto. Para encontrar uma porcentagem de uma quantidade, transforme a porcentagem em decimal e multiplique. Vinte por cento de oitenta é dezesseis. Razões comparam quantidades; para manter uma proporção, multiplique os dois lados pelo mesmo número.',
+    fr: 'Pour cent signifie sur cent : vingt-cinq pour cent, c’est vingt-cinq sur cent, soit un quart. Pour calculer un pourcentage d’une quantité, écrivez le pourcentage en nombre décimal puis multipliez. Vingt pour cent de quatre-vingts font seize. Les rapports comparent des quantités ; dans une proportion, multipliez les deux termes par le même nombre.',
+  },
+  'statistics-data': {
+    en: 'The mean is the total shared equally: add the values and divide by how many there are. The median is the middle value after sorting the numbers. The mode is the value that appears most often. The range shows the spread: subtract the smallest value from the largest.',
+    pt: 'A média é o total dividido igualmente: some os valores e divida pela quantidade. A mediana é o valor do meio depois de ordenar os números. A moda é o valor que mais aparece. A amplitude mostra a variação: subtraia o menor valor do maior.',
+    fr: 'La moyenne est le total partagé équitablement : additionnez les valeurs et divisez par leur nombre. La médiane est la valeur du milieu après avoir trié les nombres. Le mode est la valeur la plus fréquente. L’étendue mesure la dispersion : soustrayez la plus petite valeur de la plus grande.',
+  },
+  'geometry-basics': {
+    en: 'Geometry is a way to describe shapes and measure them. Perimeter is like a fence around the outside: add the sides. Area is like floor tiles inside: multiply for a rectangle, or take half of base times height for a triangle. For circles, circumference goes around and area covers the inside. Triangle angles always add to one hundred eighty degrees. Use cm for lengths and cm squared for areas.',
+    pt: 'A geometria descreve formas e como medi-las. O perímetro é como uma cerca ao redor: some os lados. A área é como o piso dentro da forma: multiplique no retângulo ou use metade da base vezes a altura no triângulo. No círculo, a circunferência mede o contorno e a área mede o espaço interno. Os ângulos de um triângulo sempre somam cento e oitenta graus. Use cm para comprimentos e cm quadrados para áreas.',
+    fr: 'La géométrie décrit les figures et leurs mesures. Le périmètre ressemble à une clôture autour de la figure : additionnez les côtés. L’aire ressemble aux carreaux du sol à l’intérieur : multipliez pour un rectangle, ou prenez la moitié de la base fois la hauteur pour un triangle. Pour un cercle, la circonférence fait le tour et l’aire couvre l’intérieur. Les angles d’un triangle totalisent toujours cent quatre-vingts degrés. Utilisez cm pour les longueurs et cm carrés pour les aires.',
+  },
+  'linear-equations': {
+    en: 'An equation is like a balanced scale: whatever you do to one side, do to the other. To solve three x plus five equals fourteen, subtract five from both sides. That leaves three x equals nine. Divide both sides by three, so x equals three. Check by putting three back into the original equation.',
+    pt: 'Uma equação funciona como uma balança: tudo o que você faz de um lado, faça também do outro. Para resolver três x mais cinco igual a quatorze, subtraia cinco dos dois lados. Fica três x igual a nove. Divida os dois lados por três: x é igual a três. Confira substituindo o três na equação original.',
+    fr: 'Une équation ressemble à une balance : faites la même opération des deux côtés. Pour résoudre trois x plus cinq égal quatorze, soustrayez cinq des deux côtés. Il reste trois x égal neuf. Divisez les deux côtés par trois : x vaut trois. Vérifiez en remplaçant x par trois dans l’équation de départ.',
+  },
+  'quadratic-equations': {
+    en: 'A quadratic equation includes a squared variable and can have two solutions. First identify a, b, and c in standard form. The quadratic formula uses these three values to calculate the solutions. For x squared minus five x plus six equals zero, the solutions are two and three. Substituting either value makes the equation equal zero.',
+    pt: 'Uma equação quadrática tem uma variável ao quadrado e pode ter duas soluções. Primeiro identifique a, b e c na forma padrão. A fórmula quadrática usa esses três valores para calcular as soluções. Para x ao quadrado menos cinco x mais seis igual a zero, as soluções são dois e três. Ao substituir qualquer uma delas, a equação resulta em zero.',
+    fr: 'Une équation du second degré contient une variable au carré et peut avoir deux solutions. Repérez d’abord a, b et c dans la forme standard. La formule quadratique utilise ces trois valeurs pour calculer les solutions. Pour x au carré moins cinq x plus six égal zéro, les solutions sont deux et trois. Chacune rend l’équation égale à zéro.',
+  },
+  functions: {
+    en: 'Think of a function as a machine: give it an input, follow its rule, and get one output. For f of x equals two x plus three, an input of four gives two times four plus three, which equals eleven. The domain is the set of inputs the machine accepts.',
+    pt: 'Pense em uma função como uma máquina: você fornece um valor, segue a regra e recebe um resultado. Se f de x é igual a dois x mais três, a entrada quatro dá dois vezes quatro mais três, que é onze. O domínio é o conjunto de entradas aceitas pela função.',
+    fr: 'Imaginez une fonction comme une machine : donnez-lui une entrée, suivez sa règle et obtenez une sortie. Si f de x vaut deux x plus trois, l’entrée quatre donne deux fois quatre plus trois, soit onze. Le domaine est l’ensemble des entrées acceptées par la fonction.',
+  },
+  trigonometry: {
+    en: 'Trigonometry connects an angle in a right triangle to its side lengths. Remember SOH, CAH, TOA: sine is opposite over hypotenuse, cosine is adjacent over hypotenuse, and tangent is opposite over adjacent. Name the sides from the angle you are using, then choose the matching ratio.',
+    pt: 'A trigonometria relaciona um ângulo de um triângulo retângulo com os comprimentos dos lados. Lembre-se: seno é cateto oposto sobre hipotenusa; cosseno é cateto adjacente sobre hipotenusa; tangente é cateto oposto sobre cateto adjacente. Identifique os lados em relação ao ângulo e escolha a razão correspondente.',
+    fr: 'La trigonométrie relie un angle d’un triangle rectangle aux longueurs de ses côtés. Le sinus est le côté opposé sur l’hypoténuse ; le cosinus, le côté adjacent sur l’hypoténuse ; la tangente, le côté opposé sur le côté adjacent. Repérez les côtés par rapport à l’angle choisi, puis prenez le rapport correspondant.',
+  },
+  'exponents-logarithms': {
+    en: 'An exponent tells how many times to multiply a number by itself: two to the third power means two times two times two, which is eight. A logarithm asks the reverse question: what exponent makes a given number? Since two to the fourth power is sixteen, the logarithm base two of sixteen is four.',
+    pt: 'Um expoente indica quantas vezes multiplicar um número por ele mesmo: dois elevado à terceira potência significa dois vezes dois vezes dois, que é oito. O logaritmo faz a pergunta inversa: qual expoente produz um número? Como dois elevado à quarta potência é dezesseis, o logaritmo de dezesseis na base dois é quatro.',
+    fr: 'Un exposant indique combien de fois multiplier un nombre par lui-même : deux puissance trois signifie deux fois deux fois deux, soit huit. Le logarithme pose la question inverse : quel exposant donne un nombre ? Comme deux puissance quatre vaut seize, le logarithme de seize en base deux vaut quatre.',
+  },
+  'limits-continuity': {
+    en: 'A limit describes the value a function approaches when x gets close to a point. The function does not even need to have a value at that point. For example, simplifying x squared minus nine over x minus three gives x plus three, as long as x is not three. As x approaches three, the result approaches six.',
+    pt: 'Um limite descreve o valor ao qual uma função se aproxima quando x chega perto de um ponto. A função nem precisa estar definida nesse ponto. Por exemplo, simplificar x ao quadrado menos nove sobre x menos três resulta em x mais três, desde que x não seja três. Quando x se aproxima de três, o resultado se aproxima de seis.',
+    fr: 'Une limite décrit la valeur dont une fonction se rapproche lorsque x approche un point. La fonction n’a même pas besoin d’être définie en ce point. Par exemple, simplifier x au carré moins neuf sur x moins trois donne x plus trois, tant que x n’est pas trois. Quand x approche trois, le résultat approche six.',
+  },
+  'derivatives-chain-rule': {
+    en: 'A derivative measures how quickly a function changes at one point. For a nested function, use the chain rule: differentiate the outside rule, keep the inside, then multiply by the derivative of the inside. For sine of x squared, that gives cosine of x squared times two x.',
+    pt: 'A derivada mede a rapidez com que uma função muda em um ponto. Para uma função dentro de outra, use a regra da cadeia: derive a parte de fora, mantenha a parte de dentro e multiplique pela derivada da parte de dentro. Para seno de x ao quadrado, o resultado é cosseno de x ao quadrado vezes dois x.',
+    fr: 'Une dérivée mesure la vitesse de variation d’une fonction en un point. Pour une fonction imbriquée, utilisez la règle de la chaîne : dérivez la fonction extérieure, gardez la fonction intérieure, puis multipliez par la dérivée de l’intérieur. Pour le sinus de x au carré, on obtient le cosinus de x au carré fois deux x.',
+  },
+  'integration-definite': {
+    en: 'A definite integral adds up tiny pieces to find the signed area under a curve between two endpoints. First find an antiderivative, then evaluate it at the upper endpoint and subtract its value at the lower endpoint. For the integral of two x from zero to three, the area is nine.',
+    pt: 'Uma integral definida soma pequenas partes para encontrar a área com sinal sob uma curva entre dois limites. Primeiro encontre uma antiderivada; depois calcule seu valor no limite superior e subtraia o valor no limite inferior. A integral de dois x, de zero a três, resulta em nove.',
+    fr: 'Une intégrale définie additionne de petites portions pour trouver l’aire algébrique sous une courbe entre deux bornes. Trouvez d’abord une primitive, puis calculez sa valeur à la borne supérieure et soustrayez celle de la borne inférieure. L’intégrale de deux x entre zéro et trois vaut neuf.',
+  },
+  'linear-algebra-matrices': {
+    en: 'A matrix is a rectangular table of numbers. You can add matrices entry by entry when their sizes match. To multiply two matrices, the number of columns in the first must equal the number of rows in the second. For a two by two matrix, the determinant is a times d minus b times c.',
+    pt: 'Uma matriz é uma tabela retangular de números. Some matrizes posição por posição quando elas têm o mesmo tamanho. Para multiplicar duas matrizes, o número de colunas da primeira deve ser igual ao número de linhas da segunda. Em uma matriz dois por dois, o determinante é a vezes d menos b vezes c.',
+    fr: 'Une matrice est un tableau rectangulaire de nombres. Additionnez les éléments qui occupent la même position si les matrices ont la même taille. Pour multiplier deux matrices, le nombre de colonnes de la première doit égaler le nombre de lignes de la seconde. Pour une matrice deux par deux, le déterminant vaut a fois d moins b fois c.',
+  },
+  'probability-normal': {
+    en: 'A normal distribution is the familiar bell-shaped curve, centered at its mean. The standard deviation describes how spread out the values are. A z-score tells how many standard deviations a value is from the mean. For a normal distribution, about sixty-eight percent of values lie within one standard deviation of the mean.',
+    pt: 'Uma distribuição normal tem o formato familiar de um sino e fica centrada na média. O desvio padrão indica o quanto os valores estão espalhados. O escore z mostra quantos desvios padrão separam um valor da média. Em uma distribuição normal, cerca de sessenta e oito por cento dos valores ficam a um desvio padrão da média.',
+    fr: 'Une loi normale a la forme familière d’une cloche, centrée sur sa moyenne. L’écart-type indique la dispersion des valeurs. Le score z indique combien d’écarts-types séparent une valeur de la moyenne. Dans une loi normale, environ soixante-huit pour cent des valeurs se trouvent à moins d’un écart-type de la moyenne.',
+  },
+};
+
 // ---------- RENDERING LOGIC ----------
 let currentLang = 'en';
 let currentLevel = 'all';
 let currentTopic = null;
+let showAllVideos = false;
+let learnerMode = 'young';
+let authState = { loginConfigured: false, aiConfigured: false, authenticated: false };
+let practiceRound = null;
+const featuredVideoIds = ['percentages-ratios', 'statistics-data', 'arithmetic'];
+
+function allTopics() {
+  return [...beginnerTopics, ...intermediateTopics, ...advancedTopics];
+}
+
+function normalizeSearchText(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+function renderContinueCard() {
+  const card = document.getElementById('continueCard');
+  if (!card) return;
+  let lastId = null;
+  try { lastId = localStorage.getItem('lastTopic'); } catch (e) { /* ignore */ }
+  const topic = allTopics().find((item) => item.id === lastId);
+  if (!topic) {
+    card.classList.add('hidden');
+    return;
+  }
+  document.getElementById('continueTitle').textContent = topic.title[currentLang] || topic.title.en;
+  document.getElementById('continueBtn').onclick = () => showTopicDetail(topic.id);
+  card.classList.remove('hidden');
+}
 
 function renderTopicCards() {
   const container = document.getElementById('topicList');
   const emptyState = document.getElementById('emptyState');
   const countEl = document.getElementById('topicCount');
-  const topics = [...beginnerTopics, ...intermediateTopics, ...advancedTopics];
-  const visible = topics.filter((t) => currentLevel === 'all' || t.level === currentLevel);
+  const searchBox = document.getElementById('topicSearch');
+  const query = normalizeSearchText(searchBox ? searchBox.value.trim() : '');
+  const topics = allTopics();
+  updateQuestStats();
+  const visible = topics.filter((topic) => {
+    if (currentLevel !== 'all' && topic.level !== currentLevel) return false;
+    if (!query) return true;
+    const searchable = [
+      topic.id,
+      topic.level,
+      ...Object.values(topic.title),
+      ...Object.values(topic.description),
+      ...topic.steps.map((step) => localizedContent(step.title)),
+    ].join(' ');
+    return normalizeSearchText(searchable).includes(query);
+  });
 
   if (countEl) countEl.textContent = String(visible.length);
+  const searchHint = document.querySelector('.search-shortcut');
+  if (searchHint) searchHint.textContent = t(currentLang, 'searchHint', { count: visible.length });
 
   if (visible.length === 0) {
     container.innerHTML = '';
+    const message = query ? t(currentLang, 'noMatches') : t(currentLang, 'noTopics');
+    emptyState.innerHTML = `<span class="empty-icon" aria-hidden="true">${query ? '🔎' : '🧮'}</span><p>${message}</p>${query ? `<button class="clear-search-btn" type="button">${t(currentLang, 'clearSearch')}</button>` : ''}`;
     emptyState.classList.remove('hidden');
+    const clear = emptyState.querySelector('.clear-search-btn');
+    if (clear) clear.addEventListener('click', () => {
+      searchBox.value = '';
+      renderTopicCards();
+      searchBox.focus();
+    });
     return;
   }
   emptyState.classList.add('hidden');
@@ -1002,11 +1621,13 @@ function renderTopicCards() {
     const icon = topicIcons[topic.id] || '📐';
     const pct = getQuizPercent(topic.id);
     const done = isLessonDone(topic.id);
+    const practiced = isPracticeDone(topic.id);
     let progress = '';
-    if (done || pct !== null) {
+    if (done || pct !== null || practiced) {
       progress = '<div class="card-progress">';
       if (done) progress += `<span class="mini-badge done">✓ ${t(currentLang, 'completed')}</span>`;
       if (pct !== null) progress += `<span class="mini-badge score">★ ${pct}%</span>`;
+      if (practiced) progress += `<span class="mini-badge score">✨ ${t(currentLang, 'practiceDoneLabel')}</span>`;
       progress += '</div>';
     }
     html += `
@@ -1017,14 +1638,14 @@ function renderTopicCards() {
         </div>
         <h3>${title}</h3>
         <p class="card-desc">${desc}</p>
-        <div class="card-footer"><span aria-hidden="true">🌐</span><span>${topic.langs.join(' · ')}</span></div>
+        <div class="card-footer"><span>${topic.steps.length} ${t(currentLang, 'stepsShort')}</span><span aria-hidden="true">·</span><span>${t(currentLang, 'videoAvailable')}</span><span class="card-reward">${t(currentLang, 'rewardPotential')}</span></div>
         ${progress}
       </article>
     `;
   }
   container.innerHTML = html;
 
-  document.querySelectorAll('.topic-card').forEach((card) => {
+  container.querySelectorAll('.topic-card').forEach((card) => {
     const open = () => showTopicDetail(card.dataset.topicId);
     card.addEventListener('click', open);
     card.addEventListener('keydown', (e) => {
@@ -1034,13 +1655,107 @@ function renderTopicCards() {
       }
     });
   });
+  updateQuestStats();
+}
+
+const videoConcepts = {
+  arithmetic: '12 × 14 = 168',
+  fractions: '1/3 + 2/5',
+  'percentages-ratios': '25% = 1/4',
+  'statistics-data': 'mean · median · range',
+  'geometry-basics': 'A = length × width',
+  'linear-equations': '3x + 5 = 14',
+  'quadratic-equations': 'x² − 5x + 6 = 0',
+  functions: 'input → output',
+  trigonometry: 'SOH · CAH · TOA',
+  'exponents-logarithms': '2³ = 8',
+  'limits-continuity': 'x → a',
+  'derivatives-chain-rule': 'd/dx [ f(g(x)) ]',
+  'integration-definite': '∫₀³ 2x dx = 9',
+  'linear-algebra-matrices': 'A × B',
+  'probability-normal': 'z = (x − μ) / σ',
+};
+
+function renderVideoCards() {
+  const container = document.getElementById('videoList');
+  if (!container) return;
+  container.querySelectorAll('video').forEach((video) => video.pause());
+  const topics = allTopics();
+  const visible = showAllVideos ? topics : topics.filter((topic) => featuredVideoIds.includes(topic.id));
+  const countLabel = document.getElementById('videoCount');
+  if (countLabel) countLabel.textContent = t(currentLang, 'videoCount', { count: topics.length });
+
+  container.innerHTML = visible.map((topic) => {
+    const title = topic.title[currentLang] || topic.title.en;
+    const description = topic.description[currentLang] || topic.description.en;
+    const icon = topicIcons[topic.id] || '📐';
+    const level = t(currentLang, topic.level);
+    return `
+      <article class="video-card">
+        <div class="video-frame">
+          <div class="video-art" aria-hidden="true">
+            <span class="video-art-mark">${icon}</span>
+            <span class="video-art-equation">${videoConcepts[topic.id] || 'f(x)'}</span>
+            <span class="video-art-grid"></span>
+          </div>
+          <video class="video-preview" preload="none" playsinline data-src="videos/${currentLang}/${topic.id}.mp4" aria-label="${title}"></video>
+          <button class="video-preview-trigger" type="button" aria-label="${t(currentLang, 'previewPrefix')} ${title}">
+            <span class="video-play-mark" aria-hidden="true">▶</span>
+            <span>${t(currentLang, 'previewVideo')}</span>
+          </button>
+        </div>
+        <div class="video-card-content">
+          <div class="video-card-meta"><span class="card-level ${topic.level}">${level}</span><span>${t(currentLang, 'videoLabel')}</span></div>
+          <h3><button class="video-title-button" type="button" data-topic-id="${topic.id}">${title}</button></h3>
+          <p>${inlineMath(description)}</p>
+          <button class="video-open-link" type="button" data-topic-id="${topic.id}">${t(currentLang, 'openLesson')}</button>
+        </div>
+      </article>`;
+  }).join('');
+
+  container.querySelectorAll('.video-preview-trigger').forEach((button) => {
+    button.addEventListener('click', () => {
+      const frame = button.closest('.video-frame');
+      const video = frame.querySelector('video');
+      container.querySelectorAll('video').forEach((other) => {
+        if (other !== video) other.pause();
+      });
+      if (!video.src) {
+        video.src = video.dataset.src;
+        video.controls = true;
+        video.load();
+      }
+      frame.classList.add('is-playing');
+      video.play().catch(() => {
+        frame.classList.remove('is-playing');
+      });
+    });
+  });
+  container.querySelectorAll('.video-title-button, .video-open-link').forEach((button) => {
+    button.addEventListener('click', () => showTopicDetail(button.dataset.topicId));
+  });
+
+  const moreButton = document.getElementById('showAllVideos');
+  if (moreButton) {
+    moreButton.textContent = showAllVideos
+      ? t(currentLang, 'showFeaturedVideos')
+      : t(currentLang, 'showAllVideos', { count: topics.length });
+    moreButton.classList.toggle('hidden', topics.length <= featuredVideoIds.length);
+    moreButton.onclick = () => {
+      showAllVideos = !showAllVideos;
+      renderVideoCards();
+    };
+  }
 }
 
 function showTopicDetail(topicId) {
-  const topic = [...beginnerTopics, ...intermediateTopics, ...advancedTopics].find((t) => t.id === topicId);
+  const topic = allTopics().find((t) => t.id === topicId);
   if (!topic) return;
 
+  document.querySelectorAll('#videoList video').forEach((video) => video.pause());
+  stopSpeech(false);
   currentTopic = topic;
+  try { localStorage.setItem('lastTopic', topic.id); } catch (e) { /* ignore */ }
   const titleEl = document.getElementById('topicTitle');
   const descEl = document.getElementById('topicDesc');
   const levelEl = document.getElementById('topicLevel');
@@ -1064,10 +1779,20 @@ function showTopicDetail(topicId) {
   const videoSection = document.getElementById('videoSection');
   const videoEl = document.getElementById('topicVideo');
   if (videoSection && videoEl) {
+    videoEl.pause();
     videoEl.src = 'videos/' + currentLang + '/' + topic.id + '.mp4';
     videoEl.load();
     videoSection.classList.remove('hidden');
   }
+
+  const explanation = spokenExplanations[topic.id] && (spokenExplanations[topic.id][currentLang] || spokenExplanations[topic.id].en);
+  document.getElementById('voiceTranscript').textContent = explanation || '';
+  document.getElementById('voiceStatus').textContent = '';
+  document.getElementById('speakBtn').textContent = t(currentLang, 'listen');
+  document.getElementById('speakBtn').setAttribute('aria-pressed', 'false');
+  document.getElementById('stopSpeakBtn').classList.add('hidden');
+  document.getElementById('speakBtn').onclick = () => toggleSpeech(topic.id);
+  document.getElementById('stopSpeakBtn').onclick = () => stopSpeech(true);
 
   const quizSection = document.getElementById('quizSection');
   if (quizSection) {
@@ -1086,16 +1811,16 @@ function showTopicDetail(topicId) {
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">${i + 1}</div>
-          <h4>${step.title}</h4>
+          <h4>${localizedContent(step.title)}</h4>
         </div>
         <div class="step-body">
-          ${step.body ? `<p>${inlineMath(step.body)}</p>` : ''}
+          ${step.body ? `<p>${inlineMath(localizedContent(step.body))}</p>` : ''}
           ${step.formulas && step.formulas.length > 0 ? step.formulas.map((f) => `<div class="formula-box">${renderFormula(f)}</div>`).join('') : ''}
           ${step.examples && step.examples.length > 0 ? step.examples.map((ex) => `
             <div class="example-box">
-              <div class="example-title">${ex.title}</div>
+              <div class="example-title">${localizedContent(ex.title)}</div>
               <div class="example-body">
-                ${ex.steps ? ex.steps.map((s) => `<p class="${/^Final answer/i.test(s.trim()) ? 'final-answer' : ''}">${inlineMath(s)}</p>`).join('') : ''}
+                ${ex.steps ? ex.steps.map((s) => { const line = localizedContent(s); return `<p class="${isFinalAnswer(line) ? 'final-answer' : ''}">${inlineMath(line)}</p>`; }).join('') : ''}
               </div>
             </div>
           `).join('') : ''}
@@ -1109,9 +1834,87 @@ function showTopicDetail(topicId) {
   document.querySelectorAll('.formula-box').forEach(renderMath);
 
   detailSection.classList.remove('hidden');
+  document.getElementById('homeHero').classList.add('hidden');
+  document.getElementById('continueCard').classList.add('hidden');
+  document.getElementById('levelNav').classList.add('hidden');
+  document.getElementById('videoLibrary').classList.add('hidden');
+  document.getElementById('lessonBrowser').classList.add('hidden');
   document.getElementById('topicList').classList.add('hidden');
   document.getElementById('emptyState').classList.add('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+let speechToken = 0;
+
+function updateSpeechControls(mode) {
+  const speakBtn = document.getElementById('speakBtn');
+  const stopBtn = document.getElementById('stopSpeakBtn');
+  const status = document.getElementById('voiceStatus');
+  if (!speakBtn || !stopBtn || !status) return;
+  if (mode === 'playing') {
+    speakBtn.textContent = t(currentLang, 'pauseVoice');
+    speakBtn.setAttribute('aria-pressed', 'true');
+    stopBtn.classList.remove('hidden');
+    status.textContent = t(currentLang, 'speaking');
+  } else if (mode === 'paused') {
+    speakBtn.textContent = t(currentLang, 'resumeVoice');
+    speakBtn.setAttribute('aria-pressed', 'false');
+    stopBtn.classList.remove('hidden');
+    status.textContent = t(currentLang, 'voicePaused');
+  } else {
+    speakBtn.textContent = t(currentLang, 'listen');
+    speakBtn.setAttribute('aria-pressed', 'false');
+    stopBtn.classList.add('hidden');
+    status.textContent = mode === 'stopped' ? t(currentLang, 'voiceStopped') : '';
+  }
+}
+
+function stopSpeech(showStatus = false) {
+  speechToken += 1;
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  updateSpeechControls(showStatus ? 'stopped' : 'idle');
+}
+
+function toggleSpeech(topicId) {
+  if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') {
+    document.getElementById('voiceStatus').textContent = t(currentLang, 'speechUnavailable');
+    return;
+  }
+  const synth = window.speechSynthesis;
+  if (synth.speaking && !synth.paused) {
+    synth.pause();
+    updateSpeechControls('paused');
+    return;
+  }
+  if (synth.paused) {
+    synth.resume();
+    updateSpeechControls('playing');
+    return;
+  }
+
+  const explanation = spokenExplanations[topicId] && (spokenExplanations[topicId][currentLang] || spokenExplanations[topicId].en);
+  if (!explanation) return;
+  stopSpeech(false);
+  const token = speechToken;
+  const utterance = new SpeechSynthesisUtterance(explanation);
+  const languageTag = { en: 'en-US', pt: 'pt-BR', fr: 'fr-FR' }[currentLang] || 'en-US';
+  utterance.lang = languageTag;
+  utterance.rate = 0.92;
+  const voices = synth.getVoices();
+  const matchingVoice = voices.find((voice) => voice.lang.toLowerCase() === languageTag.toLowerCase())
+    || voices.find((voice) => voice.lang.toLowerCase().startsWith(currentLang));
+  if (matchingVoice) utterance.voice = matchingVoice;
+  utterance.onstart = () => {
+    if (token === speechToken) updateSpeechControls('playing');
+  };
+  utterance.onend = () => {
+    if (token === speechToken) updateSpeechControls('idle');
+  };
+  utterance.onerror = () => {
+    if (token === speechToken) updateSpeechControls('idle');
+  };
+  updateSpeechControls('playing');
+  synth.speak(utterance);
 }
 
 function inlineMath(text) {
@@ -1148,6 +1951,19 @@ function applyI18n() {
     if (UIStrings[currentLang] && UIStrings[currentLang][key]) el.textContent = UIStrings[currentLang][key];
     else if (UIStrings.en[key]) el.textContent = UIStrings.en[key];
   });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    const key = el.dataset.i18nPlaceholder;
+    if (UIStrings[currentLang] && UIStrings[currentLang][key]) el.placeholder = UIStrings[currentLang][key];
+    else if (UIStrings.en[key]) el.placeholder = UIStrings.en[key];
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+    const key = el.dataset.i18nTitle;
+    if (UIStrings[currentLang] && UIStrings[currentLang][key]) el.title = UIStrings[currentLang][key];
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+    const key = el.dataset.i18nAria;
+    if (UIStrings[currentLang] && UIStrings[currentLang][key]) el.setAttribute('aria-label', UIStrings[currentLang][key]);
+  });
 }
 
 function applyTheme(theme) {
@@ -1164,13 +1980,21 @@ function initTheme() {
 }
 
 function setLanguage(lang) {
+  if (!UIStrings[lang]) return;
+  stopSpeech(false);
   currentLang = lang;
+  try { localStorage.setItem('language', lang); } catch (e) { /* ignore */ }
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
   document.documentElement.lang = lang;
   applyI18n();
   renderTopicCards();
+  renderVideoCards();
+  renderContinueCard();
+  renderAdventureMap();
+  renderPracticeTopics();
+  updateAuthUI();
   if (currentTopic) showTopicDetail(currentTopic.id);
 }
 
@@ -1186,7 +2010,9 @@ function setLevel(level) {
 function getQuizPercent(id) {
   try {
     const v = localStorage.getItem('quizPct_' + id);
-    return v === null ? null : parseInt(v, 10);
+    if (v === null) return null;
+    const pct = parseInt(v, 10);
+    return Number.isFinite(pct) ? pct : null;
   } catch (e) { return null; }
 }
 
@@ -1194,8 +2020,340 @@ function isLessonDone(id) {
   try { return localStorage.getItem('lessonDone_' + id) === '1'; } catch (e) { return false; }
 }
 
+function isPracticeDone(id) {
+  try { return localStorage.getItem('practiceDone_' + id) === '1'; } catch (e) { return false; }
+}
+
+function isTopicExplored(id) {
+  return isLessonDone(id) || getQuizPercent(id) !== null || isPracticeDone(id);
+}
+
+function renderAdventureMap() {
+  const board = document.getElementById('mathBoard');
+  if (!board) return;
+  const topics = allTopics();
+  const clearedCount = topics.filter((topic) => isTopicExplored(topic.id)).length;
+  const progress = document.getElementById('boardProgress');
+  if (progress) progress.textContent = `${clearedCount} / ${topics.length}`;
+  board.replaceChildren();
+
+  let firstOpen = true;
+  ['beginner', 'intermediate', 'advanced'].forEach((level) => {
+    const groupTopics = topics.filter((topic) => topic.level === level);
+    const track = document.createElement('section');
+    track.className = `board-track ${level}`;
+    const heading = document.createElement('h3');
+    heading.className = 'board-track-title';
+    heading.textContent = t(currentLang, level);
+    track.append(heading);
+    const path = document.createElement('div');
+    path.className = 'board-path';
+
+    groupTopics.forEach((topic, index) => {
+      const cleared = isTopicExplored(topic.id);
+      const next = !cleared && firstOpen;
+      if (next) firstOpen = false;
+      const node = document.createElement('button');
+      node.type = 'button';
+      node.className = `board-node${cleared ? ' is-cleared' : ''}${next ? ' is-next' : ''}`;
+      node.setAttribute('aria-label', `${topic.title[currentLang] || topic.title.en}: ${t(currentLang, cleared ? 'boardCleared' : next ? 'boardNext' : 'boardReady')}`);
+      const icon = document.createElement('span');
+      icon.className = 'board-node-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = cleared ? '✓' : (topicIcons[topic.id] || '📐');
+      const title = document.createElement('span');
+      title.className = 'board-node-title';
+      title.textContent = topic.title[currentLang] || topic.title.en;
+      const stateLabel = document.createElement('span');
+      stateLabel.className = 'board-node-state';
+      stateLabel.textContent = t(currentLang, cleared ? 'boardCleared' : next ? 'boardNext' : 'boardReady');
+      node.append(icon, title, stateLabel);
+      node.addEventListener('click', () => showTopicDetail(topic.id));
+      path.append(node);
+      if (index < groupTopics.length - 1) {
+        const trail = document.createElement('span');
+        trail.className = 'board-trail';
+        trail.setAttribute('aria-hidden', 'true');
+        trail.textContent = '✦';
+        path.append(trail);
+      }
+    });
+    track.append(path);
+    board.append(track);
+  });
+}
+
+function renderPracticeTopics() {
+  const select = document.getElementById('practiceTopic');
+  if (!select) return;
+  const previous = select.value;
+  select.replaceChildren();
+  ['beginner', 'intermediate', 'advanced'].forEach((level) => {
+    const group = document.createElement('optgroup');
+    group.label = t(currentLang, level);
+    allTopics().filter((topic) => topic.level === level).forEach((topic) => {
+      const option = document.createElement('option');
+      option.value = topic.id;
+      option.textContent = topic.title[currentLang] || topic.title.en;
+      group.append(option);
+    });
+    select.append(group);
+  });
+  if (allTopics().some((topic) => topic.id === previous)) select.value = previous;
+}
+
+function updateAuthUI() {
+  const status = document.getElementById('authStatus');
+  const button = document.getElementById('authButton');
+  if (status) {
+    const loginError = new URLSearchParams(window.location.search).get('login') === 'error';
+    status.textContent = loginError ? t(currentLang, 'authError')
+      : authState.authenticated ? t(currentLang, 'authConnected')
+        : authState.loginConfigured ? t(currentLang, 'practiceLoginNeeded') : t(currentLang, 'authSetupNeeded');
+  }
+  if (button) {
+    button.textContent = t(currentLang, authState.authenticated ? 'authSignOut' : 'authSignIn');
+    button.disabled = !authState.authenticated && !authState.loginConfigured;
+    button.classList.toggle('is-connected', authState.authenticated);
+  }
+  updatePracticeAvailability();
+}
+
+function updatePracticeAvailability(messageKey, params) {
+  const button = document.getElementById('generatePractice');
+  const status = document.getElementById('practiceStatus');
+  const canGenerate = authState.authenticated && authState.aiConfigured && !(practiceRound && practiceRound.loading);
+  if (button) button.disabled = !canGenerate;
+  if (!status) return;
+  if (messageKey) status.textContent = t(currentLang, messageKey, params);
+  else if (!authState.loginConfigured) status.textContent = t(currentLang, 'authSetupNeeded');
+  else if (!authState.aiConfigured) status.textContent = t(currentLang, 'practiceSetupNeeded');
+  else if (!authState.authenticated) status.textContent = t(currentLang, 'practiceLoginNeeded');
+  else status.textContent = t(currentLang, 'practiceStatusReady');
+}
+
+function renderPracticeRound() {
+  const container = document.getElementById('generatedExercises');
+  if (!container || !practiceRound || !practiceRound.exercises) return;
+  container.replaceChildren();
+  practiceRound.exercises.forEach((exercise, questionIndex) => {
+    const card = document.createElement('article');
+    card.className = 'exercise-card';
+    card.dataset.question = String(questionIndex);
+    const heading = document.createElement('h3');
+    heading.className = 'exercise-question';
+    heading.textContent = `${questionIndex + 1}. ${exercise.question}`;
+    card.append(heading);
+
+    const options = document.createElement('div');
+    options.className = 'exercise-options';
+    exercise.options.forEach((optionText, optionIndex) => {
+      const option = document.createElement('button');
+      option.type = 'button';
+      option.className = 'exercise-option';
+      option.textContent = optionText;
+      option.addEventListener('click', () => answerPracticeQuestion(card, questionIndex, optionIndex));
+      options.append(option);
+    });
+    card.append(options);
+
+    const hint = document.createElement('details');
+    hint.className = 'exercise-hint';
+    const hintSummary = document.createElement('summary');
+    hintSummary.textContent = t(currentLang, 'practiceHint');
+    const hintText = document.createElement('p');
+    hintText.textContent = exercise.hint;
+    hint.append(hintSummary, hintText);
+    card.append(hint);
+
+    const feedback = document.createElement('div');
+    feedback.className = 'exercise-feedback hidden';
+    feedback.setAttribute('role', 'status');
+    card.append(feedback);
+    container.append(card);
+  });
+}
+
+function answerPracticeQuestion(card, questionIndex, selectedIndex) {
+  if (!practiceRound || practiceRound.answered.has(questionIndex)) return;
+  const exercise = practiceRound.exercises[questionIndex];
+  const isCorrect = selectedIndex === exercise.correctIndex;
+  practiceRound.answered.add(questionIndex);
+  if (isCorrect) practiceRound.correct += 1;
+
+  const options = [...card.querySelectorAll('.exercise-option')];
+  options.forEach((option, index) => {
+    option.disabled = true;
+    if (index === exercise.correctIndex) {
+      option.classList.add('correct');
+      option.setAttribute('aria-label', `${option.textContent}. ${t(currentLang, 'correct')}`);
+    } else if (index === selectedIndex) {
+      option.classList.add('wrong');
+      option.setAttribute('aria-label', `${option.textContent}. ${t(currentLang, 'incorrect')}`);
+    }
+  });
+
+  const feedback = card.querySelector('.exercise-feedback');
+  feedback.className = `exercise-feedback ${isCorrect ? 'is-correct' : 'is-incorrect'}`;
+  feedback.textContent = isCorrect ? t(currentLang, 'practiceCorrect') : t(currentLang, 'practiceWrong');
+  const explanation = document.createElement('details');
+  explanation.className = 'exercise-explanation';
+  const summary = document.createElement('summary');
+  summary.textContent = t(currentLang, 'practiceExplanation');
+  const body = document.createElement('div');
+  body.className = 'exercise-explanation-body';
+  const text = document.createElement('p');
+  text.textContent = exercise.explanation;
+  body.append(text);
+  const list = document.createElement('ol');
+  exercise.steps.forEach((step) => {
+    const item = document.createElement('li');
+    item.textContent = step;
+    list.append(item);
+  });
+  body.append(list);
+  if ('speechSynthesis' in window) {
+    const speak = document.createElement('button');
+    speak.type = 'button';
+    speak.className = 'exercise-speak-btn';
+    speak.textContent = `🔊 ${t(currentLang, 'listen')}`;
+    speak.addEventListener('click', () => {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(`${exercise.explanation}. ${exercise.steps.join('. ')}`);
+      utterance.lang = currentLang === 'pt' ? 'pt-BR' : currentLang === 'fr' ? 'fr-FR' : 'en-US';
+      window.speechSynthesis.speak(utterance);
+    });
+    body.append(speak);
+  }
+  explanation.append(summary, body);
+  feedback.append(explanation);
+  feedback.classList.remove('hidden');
+
+  if (practiceRound.answered.size === practiceRound.exercises.length) {
+    const topicId = practiceRound.topicId;
+    try { localStorage.setItem(`practiceDone_${topicId}`, '1'); } catch (e) { /* ignore */ }
+    awardStars(topicId, 'practice', 15);
+    renderAdventureMap();
+    renderTopicCards();
+    updatePracticeAvailability('practiceRoundDone', { correct: practiceRound.correct });
+  }
+}
+
+async function generatePracticeRound() {
+  const topicId = document.getElementById('practiceTopic').value;
+  const difficulty = document.getElementById('practiceDifficulty').value;
+  const container = document.getElementById('generatedExercises');
+  practiceRound = { topicId, exercises: [], answered: new Set(), correct: 0, loading: true };
+  container.replaceChildren();
+  updatePracticeAvailability('practiceLoading');
+  try {
+    const response = await fetch('/api/exercises', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topicId, language: currentLang, mode: learnerMode, difficulty }),
+    });
+    const result = await response.json();
+    if (!response.ok) {
+      const errors = { sign_in_required: 'practiceLoginNeeded', ai_not_configured: 'practiceSetupNeeded' };
+      throw new Error(errors[result.error] || 'practiceError');
+    }
+    if (!Array.isArray(result.exercises) || result.exercises.length !== 5) throw new Error('practiceError');
+    practiceRound.exercises = result.exercises;
+    practiceRound.loading = false;
+    renderPracticeRound();
+    updatePracticeAvailability('practiceRoundReady');
+  } catch (error) {
+    if (error.message === 'practiceLoginNeeded') authState.authenticated = false;
+    if (error.message === 'practiceSetupNeeded') authState.aiConfigured = false;
+    practiceRound = null;
+    updateAuthUI();
+    updatePracticeAvailability(error.message === 'practiceLoginNeeded' || error.message === 'practiceSetupNeeded' ? error.message : 'practiceError');
+  }
+}
+
+const questRanks = [
+  { points: 0, key: 'rankNewcomer' },
+  { points: 50, key: 'rankCurious' },
+  { points: 120, key: 'rankPatternFinder' },
+  { points: 240, key: 'rankProblemSolver' },
+  { points: 400, key: 'rankMathWizard' },
+];
+
+function readStarPoints() {
+  try {
+    const points = parseInt(localStorage.getItem('mathStarPoints') || '0', 10);
+    return Number.isFinite(points) ? Math.max(0, points) : 0;
+  } catch (e) { return 0; }
+}
+
+function updateQuestStats() {
+  const topics = allTopics();
+  const points = readStarPoints();
+  const explored = topics.filter((topic) => isTopicExplored(topic.id)).length;
+  const pointEl = document.getElementById('starPoints');
+  const exploredEl = document.getElementById('questsCleared');
+  const rankEl = document.getElementById('questRank');
+  const progressLabel = document.getElementById('questProgressLabel');
+  const meter = document.querySelector('.quest-meter');
+  const meterFill = document.getElementById('questMeterFill');
+  const subtitle = document.getElementById('questSubtitle');
+
+  if (pointEl) pointEl.textContent = points.toLocaleString(currentLang);
+  if (exploredEl) exploredEl.textContent = `${explored}/${topics.length}`;
+  const boardProgress = document.getElementById('boardProgress');
+  if (boardProgress) boardProgress.textContent = `${explored} / ${topics.length}`;
+  if (subtitle && explored > 0) subtitle.textContent = t(currentLang, 'questSubtitleProgress', { count: explored });
+
+  let rankIndex = questRanks.length - 1;
+  for (let i = 0; i < questRanks.length; i += 1) {
+    if (points < questRanks[i].points) {
+      rankIndex = Math.max(0, i - 1);
+      break;
+    }
+  }
+  const rank = questRanks[rankIndex];
+  const nextRank = questRanks[rankIndex + 1];
+  if (rankEl) rankEl.textContent = `🏅 ${t(currentLang, rank.key)}`;
+  let percent = 100;
+  if (nextRank) {
+    const span = nextRank.points - rank.points;
+    percent = Math.max(0, Math.min(100, ((points - rank.points) / span) * 100));
+    if (progressLabel) progressLabel.textContent = t(currentLang, 'badgeProgressAt', { points: nextRank.points });
+  } else if (progressLabel) {
+    progressLabel.textContent = t(currentLang, 'badgeProgressMax');
+  }
+  if (meterFill) meterFill.style.width = `${percent}%`;
+  if (meter) meter.setAttribute('aria-valuenow', String(Math.round(percent)));
+}
+
+function awardStars(topicId, kind, amount) {
+  const rewardKey = `${kind}Rewarded_${topicId}`;
+  try {
+    if (localStorage.getItem(rewardKey) === '1') return false;
+    const total = readStarPoints() + amount;
+    localStorage.setItem(rewardKey, '1');
+    localStorage.setItem('mathStarPoints', String(total));
+    updateQuestStats();
+    showRewardToast(kind === 'lesson' ? 'rewardLesson' : kind === 'practice' ? 'rewardPractice' : 'rewardQuiz', amount);
+    return true;
+  } catch (e) { return false; }
+}
+
+let rewardToastTimer = null;
+function showRewardToast(key, points) {
+  const toast = document.getElementById('rewardToast');
+  if (!toast) return;
+  toast.textContent = t(currentLang, key, { points });
+  toast.classList.remove('hidden');
+  if (rewardToastTimer) window.clearTimeout(rewardToastTimer);
+  rewardToastTimer = window.setTimeout(() => toast.classList.add('hidden'), 3000);
+}
+
 function markLessonDone(id) {
   try { localStorage.setItem('lessonDone_' + id, '1'); } catch (e) { /* ignore */ }
+  awardStars(id, 'lesson', 20);
+  renderAdventureMap();
   renderTopicCards();
 }
 
@@ -1203,10 +2361,29 @@ function saveQuizScore(id, correct, total) {
   if (!total) return;
   const pct = Math.round((correct / total) * 100);
   try {
-    const prev = parseInt(localStorage.getItem('quizPct_' + id), 10) || 0;
-    if (pct > prev) localStorage.setItem('quizPct_' + id, String(pct));
+    const previous = localStorage.getItem('quizPct_' + id);
+    const prev = previous === null ? null : parseInt(previous, 10);
+    if (prev === null || !Number.isFinite(prev) || pct > prev) localStorage.setItem('quizPct_' + id, String(pct));
   } catch (e) { /* ignore */ }
+  awardStars(id, 'quiz', 10);
+  renderAdventureMap();
   renderTopicCards();
+}
+
+function chooseSurpriseTopic() {
+  const searchBox = document.getElementById('topicSearch');
+  const query = normalizeSearchText(searchBox ? searchBox.value.trim() : '');
+  const matching = allTopics().filter((topic) => {
+    if (currentLevel !== 'all' && topic.level !== currentLevel) return false;
+    if (!query) return true;
+    const searchable = [topic.id, topic.level, ...Object.values(topic.title), ...Object.values(topic.description), ...topic.steps.map((step) => localizedContent(step.title))].join(' ');
+    return normalizeSearchText(searchable).includes(query);
+  });
+  const levelMatches = allTopics().filter((topic) => currentLevel === 'all' || topic.level === currentLevel);
+  const choices = matching.length ? matching : (levelMatches.length ? levelMatches : allTopics());
+  if (!choices.length) return;
+  const topic = choices[Math.floor(Math.random() * choices.length)];
+  showTopicDetail(topic.id);
 }
 
 // ---------- Lesson player (video-style walkthrough) ----------
@@ -1239,14 +2416,14 @@ function renderLessonSlide() {
   if (!topic) return;
   const step = topic.steps[lesson.index];
   const stage = document.getElementById('lessonStage');
-  let html = `<div class="lesson-slide"><div class="lesson-step-num">${lesson.index + 1}</div><h3>${step.title}</h3>`;
-  if (step.body) html += `<p class="lesson-body">${inlineMath(step.body)}</p>`;
+  let html = `<div class="lesson-slide"><div class="lesson-step-num">${lesson.index + 1}</div><h3>${localizedContent(step.title)}</h3>`;
+  if (step.body) html += `<p class="lesson-body">${inlineMath(localizedContent(step.body))}</p>`;
   if (step.formulas && step.formulas.length) html += step.formulas.map((f) => `<div class="formula-box">${renderFormula(f)}</div>`).join('');
   if (step.examples && step.examples.length) {
     html += step.examples.map((ex) => `
       <div class="example-box">
-        <div class="example-title">${ex.title}</div>
-        <div class="example-body">${ex.steps ? ex.steps.map((s) => `<p>${inlineMath(s)}</p>`).join('') : ''}</div>
+        <div class="example-title">${localizedContent(ex.title)}</div>
+        <div class="example-body">${ex.steps ? ex.steps.map((s) => `<p class="${isFinalAnswer(localizedContent(s)) ? 'final-answer' : ''}">${inlineMath(localizedContent(s))}</p>`).join('') : ''}</div>
       </div>`).join('');
   }
   html += '</div>';
@@ -1362,7 +2539,20 @@ function answerQuiz(btn, topicId) {
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  try {
+    const savedLang = localStorage.getItem('language');
+    if (savedLang && UIStrings[savedLang]) currentLang = savedLang;
+  } catch (e) { /* ignore */ }
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLang);
+  });
   applyI18n();
+
+  window.addEventListener('math-auth-state', (event) => {
+    authState = { ...authState, ...(event.detail || {}) };
+    updateAuthUI();
+  });
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
@@ -1370,12 +2560,38 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.level-btn').forEach((btn) => {
     btn.addEventListener('click', () => setLevel(btn.dataset.level));
   });
+  document.getElementById('topicSearch').addEventListener('input', renderTopicCards);
+  document.getElementById('generatePractice').addEventListener('click', generatePracticeRound);
+  document.querySelectorAll('.learner-mode-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      learnerMode = button.dataset.mode;
+      document.querySelectorAll('.learner-mode-btn').forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      });
+    });
+  });
+  document.getElementById('practiceTopic').addEventListener('change', () => {
+    document.getElementById('generatedExercises').replaceChildren();
+    practiceRound = null;
+    updatePracticeAvailability();
+  });
+  document.getElementById('surpriseBtn').addEventListener('click', chooseSurpriseTopic);
   document.getElementById('backBtn').addEventListener('click', () => {
     const v = document.getElementById('topicVideo');
     if (v) v.pause();
+    stopSpeech(false);
     document.getElementById('topicDetail').classList.add('hidden');
+    document.getElementById('homeHero').classList.remove('hidden');
+    document.getElementById('levelNav').classList.remove('hidden');
+    document.getElementById('videoLibrary').classList.remove('hidden');
+    document.getElementById('lessonBrowser').classList.remove('hidden');
+    currentTopic = null;
     document.getElementById('topicList').classList.remove('hidden');
-    document.getElementById('emptyState').classList.add('hidden');
+    renderTopicCards();
+    renderVideoCards();
+    renderContinueCard();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
@@ -1401,4 +2617,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   renderTopicCards();
+  renderVideoCards();
+  renderContinueCard();
+  renderAdventureMap();
+  renderPracticeTopics();
+  updateAuthUI();
 });
