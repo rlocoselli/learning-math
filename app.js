@@ -17,6 +17,7 @@ const UIStrings = {
     heroSubtitle: 'Pick a short quest. Watch, learn, then try a question. No pressure, just progress.',
     browseLessons: 'Choose a quest ↓',
     exploreVideos: 'Watch a video →',
+    chessQuickLink: '♟ Play chess →',
     videoEyebrow: 'New video lessons',
     videoLibraryTitle: 'See the idea. Then try it.',
     videoLibrarySubtitle: 'Watch a narrated, step-by-step lesson with a gentle piano soundtrack, then try the practice.',
@@ -153,6 +154,7 @@ const UIStrings = {
     heroSubtitle: 'Escolha uma missão curta. Assista, aprenda e responda. Sem pressão, só progresso.',
     browseLessons: 'Escolher missão ↓',
     exploreVideos: 'Assistir a um vídeo →',
+    chessQuickLink: '♟ Jogar xadrez →',
     videoEyebrow: 'Novas videoaulas',
     videoLibraryTitle: 'Veja a ideia. Depois pratique.',
     videoLibrarySubtitle: 'Assista a uma aula narrada, passo a passo, com piano suave; depois, pratique.',
@@ -289,6 +291,7 @@ const UIStrings = {
     heroSubtitle: 'Choisissez une petite mission. Regardez, apprenez, puis répondez. Sans pression, à votre rythme.',
     browseLessons: 'Choisir une mission ↓',
     exploreVideos: 'Voir une vidéo →',
+    chessQuickLink: '♟ Jouer aux échecs →',
     videoEyebrow: 'Nouvelles leçons vidéo',
     videoLibraryTitle: 'Voyez l’idée, puis essayez.',
     videoLibrarySubtitle: 'Suivez une leçon expliquée pas à pas, avec un piano doux, puis entraînez-vous.',
@@ -1856,6 +1859,7 @@ function showTopicDetail(topicId) {
   document.getElementById('continueCard').classList.add('hidden');
   document.getElementById('levelNav').classList.add('hidden');
   document.getElementById('videoLibrary').classList.add('hidden');
+  document.getElementById('chessHub').classList.add('hidden');
   document.getElementById('lessonBrowser').classList.add('hidden');
   document.getElementById('topicList').classList.add('hidden');
   document.getElementById('emptyState').classList.add('hidden');
@@ -2693,6 +2697,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('homeHero').classList.remove('hidden');
     document.getElementById('levelNav').classList.remove('hidden');
     document.getElementById('videoLibrary').classList.remove('hidden');
+    document.getElementById('chessHub').classList.remove('hidden');
     document.getElementById('lessonBrowser').classList.remove('hidden');
     currentTopic = null;
     document.getElementById('topicList').classList.remove('hidden');
