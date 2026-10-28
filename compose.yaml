@@ -15,3 +15,8 @@ services:
       AI_API_BASE_URL: ${AI_API_BASE_URL:-https://api.openai.com/v1}
       AI_API_KEY: ${AI_API_KEY:-}
       AI_MODEL: ${AI_MODEL:-}
+      PROGRESS_DB: /app/data/progress.sqlite3
+    volumes:
+      - math_progress:/app/data
+volumes:
+  math_progress:

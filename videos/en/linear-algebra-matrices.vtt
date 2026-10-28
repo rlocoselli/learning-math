@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:08.698
+A matrix is a rectangular table of numbers.
+
+00:00:13.650 --> 00:00:21.113
+You can add matrices entry by entry when their sizes match. To multiply two matrices,
+
+00:00:21.113 --> 00:00:28.050
+the number of columns in the first must equal the number of rows in the second.
+
+00:00:30.850 --> 00:00:38.242
+For a two by two matrix, the determinant is a times d minus b times c.

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:08.482
+Une matrice est un tableau rectangulaire de nombres.
+
+00:00:13.650 --> 00:00:19.932
+Additionnez les éléments qui occupent la même position si les matrices ont la même
+
+00:00:19.932 --> 00:00:26.061
+taille. Pour multiplier deux matrices, le nombre de colonnes de la première doit
+
+00:00:26.061 --> 00:00:29.202
+égaler le nombre de lignes de la seconde.
+
+00:00:32.002 --> 00:00:38.746
+Pour une matrice deux par deux, le déterminant vaut a fois d moins b fois c.

@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:11.650
+A derivada mede a rapidez com que uma função muda em um ponto.
+
+00:00:14.450 --> 00:00:23.546
+Para uma função dentro de outra, use a regra da cadeia: derive a parte de fora,
+
+00:00:23.546 --> 00:00:32.066
+mantenha a parte de dentro e multiplique pela derivada da parte de dentro.
+
+00:00:34.866 --> 00:00:45.642
+Para seno de x ao quadrado, o resultado é cosseno de x ao quadrado vezes dois x.

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:11.014
+Une limite décrit la valeur dont une fonction se rapproche lorsque x approche un
+
+00:00:11.014 --> 00:00:11.506
+point.
+
+00:00:14.306 --> 00:00:21.302
+La fonction n’a même pas besoin d’être définie en ce point. Par exemple, simplifier x
+
+00:00:21.302 --> 00:00:28.298
+au carré moins neuf sur x moins trois donne x plus trois, tant que x n’est pas trois.
+
+00:00:31.098 --> 00:00:35.706
+Quand x approche trois, le résultat approche six.

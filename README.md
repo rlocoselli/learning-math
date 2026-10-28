@@ -10,13 +10,13 @@ Open `/` or `index.html` for Math, `chess.html` for Chess, and `brain.html` for 
 - **Geometry lessons** that explain shapes, perimeter as a fence, area as covered space, circles, and triangle angles in small steps
 - **Adventure map** with themed learning worlds, cleared quests, a daily side quest with bonus stars, the next recommended stop, and badges; all topics remain open to explore
 - **Chess Quest** with a touch-friendly legal-move board, beginner/intermediate/advanced computer play, keyboard navigation, read-aloud rule explanations, four guided opening lines, and saved chess stars
-- **Brain Games** with short number, pattern, memory, and focus rounds, friendly instructions, answer-by-answer explanations, optional read-aloud tips, and saved progress
+- **Brain Games** with seven short number, pattern, memory, focus, symbol, rule-switching, and logic rounds; a daily mixed check with a timer, streak, and playful score; friendly explanations, read-aloud tips, and saved progress
 - **Separate learning areas** for Math, Chess, and Brain IQ, with a shared responsive menu, page-specific introductions, and consistent language and theme controls
 - **AI practice rounds** with five multiple-choice questions, selectable learner style and difficulty, hints, worked explanations, and optional spoken answers
 - **AUDELA OIDC sign-in** using server-side authorization-code exchange; the client secret and AI key stay on the server
 - **Narrated MP4 explainer videos** with an original piano accompaniment, paced step-by-step explanations, searchable topics, KaTeX formulas, dark mode, and local progress
 
-Progress stars and lesson completion are stored in the learner's browser. AUDELA sign-in is used to protect AI exercise generation; the app does not send the account name or email to the AI provider.
+Progress remains available in the learner's browser and, when signed in, is merged into a SQLite account record so it follows the learner across devices. AUDELA sign-in also protects AI exercise generation; the app does not send the account name or email to the AI provider. AI answer keys receive an independent second model check; rounds with disagreeing answers are rejected, but automated checks cannot guarantee every mathematical explanation is correct.
 
 ## Run locally
 
@@ -48,7 +48,7 @@ Register the exact deployed callback URL in AUDELA Deploy. The app discovers the
 
 AUDELA Deploy generates per-app OIDC client IDs and secrets. The provider accepts those app credentials and checks the redirect URL against that app's registered OIDC callback list. See `docs/AUDELA_OIDC.md` in the AUDELA Flask project for provider details.
 
-The in-memory login session is intended for a single app process/container. Keep one replica unless session storage is moved to a shared store. AUDELA and AI requests fail closed when credentials or services are unavailable; the static lessons remain available.
+The in-memory login session is intended for a single app process/container. Keep one replica unless session storage is moved to a shared store. Account progress is stored in the `math_progress` Compose volume (or `PROGRESS_DB` path). Back up that volume to retain progress across deployment moves. AUDELA and AI requests fail closed when credentials or services are unavailable; the static lessons remain available.
 
 ## Regenerate the videos
 
@@ -56,6 +56,7 @@ The in-memory login session is intended for a single app process/container. Keep
 python3 generate_videos.py                        # all languages and topics
 python3 generate_videos.py pt                     # Portuguese only
 python3 generate_videos.py fr quadratic-equations # one language and topic
+python3 captions.py                             # refresh captions from cached narration
 ```
 
 Requires Python 3, [Pillow](https://pillow.readthedocs.io/), [gTTS](https://gtts.readthedocs.io/), NumPy, and [ffmpeg](https://ffmpeg.org/). Narration generation uses Google text-to-speech and requires internet access. Generating the original piano track also needs libfluidsynth and a General MIDI SoundFont; set `MATH_SOUNDFONT` if it is not at `/usr/share/sounds/sf2/TimGM6mb.sf2`. Speech clips are cached in `.video-cache/` so reruns can reuse them.
@@ -66,4 +67,5 @@ Requires Python 3, [Pillow](https://pillow.readthedocs.io/), [gTTS](https://gtts
 - `vendor/chess.js/` — bundled chess.js move rules and its BSD-2-Clause license, so chess works without a separate service
 - `server.py` — AUDELA OIDC callback/session and authenticated AI exercise endpoint
 - `Dockerfile`, `compose.yaml` — AUDELA Deploy container configuration
-- `generate_videos.py`, `video_scenes.py`, `videos/` — generated MP4 lessons
+- `generate_videos.py`, `captions.py`, `video_scenes.py`, `videos/` — generated MP4 lessons and synchronized WebVTT captions
+- `test_server.py` — focused public asset and progress API checks (`python3 -m unittest test_server.py`)

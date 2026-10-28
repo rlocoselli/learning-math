@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .video-cache/
 .DS_Store
+data/

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:11.242
+A limit describes the value a function approaches when x gets close to a point.
+
+00:00:14.042 --> 00:00:21.294
+The function does not even need to have a value at that point. For example,
+
+00:00:21.294 --> 00:00:29.417
+simplifying x squared minus nine over x minus three gives x plus three, as long as x
+
+00:00:29.417 --> 00:00:30.674
+is not three.
+
+00:00:33.474 --> 00:00:38.682
+As x approaches three, the result approaches six.

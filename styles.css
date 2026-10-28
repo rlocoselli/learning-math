@@ -1297,6 +1297,17 @@ body.no-scroll { overflow: hidden; }
 [data-theme="dark"] .brain-lobby-note { border-color: #47405f; background: #211e32bd; }
 .brain-note-icon { display: grid; place-items: center; flex: 0 0 31px; height: 31px; border-radius: 10px; background: #fff1c9; font-size: 1rem; }
 .brain-lobby-note p { margin: 0; color: var(--text-muted); font-size: .7rem; line-height: 1.5; }
+.brain-daily-banner { display: flex; align-items: center; gap: .9rem; margin: .35rem 0 .8rem; border: 1px solid #d9c5f2; border-radius: 19px; padding: .85rem 1rem; background: linear-gradient(105deg, #f4eaff, #fff9e8 75%); box-shadow: 0 8px 22px #7350ac12; }
+.brain-daily-icon { display: grid; place-items: center; flex: 0 0 54px; height: 54px; border-radius: 16px; background: #fff; color: #7955b5; font-size: 1.7rem; box-shadow: 0 5px 13px #7456a626; }
+.brain-daily-banner > div:nth-child(2) { flex: 1; min-width: 0; }
+.brain-daily-banner .brain-game-skill { margin: 0; color: #7254ad; }
+.brain-daily-banner h3 { margin: .12rem 0; color: var(--text); font: 800 1rem var(--font-display); }
+.brain-daily-banner p { margin: .12rem 0 .28rem; color: var(--text-muted); font-size: .7rem; line-height: 1.45; }
+.brain-daily-banner small { color: #71558c; font-size: .62rem; font-weight: 850; }
+.brain-daily-banner .brain-main-action { flex: 0 0 auto; margin: 0; }
+[data-theme="dark"] .brain-daily-banner { border-color: #5b4770; background: linear-gradient(105deg, #30223f, #343023); }
+[data-theme="dark"] .brain-daily-icon { background: #423653; color: #ead3ff; }
+[data-theme="dark"] .brain-daily-banner small { color: #d9bdf1; }
 .brain-game-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .72rem; }
 .brain-game-card { position: relative; display: flex; min-width: 0; min-height: 220px; flex-direction: column; align-items: flex-start; border: 1px solid #d9e8dd; border-radius: 19px; padding: .85rem; background: linear-gradient(150deg, #fff, #f1fff5); color: var(--text); text-align: left; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .brain-game-card::after { position: absolute; right: -11px; bottom: 25px; width: 21px; height: 21px; border: 1px solid #e1daf7; border-radius: 50%; background: #fff; color: #a28ee6; content: '✦'; display: grid; place-items: center; font-size: .58rem; }
@@ -1337,6 +1348,8 @@ body.no-scroll { overflow: hidden; }
 .brain-stage-icon.peach { background: #ffebe0; }
 .brain-stage-icon.blue { background: #eaf3ff; }
 .brain-score-chip { margin-left: auto; border: 1px solid #f0d997; border-radius: 999px; padding: .4rem .62rem; background: #fff7d8; color: #805923; font-size: .69rem; font-weight: 850; white-space: nowrap; }
+.brain-timer { margin-left: auto; color: var(--text-muted); font-size: .72rem; font-weight: 850; white-space: nowrap; }
+.brain-timer + .brain-score-chip { margin-left: 0; }
 [data-theme="dark"] .brain-score-chip { border-color: #665431; background: #332d1f; color: #ffdf9d; }
 .brain-coach-banner { display: flex; align-items: center; gap: .6rem; margin-bottom: .68rem; border: 1px solid #d9d3f3; border-radius: 15px; padding: .58rem .72rem; background: linear-gradient(100deg, #f6f3ff, #fff); }
 [data-theme="dark"] .brain-coach-banner { border-color: #48405f; background: linear-gradient(100deg, #28223b, #222135); }
@@ -1416,6 +1429,12 @@ body.no-scroll { overflow: hidden; }
 .brain-results .section-eyebrow { margin: .65rem 0 .1rem; }
 .brain-results h3 { margin: 0; color: var(--text); font: 800 1.18rem var(--font-display); }
 .brain-result-score { margin-top: .4rem; color: #a66c26; font: 800 .92rem var(--font-display); }
+.brain-mind-meter { display: grid; justify-items: center; gap: .25rem; margin: .55rem 0; border: 1px solid #e1d3f2; border-radius: 15px; padding: .65rem .85rem; background: #f7f0ff; }
+.brain-mind-meter strong { color: #6748a1; font: 800 .9rem var(--font-display); }
+.brain-mind-meter small { max-width: 390px; color: var(--text-muted); font-size: .64rem; line-height: 1.4; }
+.brain-mind-meter span { color: #3f8a55; font-size: .67rem; font-weight: 850; }
+[data-theme="dark"] .brain-mind-meter { border-color: #58436f; background: #30233d; }
+[data-theme="dark"] .brain-mind-meter strong { color: #ddc2ff; }
 .brain-results > p { margin: .3rem 0; color: var(--text-muted); font-size: .72rem; }
 .brain-new-best { margin-top: .34rem; border-radius: 999px; padding: .32rem .6rem; background: #eaf9ed; color: #357c4b; font-size: .68rem; font-weight: 850; }
 .brain-result-growth { display: flex; align-items: center; gap: .55rem; max-width: 470px; margin: .72rem 0; border: 1px solid #dbe8d8; border-radius: 14px; padding: .55rem .7rem; background: #f4fff2; text-align: left; }
@@ -1431,6 +1450,11 @@ body.no-scroll { overflow: hidden; }
   .brain-game-card:nth-child(3)::after { display: grid; }
 }
 @media (max-width: 640px) {
+  .brain-daily-banner { align-items: flex-start; flex-wrap: wrap; gap: .6rem; padding: .72rem; }
+  .brain-daily-icon { flex-basis: 42px; height: 42px; font-size: 1.3rem; }
+  .brain-daily-banner .brain-main-action { width: 100%; }
+  .brain-stage-heading { flex-wrap: wrap; }
+  .brain-timer { margin-left: 0; }
   .brain-games-hub { margin: 1.8rem 0 2rem; }
   .brain-games-app { border-radius: 21px; padding: .8rem; }
   .brain-heading { gap: .5rem; }

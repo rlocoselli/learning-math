@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:10.282
+Une dérivée mesure la vitesse de variation d’une fonction en un point.
+
+00:00:13.650 --> 00:00:20.540
+Pour une fonction imbriquée, utilisez la règle de la chaîne : dérivez la fonction
+
+00:00:20.540 --> 00:00:27.005
+extérieure, gardez la fonction intérieure, puis multipliez par la dérivée de
+
+00:00:27.005 --> 00:00:28.026
+l’intérieur.
+
+00:00:30.826 --> 00:00:38.434
+Pour le sinus de x au carré, on obtient le cosinus de x au carré fois deux x.

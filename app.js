@@ -1728,7 +1728,7 @@ function renderVideoCards() {
             <span class="video-art-equation">${videoConcepts[topic.id] || 'f(x)'}</span>
             <span class="video-art-grid"></span>
           </div>
-          <video class="video-preview" preload="none" playsinline data-src="videos/${currentLang}/${topic.id}.mp4" aria-label="${title}"></video>
+          <video class="video-preview" preload="none" playsinline data-src="videos/${currentLang}/${topic.id}.mp4" aria-label="${title}"><track kind="captions" src="videos/${currentLang}/${topic.id}.vtt" srclang="${currentLang}" label="${currentLang}" default></video>
           <button class="video-preview-trigger" type="button" aria-label="${t(currentLang, 'previewPrefix')} ${title}">
             <span class="video-play-mark" aria-hidden="true">▶</span>
             <span>${t(currentLang, 'previewVideo')}</span>
@@ -1811,6 +1811,12 @@ function showTopicDetail(topicId) {
   if (videoSection && videoEl) {
     videoEl.pause();
     videoEl.src = 'videos/' + currentLang + '/' + topic.id + '.mp4';
+    const captions = document.getElementById('topicCaptions');
+    if (captions) {
+      captions.src = 'videos/' + currentLang + '/' + topic.id + '.vtt';
+      captions.srclang = currentLang;
+      captions.label = { en: 'English', pt: 'Português', fr: 'Français' }[currentLang];
+    }
     videoEl.load();
     videoSection.classList.remove('hidden');
   }
@@ -2039,6 +2045,90 @@ function setLevel(level) {
 }
 
 // ---------- Progress helpers ----------
+let progressSyncTimer = null;
+let progressSyncBusy = false;
+let progressSyncPending = false;
+
+function localProgressSnapshot() {
+  let dailyRewards = [];
+  try { dailyRewards = JSON.parse(localStorage.getItem('mathDailyRewards') || '[]'); } catch (error) { /* Use the current day below. */ }
+  if (!Array.isArray(dailyRewards)) dailyRewards = [];
+  const data = { _points: readStarPoints(), _daily: localStorage.getItem('dailyQuestDone') || '', _dailyRewards: dailyRewards };
+  allTopics().forEach((topic) => {
+    const id = topic.id;
+    data[id] = {
+      lesson: isLessonDone(id), practice: isPracticeDone(id), quiz: getQuizPercent(id) || 0,
+      lessonRewarded: localStorage.getItem(`lessonRewarded_${id}`) === '1',
+      practiceRewarded: localStorage.getItem(`practiceRewarded_${id}`) === '1',
+      quizRewarded: localStorage.getItem(`quizRewarded_${id}`) === '1',
+    };
+  });
+  return data;
+}
+
+function applyAccountProgress(progress) {
+  allTopics().forEach((topic) => {
+    const item = progress[topic.id];
+    if (!item) return;
+    if (item.lesson || isLessonDone(topic.id)) localStorage.setItem(`lessonDone_${topic.id}`, '1');
+    if (item.practice || isPracticeDone(topic.id)) localStorage.setItem(`practiceDone_${topic.id}`, '1');
+    const bestQuiz = Math.max(item.quiz || 0, getQuizPercent(topic.id) || 0);
+    if (bestQuiz) localStorage.setItem(`quizPct_${topic.id}`, String(bestQuiz));
+    for (const kind of ['lesson', 'practice', 'quiz']) {
+      if (item[`${kind}Rewarded`] || localStorage.getItem(`${kind}Rewarded_${topic.id}`) === '1') localStorage.setItem(`${kind}Rewarded_${topic.id}`, '1');
+    }
+  });
+  localStorage.setItem('mathStarPoints', String(Math.max(readStarPoints(), progress._points || 0)));
+  const localDaily = localStorage.getItem('dailyQuestDone') || '';
+  if (progress._daily || localDaily) localStorage.setItem('dailyQuestDone', [progress._daily || '', localDaily].sort().pop());
+  if (Array.isArray(progress._dailyRewards)) {
+    let existing = [];
+    try { existing = JSON.parse(localStorage.getItem('mathDailyRewards') || '[]'); } catch (error) { /* Use the account list. */ }
+    localStorage.setItem('mathDailyRewards', JSON.stringify([...new Set([...progress._dailyRewards, ...(Array.isArray(existing) ? existing : [])])].sort()));
+  }
+  renderAdventureMap();
+  renderTopicCards();
+  renderContinueCard();
+}
+
+async function syncAccountProgress() {
+  if (!authState.authenticated) return;
+  if (progressSyncBusy) { progressSyncPending = true; return; }
+  progressSyncBusy = true;
+  try {
+    const response = await fetch('/api/progress', {
+      method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(localProgressSnapshot()),
+    });
+    if (!response.ok) throw new Error('Progress sync failed');
+    const result = await response.json();
+    applyAccountProgress(result.progress);
+  } catch (error) {
+    // Keep browser progress available while the account service is unavailable.
+  } finally {
+    progressSyncBusy = false;
+    if (progressSyncPending) {
+      progressSyncPending = false;
+      scheduleProgressSync();
+    }
+  }
+}
+
+function scheduleProgressSync() {
+  if (!authState.authenticated) return;
+  clearTimeout(progressSyncTimer);
+  progressSyncTimer = setTimeout(syncAccountProgress, 250);
+}
+
+function clearLocalMathProgress() {
+  for (const topic of allTopics()) {
+    for (const key of [`lessonDone_${topic.id}`, `practiceDone_${topic.id}`, `quizPct_${topic.id}`, `lessonRewarded_${topic.id}`, `practiceRewarded_${topic.id}`, `quizRewarded_${topic.id}`]) localStorage.removeItem(key);
+  }
+  localStorage.removeItem('mathStarPoints');
+  localStorage.removeItem('dailyQuestDone');
+  localStorage.removeItem('mathDailyRewards');
+}
+
 function getQuizPercent(id) {
   try {
     const v = localStorage.getItem('quizPct_' + id);
@@ -2076,14 +2166,25 @@ function dailyQuestTopic() {
 function isDailyQuestDone(topicId) {
   const topic = dailyQuestTopic();
   if (!topic || (topicId && topic.id !== topicId)) return false;
-  try { return localStorage.getItem('dailyQuestDone') === `${todayKey()}_${topic.id}`; } catch (e) { return false; }
+  try {
+    const key = `${todayKey()}_${topic.id}`;
+    if (localStorage.getItem('dailyQuestDone') === key) return true;
+    const history = JSON.parse(localStorage.getItem('mathDailyRewards') || '[]');
+    return Array.isArray(history) && history.includes(key);
+  } catch (e) { return false; }
 }
 
 function completeDailyQuest(topicId) {
   const topic = dailyQuestTopic();
   if (!topic || topic.id !== topicId || isDailyQuestDone(topicId)) return false;
   try {
-    localStorage.setItem('dailyQuestDone', `${todayKey()}_${topic.id}`);
+    const reward = `${todayKey()}_${topic.id}`;
+    localStorage.setItem('dailyQuestDone', reward);
+    let history = [];
+    try { history = JSON.parse(localStorage.getItem('mathDailyRewards') || '[]'); } catch (error) { /* Start a new history. */ }
+    if (!Array.isArray(history)) history = [];
+    if (!history.includes(reward)) history.push(reward);
+    localStorage.setItem('mathDailyRewards', JSON.stringify(history));
     return true;
   } catch (e) { return false; }
 }
@@ -2293,6 +2394,7 @@ function answerPracticeQuestion(card, questionIndex, selectedIndex) {
     const topicId = practiceRound.topicId;
     try { localStorage.setItem(`practiceDone_${topicId}`, '1'); } catch (e) { /* ignore */ }
     awardStars(topicId, 'practice', 15);
+    scheduleProgressSync();
     renderAdventureMap();
     renderTopicCards();
     updatePracticeAvailability('practiceRoundDone', { correct: practiceRound.correct });
@@ -2470,6 +2572,7 @@ function celebrateReward() {
 function markLessonDone(id) {
   try { localStorage.setItem('lessonDone_' + id, '1'); } catch (e) { /* ignore */ }
   awardStars(id, 'lesson', 20);
+  scheduleProgressSync();
   renderAdventureMap();
   renderTopicCards();
 }
@@ -2483,6 +2586,7 @@ function saveQuizScore(id, correct, total) {
     if (prev === null || !Number.isFinite(prev) || pct > prev) localStorage.setItem('quizPct_' + id, String(pct));
   } catch (e) { /* ignore */ }
   awardStars(id, 'quiz', 10);
+  scheduleProgressSync();
   renderAdventureMap();
   renderTopicCards();
 }
@@ -2504,7 +2608,7 @@ function chooseSurpriseTopic() {
 }
 
 // ---------- Lesson player (video-style walkthrough) ----------
-const lesson = { topicId: null, index: 0, playing: false, timer: null };
+const lesson = { topicId: null, index: 0, playing: false, timer: null, returnFocus: null };
 
 function lessonTopic() {
   return [...beginnerTopics, ...intermediateTopics, ...advancedTopics].find((t) => t.id === lesson.topicId);
@@ -2515,10 +2619,12 @@ function openLesson(topicId) {
   if (!topic || !topic.steps.length) return;
   lesson.topicId = topicId;
   lesson.index = 0;
+  lesson.returnFocus = document.activeElement;
   document.getElementById('lessonTitle').textContent = topic.title[currentLang] || topic.title.en;
   document.getElementById('lessonPlayer').classList.remove('hidden');
   document.body.classList.add('no-scroll');
   renderLessonSlide();
+  document.getElementById('lessonClose').focus();
   playLesson();
 }
 
@@ -2526,6 +2632,7 @@ function closeLesson() {
   pauseLesson();
   document.getElementById('lessonPlayer').classList.add('hidden');
   document.body.classList.remove('no-scroll');
+  if (lesson.returnFocus && lesson.returnFocus.isConnected) lesson.returnFocus.focus();
 }
 
 function renderLessonSlide() {
@@ -2669,6 +2776,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('math-auth-state', (event) => {
     authState = { ...authState, ...(event.detail || {}) };
     updateAuthUI();
+    if (authState.authenticated && authState.accountId) {
+      try {
+        const previous = localStorage.getItem('mathProgressAccount');
+        if (previous && previous !== authState.accountId) clearLocalMathProgress();
+        localStorage.setItem('mathProgressAccount', authState.accountId);
+        syncAccountProgress();
+      } catch (error) { /* Browser progress still works without storage. */ }
+    }
   });
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
@@ -2726,10 +2841,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('lessonNext').addEventListener('click', nextSlide);
   document.addEventListener('keydown', (e) => {
     if (document.getElementById('lessonPlayer').classList.contains('hidden')) return;
+    if (e.key === 'Tab') {
+      const controls = [...document.querySelectorAll('#lessonPlayer button:not(:disabled)')];
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      return;
+    }
     if (e.key === 'Escape') closeLesson();
     else if (e.key === 'ArrowRight') nextSlide();
     else if (e.key === 'ArrowLeft') prevSlide();
-    else if (e.key === ' ') { e.preventDefault(); if (lesson.playing) pauseLesson(); else playLesson(); }
+    else if (e.key === ' ' && e.target.tagName !== 'BUTTON') { e.preventDefault(); if (lesson.playing) pauseLesson(); else playLesson(); }
   });
 
   const themeToggle = document.getElementById('themeToggle');

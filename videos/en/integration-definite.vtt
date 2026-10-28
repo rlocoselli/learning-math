@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:11.827
+A definite integral adds up tiny pieces to find the signed area under a curve between
+
+00:00:11.827 --> 00:00:13.042
+two endpoints.
+
+00:00:15.842 --> 00:00:23.695
+First find an antiderivative, then evaluate it at the upper endpoint and subtract its
+
+00:00:23.695 --> 00:00:26.282
+value at the lower endpoint.
+
+00:00:29.082 --> 00:00:35.202
+For the integral of two x from zero to three, the area is nine.

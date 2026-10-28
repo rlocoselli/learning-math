@@ -189,7 +189,7 @@
         <figure class="figure hidden" id="topicFigure"></figure>
         <div class="video-section hidden" id="videoSection">
           <h3 class="video-title" data-i18n="watchVideo">🎬 Watch the video lesson</h3>
-          <video class="topic-video" id="topicVideo" controls playsinline preload="metadata"></video>
+          <video class="topic-video" id="topicVideo" controls playsinline preload="metadata"><track id="topicCaptions" kind="captions" srclang="en" label="English" default /></video>
         </div>
         <section class="voice-explanation" aria-labelledby="voiceExplanationTitle">
           <div class="voice-copy">
@@ -227,7 +227,7 @@
     <p data-i18n="footer">Math, one clear step at a time.</p>
   </footer>
 
-  <div id="lessonPlayer" class="lesson-player hidden" role="dialog" aria-modal="true">
+  <div id="lessonPlayer" class="lesson-player hidden" role="dialog" aria-modal="true" aria-labelledby="lessonTitle">
     <div class="lesson-backdrop" id="lessonBackdrop"></div>
     <div class="lesson-modal">
       <div class="lesson-topbar">

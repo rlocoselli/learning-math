@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:13.701
+Um limite descreve o valor ao qual uma função se aproxima quando x chega perto de um
+
+00:00:13.701 --> 00:00:14.362
+ponto.
+
+00:00:17.162 --> 00:00:26.680
+A função nem precisa estar definida nesse ponto. Por exemplo, simplificar x ao
+
+00:00:26.680 --> 00:00:36.808
+quadrado menos nove sobre x menos três resulta em x mais três, desde que x não seja
+
+00:00:36.808 --> 00:00:37.418
+três.
+
+00:00:40.218 --> 00:00:48.666
+Quando x se aproxima de três, o resultado se aproxima de seis.

@@ -7,19 +7,24 @@ import hashlib
 import hmac
 import json
 import os
+import re
 import secrets
+import sqlite3
 import threading
 import time
 from collections import defaultdict, deque
+from contextlib import closing
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode, urljoin, urlsplit
+from urllib.parse import unquote, urlencode, urljoin, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 
 ROOT = Path(__file__).resolve().parent
+PROGRESS_DB = Path(os.environ.get("PROGRESS_DB", str(ROOT / "data" / "progress.sqlite3")))
+PUBLIC_FILES = {"/", "/index.html", "/chess.html", "/brain.html", "/styles.css", "/app.js", "/site-shell.js", "/auth.js", "/chess-game.js", "/brain-games.js", "/vendor/chess.js/chess.js"}
 ISSUER = os.environ.get("AUDELA_OIDC_ISSUER", "https://www.audeladedonnees.fr").rstrip("/")
 CLIENT_ID = os.environ.get("AUDELA_OIDC_CLIENT_ID", "").strip()
 CLIENT_SECRET = os.environ.get("AUDELA_OIDC_CLIENT_SECRET", "").strip()
@@ -74,6 +79,73 @@ _rate_lock = threading.Lock()
 _oidc_metadata: dict | None = None
 _oidc_metadata_expires = 0.0
 _metadata_lock = threading.Lock()
+_progress_lock = threading.Lock()
+
+
+def _public_path(path: str) -> bool:
+    if path in PUBLIC_FILES:
+        return True
+    parts = path.split("/")
+    return len(parts) == 4 and parts[1] == "videos" and parts[2] in LANGUAGES and any(parts[3] == f"{topic}{extension}" for topic in TOPICS for extension in (".mp4", ".vtt"))
+
+
+def _progress_connection():
+    PROGRESS_DB.parent.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(PROGRESS_DB, timeout=10)
+    connection.execute("CREATE TABLE IF NOT EXISTS progress (subject TEXT PRIMARY KEY, data TEXT NOT NULL)")
+    return connection
+
+
+def _clean_progress(data: object) -> dict:
+    if not isinstance(data, dict):
+        raise ValueError("Invalid progress")
+    points = data.get("_points", 0)
+    daily = data.get("_daily", "")
+    daily_rewards = data.get("_dailyRewards", [])
+    daily_pattern = r"\d{4}-\d{2}-\d{2}_[a-z-]+"
+    if type(points) is not int or not 0 <= points <= 100000 or not isinstance(daily, str) or (daily and not re.fullmatch(daily_pattern, daily)):
+        raise ValueError("Invalid progress totals")
+    if not isinstance(daily_rewards, list) or len(daily_rewards) > 3660 or any(not isinstance(value, str) or not re.fullmatch(daily_pattern, value) for value in daily_rewards):
+        raise ValueError("Invalid daily rewards")
+    cleaned = {"_points": points, "_daily": daily, "_dailyRewards": sorted(set(daily_rewards + ([daily] if daily else [])))}
+    for topic in TOPICS:
+        entry = data.get(topic, {})
+        if not isinstance(entry, dict):
+            raise ValueError("Invalid topic progress")
+        quiz = entry.get("quiz", 0)
+        if type(quiz) is not int or not 0 <= quiz <= 100:
+            raise ValueError("Invalid quiz score")
+        cleaned[topic] = {
+            "lesson": entry.get("lesson") is True,
+            "practice": entry.get("practice") is True,
+            "quiz": quiz,
+            "lessonRewarded": entry.get("lessonRewarded") is True,
+            "practiceRewarded": entry.get("practiceRewarded") is True,
+            "quizRewarded": entry.get("quizRewarded") is True,
+        }
+    return cleaned
+
+
+def _merge_progress(subject: str, incoming: dict | None = None) -> dict:
+    with _progress_lock, closing(_progress_connection()) as db, db:
+        row = db.execute("SELECT data FROM progress WHERE subject = ?", (subject,)).fetchone()
+        saved = _clean_progress(json.loads(row[0])) if row else _clean_progress({})
+        if incoming is not None:
+            update = _clean_progress(incoming)
+            for topic in TOPICS:
+                for key in ("lesson", "practice", "lessonRewarded", "practiceRewarded", "quizRewarded"):
+                    saved[topic][key] = saved[topic][key] or update[topic][key]
+                saved[topic]["quiz"] = max(saved[topic]["quiz"], update[topic]["quiz"])
+            saved["_points"] = max(saved["_points"], update["_points"])
+            saved["_daily"] = max(saved["_daily"], update["_daily"])
+            saved["_dailyRewards"] = sorted(set(saved["_dailyRewards"] + update["_dailyRewards"]))
+            earned = sum(
+                20 * item["lessonRewarded"] + 15 * item["practiceRewarded"] + 10 * item["quizRewarded"]
+                for topic, item in saved.items() if topic in TOPICS
+            ) + 10 * len(saved["_dailyRewards"])
+            saved["_points"] = max(saved["_points"], earned)
+            db.execute("INSERT INTO progress(subject, data) VALUES (?, ?) ON CONFLICT(subject) DO UPDATE SET data=excluded.data", (subject, json.dumps(saved)))
+        return saved
 
 
 class _NoRedirect(HTTPRedirectHandler):
@@ -211,14 +283,16 @@ def _ai_request(topic: str, language: str, mode: str, difficulty: str) -> list[d
             raise ValueError("The AI service returned an invalid response")
         return parsed
 
-    try:
-        result = send_request(payload)
-    except HTTPError as error:
-        if error.code not in {400, 422}:
-            raise
-        error.close()
-        payload.pop("response_format", None)
-        result = send_request(payload)
+    def send_with_fallback(request_payload: dict) -> dict:
+        try:
+            return send_request(request_payload)
+        except HTTPError as error:
+            if error.code not in {400, 422}:
+                raise
+            error.close()
+            return send_request({key: value for key, value in request_payload.items() if key != "response_format"})
+
+    result = send_with_fallback(payload)
     raw = result["choices"][0]["message"]["content"]
     if isinstance(raw, list):
         raw = "".join(part.get("text", "") for part in raw if isinstance(part, dict))
@@ -254,6 +328,20 @@ def _ai_request(topic: str, language: str, mode: str, difficulty: str) -> list[d
             "explanation": explanation,
             "steps": [_bounded_text(step, 300) for step in steps],
         })
+    # A separate pass solves the questions without seeing the proposed answer keys.
+    check = send_with_fallback({
+        "model": AI_MODEL,
+        "temperature": 0,
+        "response_format": {"type": "json_object"},
+        "messages": [
+            {"role": "system", "content": "Solve each multiple-choice mathematics question independently. Return only JSON with an 'indices' array of five integers (0 to 3). If a question is ambiguous or has no single correct option, return -1 for it."},
+            {"role": "user", "content": json.dumps([{"question": item["question"], "options": item["options"]} for item in cleaned], ensure_ascii=False)},
+        ],
+    })
+    checked = json.loads(check["choices"][0]["message"]["content"])
+    indices = checked.get("indices") if isinstance(checked, dict) else None
+    if not isinstance(indices, list) or len(indices) != 5 or any(type(index) is not int or index != item["correctIndex"] for index, item in zip(indices, cleaned)):
+        raise ValueError("The answer verification did not agree")
     return cleaned
 
 
@@ -300,12 +388,13 @@ class MathHandler(SimpleHTTPRequestHandler):
         return _valid_callback_uri(url)
 
     def do_GET(self) -> None:
-        path = urlsplit(self.path).path
+        path = unquote(urlsplit(self.path).path)
         if path == "/api/config":
             return self._send_json({"loginConfigured": OIDC_AUTH_ENABLED, "aiConfigured": AI_ENABLED})
         if path == "/api/session":
-            authenticated = _session_subject(self) is not None
-            return self._send_json({"authenticated": authenticated, "loginConfigured": OIDC_AUTH_ENABLED})
+            subject = _session_subject(self)
+            account_id = hmac.new(SESSION_SECRET.encode(), subject.encode(), hashlib.sha256).hexdigest()[:24] if subject else None
+            return self._send_json({"authenticated": subject is not None, "accountId": account_id, "loginConfigured": OIDC_AUTH_ENABLED})
         if path == "/auth/login":
             if not OIDC_AUTH_ENABLED or not self._is_local_callback(REDIRECT_URI):
                 return self._send_text("AUDELA login is not configured for this app.", HTTPStatus.SERVICE_UNAVAILABLE)
@@ -329,7 +418,22 @@ class MathHandler(SimpleHTTPRequestHandler):
             return
         if path == "/auth/callback":
             return self._handle_oidc_callback()
+        if path == "/api/progress":
+            subject = _session_subject(self)
+            if not subject:
+                return self._send_json({"error": "sign_in_required"}, HTTPStatus.UNAUTHORIZED)
+            try:
+                return self._send_json({"progress": _merge_progress(subject)})
+            except (sqlite3.Error, ValueError, OSError):
+                return self._send_json({"error": "progress_unavailable"}, HTTPStatus.SERVICE_UNAVAILABLE)
+        if not _public_path(path):
+            return self._send_text("Not found", HTTPStatus.NOT_FOUND)
         return super().do_GET()
+
+    def do_HEAD(self) -> None:
+        if not _public_path(unquote(urlsplit(self.path).path)):
+            return self.send_error(HTTPStatus.NOT_FOUND, "Not found")
+        return super().do_HEAD()
 
     def _handle_oidc_callback(self) -> None:
         if not OIDC_AUTH_ENABLED:
@@ -382,7 +486,7 @@ class MathHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self) -> None:
-        path = urlsplit(self.path).path
+        path = unquote(urlsplit(self.path).path)
         if path == "/auth/logout":
             value = _cookies(self).get("math_session", "")
             session_id = value.partition(".")[0]
@@ -394,6 +498,24 @@ class MathHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(_json_bytes({"ok": True}))
             return
+        if path == "/api/progress":
+            subject = _session_subject(self)
+            if not subject:
+                return self._send_json({"error": "sign_in_required"}, HTTPStatus.UNAUTHORIZED)
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                if length <= 0 or length > 10000 or self.headers.get("Content-Type", "").split(";")[0].strip().lower() != "application/json":
+                    raise ValueError("Invalid request")
+                incoming = json.loads(self.rfile.read(length))
+                if not isinstance(incoming, dict):
+                    raise ValueError("Invalid request")
+                _clean_progress(incoming)
+            except (ValueError, TypeError):
+                return self._send_json({"error": "invalid_request"}, HTTPStatus.BAD_REQUEST)
+            try:
+                return self._send_json({"progress": _merge_progress(subject, incoming)})
+            except (sqlite3.Error, ValueError, OSError):
+                return self._send_json({"error": "progress_unavailable"}, HTTPStatus.SERVICE_UNAVAILABLE)
         if path != "/api/exercises":
             return self._send_text("Not found", HTTPStatus.NOT_FOUND)
         subject = _session_subject(self)

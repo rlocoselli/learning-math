@@ -2,7 +2,7 @@
   const COPY = {
     en: {
       sectionLabel: 'Brain games and mini challenges', eyebrow: 'THE MIND ARCADE', title: 'Brain Games',
-      subtitle: 'Four little challenges for a big, curious mind. Play at your pace and learn something with every answer.',
+      subtitle: 'Seven quick challenges, plus a fresh daily brain check. Play at your pace and learn with every answer.',
       quickLink: '🧠 Brain games →', brainStars: 'Brain stars', gamesPlayed: 'rounds played',
       levelSeed: 'Curious Seed', levelSpark: 'Bright Spark', levelOrbit: 'Mind Explorer', levelMaster: 'Brain Champion',
       nextBadge: 'Next badge at {points} stars', topBadge: 'You reached the top badge!',
@@ -29,11 +29,18 @@
       playAgain: 'Play again', pickAnother: 'Choose another game', correctCount: '{correct} of 4 puzzles solved', bestNew: 'New personal best! 🏆',
       scoreChip: '{score} points', correctOption: 'Correct answer',
       listenUnavailable: 'Text to speech is not available in this browser.',
+      dailyTitle: 'Daily Brain Check', dailySkill: 'TODAY’S MIX', dailyDesc: 'Four surprises across different skills. See your time and beat your best.', dailyHow: 'Try four different puzzles. The clock is for fun; careful answers count most.',
+      dailyBanner: 'Today’s brain check', dailyBannerHint: 'A quick mix of puzzles, a new best to chase, and a little streak to grow.', dailyPlay: 'Start today’s check →', dailyDone: 'Completed today · best {score} pts', dailyReady: 'Ready when you are', streakLabel: '{days}-day streak',
+      symbolTitle: 'Missing Symbol', symbolSkill: 'QUICK MATH', symbolDesc: 'Find the sign that makes an equation work.', symbolHow: 'Choose +, −, ×, or ÷ so both sides match.', missingSign: 'Which sign makes this true?',
+      switchTitle: 'Rule Flip', switchSkill: 'FLEXIBLE THINKING', switchDesc: 'Switch between biggest and smallest in a flash.', switchHow: 'Read the rule each time. Tap the largest or smallest number as asked.', pickLargest: 'Tap the largest number.', pickSmallest: 'Tap the smallest number.',
+      oddTitle: 'Odd One Out', oddSkill: 'LOGIC', oddDesc: 'Spot the number that breaks the group’s rule.', oddHow: 'Three numbers follow one rule. Choose the one that does not.', oddOneOut: 'Which number is different?',
+      symbolExplain: '{a} {sign} {b} = {result}. That is the only sign that works.', switchExplain: '{answer} is the {rule} of the four numbers.', oddExplain: '{answer} is the only {kind} number in the group.', evenWord: 'even', oddWord: 'odd', largestWord: 'largest', smallestWord: 'smallest',
+      timerLabel: 'Time', dailyResult: 'Brain Spark: {score}/100 · {seconds}s', dailyResultHint: 'A playful game score based on this round, not a measure of intelligence or age.', dailyBonus: 'Daily bonus: +{stars} stars',
       nums: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'],
     },
     pt: {
       sectionLabel: 'Jogos de raciocínio e desafios rápidos', eyebrow: 'ARCADE DA MENTE', title: 'Jogos de raciocínio',
-      subtitle: 'Quatro pequenos desafios para uma mente curiosa. Jogue ao seu ritmo e aprenda com cada resposta.',
+      subtitle: 'Sete desafios rápidos e um teste diário variado. Jogue ao seu ritmo e aprenda com cada resposta.',
       quickLink: '🧠 Jogos de raciocínio →', brainStars: 'Estrelas mentais', gamesPlayed: 'rondas jogadas',
       levelSeed: 'Semente curiosa', levelSpark: 'Faísca brilhante', levelOrbit: 'Explorador da mente', levelMaster: 'Campeão cerebral',
       nextBadge: 'Próxima medalha: {points} estrelas', topBadge: 'Chegou à medalha máxima!',
@@ -60,11 +67,18 @@
       playAgain: 'Jogar novamente', pickAnother: 'Escolher outro jogo', correctCount: '{correct} de 4 desafios resolvidos', bestNew: 'Novo recorde pessoal! 🏆',
       scoreChip: '{score} pontos', correctOption: 'Resposta certa',
       listenUnavailable: 'A voz não está disponível neste navegador.',
+      dailyTitle: 'Desafio diário', dailySkill: 'MISTURA DO DIA', dailyDesc: 'Quatro surpresas de diferentes habilidades. Melhore o seu tempo e recorde.', dailyHow: 'Resolva quatro desafios diferentes. O relógio é só para brincar; acertar é mais importante.',
+      dailyBanner: 'Desafio mental de hoje', dailyBannerHint: 'Uma mistura rápida, um novo recorde e uma sequência para continuar.', dailyPlay: 'Começar o desafio de hoje →', dailyDone: 'Concluído hoje · recorde {score} pts', dailyReady: 'Quando quiser', streakLabel: 'Sequência de {days} dias',
+      symbolTitle: 'Sinal em Falta', symbolSkill: 'CÁLCULO RÁPIDO', symbolDesc: 'Encontre o sinal que completa a conta.', symbolHow: 'Escolha +, −, × ou ÷ para igualar os dois lados.', missingSign: 'Qual sinal torna a conta correta?',
+      switchTitle: 'Troca de Regra', switchSkill: 'PENSAMENTO FLEXÍVEL', switchDesc: 'Alterne entre o maior e o menor num instante.', switchHow: 'Leia a regra de cada vez. Toque no maior ou menor número pedido.', pickLargest: 'Toque no maior número.', pickSmallest: 'Toque no menor número.',
+      oddTitle: 'O Intruso', oddSkill: 'LÓGICA', oddDesc: 'Descubra o número que quebra a regra.', oddHow: 'Três números seguem a mesma regra. Escolha o que não segue.', oddOneOut: 'Qual número é diferente?',
+      symbolExplain: '{a} {sign} {b} = {result}. É o único sinal que funciona.', switchExplain: '{answer} é o {rule} dos quatro números.', oddExplain: '{answer} é o único número {kind} do grupo.', evenWord: 'par', oddWord: 'ímpar', largestWord: 'maior', smallestWord: 'menor',
+      timerLabel: 'Tempo', dailyResult: 'Faísca mental: {score}/100 · {seconds}s', dailyResultHint: 'Pontuação divertida desta ronda, não mede a inteligência nem a idade.', dailyBonus: 'Bónus diário: +{stars} estrelas',
       nums: ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'],
     },
     fr: {
       sectionLabel: 'Jeux de réflexion et mini-défis', eyebrow: 'L’ARCADE DES NEURONES', title: 'Jeux de réflexion',
-      subtitle: 'Quatre petits défis pour un esprit curieux. Jouez à votre rythme et apprenez à chaque réponse.',
+      subtitle: 'Sept défis rapides et un test quotidien varié. Jouez à votre rythme et apprenez à chaque réponse.',
       quickLink: '🧠 Jeux de réflexion →', brainStars: 'Étoiles de réflexion', gamesPlayed: 'parties jouées',
       levelSeed: 'Graine curieuse', levelSpark: 'Belle étincelle', levelOrbit: 'Explorateur d’idées', levelMaster: 'Champion des neurones',
       nextBadge: 'Prochain badge à {points} étoiles', topBadge: 'Vous avez le badge maximum !',
@@ -91,6 +105,13 @@
       playAgain: 'Rejouer', pickAnother: 'Choisir un autre jeu', correctCount: '{correct} défis réussis sur 4', bestNew: 'Nouveau record personnel ! 🏆',
       scoreChip: '{score} points', correctOption: 'Bonne réponse',
       listenUnavailable: 'La synthèse vocale n’est pas disponible dans ce navigateur.',
+      dailyTitle: 'Défi du jour', dailySkill: 'MÉLANGE DU JOUR', dailyDesc: 'Quatre surprises pour varier les idées. Améliorez votre temps et votre record.', dailyHow: 'Essayez quatre énigmes différentes. Le chrono est pour s’amuser ; la précision compte davantage.',
+      dailyBanner: 'Défi cérébral du jour', dailyBannerHint: 'Un mélange rapide, un record à battre et une série à prolonger.', dailyPlay: 'Commencer le défi du jour →', dailyDone: 'Terminé aujourd’hui · record {score} pts', dailyReady: 'Quand vous voulez', streakLabel: 'Série de {days} jours',
+      symbolTitle: 'Signe manquant', symbolSkill: 'CALCUL RAPIDE', symbolDesc: 'Trouvez le signe qui complète l’égalité.', symbolHow: 'Choisissez +, −, × ou ÷ pour équilibrer les deux côtés.', missingSign: 'Quel signe rend cette égalité vraie ?',
+      switchTitle: 'Règle surprise', switchSkill: 'SOUPLESSE D’ESPRIT', switchDesc: 'Passez du plus grand au plus petit en un clin d’œil.', switchHow: 'Lisez la règle à chaque tour. Touchez le plus grand ou le plus petit nombre demandé.', pickLargest: 'Touchez le plus grand nombre.', pickSmallest: 'Touchez le plus petit nombre.',
+      oddTitle: 'L’intrus', oddSkill: 'LOGIQUE', oddDesc: 'Repérez le nombre qui ne suit pas la règle.', oddHow: 'Trois nombres suivent la même règle. Choisissez celui qui diffère.', oddOneOut: 'Quel nombre est différent ?',
+      symbolExplain: '{a} {sign} {b} = {result}. C’est le seul signe qui convient.', switchExplain: '{answer} est le {rule} des quatre nombres.', oddExplain: '{answer} est le seul nombre {kind} du groupe.', evenWord: 'pair', oddWord: 'impair', largestWord: 'plus grand', smallestWord: 'plus petit',
+      timerLabel: 'Temps', dailyResult: 'Étincelle mentale : {score}/100 · {seconds}s', dailyResultHint: 'Un score ludique pour cette partie, pas une mesure de l’intelligence ni de l’âge.', dailyBonus: 'Bonus quotidien : +{stars} étoiles',
       nums: ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix'],
     },
   };
@@ -100,6 +121,10 @@
     { id: 'pattern', icon: '🌀', title: 'patternTitle', skill: 'patternSkill', desc: 'patternDesc', how: 'patternHow', color: 'violet' },
     { id: 'memory', icon: '🧩', title: 'memoryTitle', skill: 'memorySkill', desc: 'memoryDesc', how: 'memoryHow', color: 'peach' },
     { id: 'focus', icon: '🔎', title: 'focusTitle', skill: 'focusSkill', desc: 'focusDesc', how: 'focusHow', color: 'blue' },
+    { id: 'symbol', icon: '➗', title: 'symbolTitle', skill: 'symbolSkill', desc: 'symbolDesc', how: 'symbolHow', color: 'mint' },
+    { id: 'switch', icon: '🔀', title: 'switchTitle', skill: 'switchSkill', desc: 'switchDesc', how: 'switchHow', color: 'violet' },
+    { id: 'odd', icon: '🕵️', title: 'oddTitle', skill: 'oddSkill', desc: 'oddDesc', how: 'oddHow', color: 'peach' },
+    { id: 'daily', icon: '⚡', title: 'dailyTitle', skill: 'dailySkill', desc: 'dailyDesc', how: 'dailyHow', color: 'blue' },
   ];
   const MEMORY_SYMBOLS = ['🔴', '🟡', '🟢', '🔵', '🟣', '⭐'];
   const MEMORY_NAMES = {
@@ -174,8 +199,8 @@
   function loadProgress() {
     try {
       const saved = JSON.parse(localStorage.getItem('brain-games-progress') || '{}');
-      return { xp: Number(saved.xp) || 0, played: Number(saved.played) || 0, best: saved.best && typeof saved.best === 'object' ? saved.best : {} };
-    } catch { return { xp: 0, played: 0, best: {} }; }
+      return { xp: Number(saved.xp) || 0, played: Number(saved.played) || 0, best: saved.best && typeof saved.best === 'object' ? saved.best : {}, daily: saved.daily && typeof saved.daily === 'object' ? saved.daily : {} };
+    } catch { return { xp: 0, played: 0, best: {}, daily: {} }; }
   }
 
   function saveProgress() {
@@ -189,6 +214,27 @@
     return { name: 'levelSeed', icon: '🌱', start: 0, next: 50 };
   }
 
+  function dayKey(date = new Date()) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  }
+
+  function dailyStreak() {
+    let day = new Date();
+    if (!progress.daily[dayKey(day)]) day.setDate(day.getDate() - 1);
+    let count = 0;
+    while (progress.daily[dayKey(day)]) {
+      count += 1;
+      day.setDate(day.getDate() - 1);
+    }
+    return count;
+  }
+
+  function dailyOrder() {
+    const ids = ['number', 'pattern', 'memory', 'focus', 'symbol', 'switch', 'odd'];
+    const seed = [...dayKey()].reduce((total, char) => total + char.charCodeAt(0), 0);
+    return Array.from({ length: 4 }, (_, index) => ids[(seed + index * 2) % ids.length]);
+  }
+
   function progressMarkup() {
     const level = currentLevel();
     const amount = level.next === level.start ? 100 : Math.max(0, Math.min(100, ((progress.xp - level.start) / (level.next - level.start)) * 100));
@@ -196,13 +242,14 @@
   }
 
   function renderLobby() {
-    const cards = GAMES.map((game, index) => {
+    const cards = GAMES.filter((game) => game.id !== 'daily').map((game, index) => {
       const best = progress.best[game.id];
       return `<button type="button" class="brain-game-card ${game.color}" data-brain-action="start" data-game-id="${game.id}"><span class="brain-card-top"><span class="brain-game-icon" aria-hidden="true">${game.icon}</span><span class="brain-card-number">0${index + 1}</span></span><span class="brain-game-skill">${copy(game.skill)}</span><strong>${copy(game.title)}</strong><span class="brain-game-description">${copy(game.desc)}</span><span class="brain-card-footer"><span>${best === undefined ? copy('notPlayed') : copy('bestScore', { score: best })}</span><span class="brain-play-link">${copy('playCard')}</span></span></button>`;
     }).join('');
     app.innerHTML = `
       <div class="brain-heading"><div><p class="section-eyebrow">${copy('eyebrow')}</p><h2 class="section-title">${copy('title')} <span aria-hidden="true" class="brain-heading-star">✦</span></h2><p class="section-description">${copy('subtitle')}</p></div><div class="brain-total"><span aria-hidden="true">🌟</span><div><strong>${progress.xp}</strong><small>${copy('brainStars')}</small></div></div></div>
       <div class="brain-evolution-wrap">${progressMarkup()}<div class="brain-played-stat"><span aria-hidden="true">🎮</span><strong>${progress.played}</strong><small>${copy('gamesPlayed')}</small></div></div>
+      <div class="brain-daily-banner"><div class="brain-daily-icon" aria-hidden="true">⚡</div><div><span class="brain-game-skill">${copy('dailySkill')}</span><h3>${copy('dailyBanner')}</h3><p>${copy('dailyBannerHint')}</p><small>${progress.daily[dayKey()] ? copy('dailyDone', { score: progress.daily[dayKey()].score }) : copy('dailyReady')} · ${copy('streakLabel', { days: dailyStreak() })}</small></div><button type="button" class="brain-main-action" data-brain-action="start" data-game-id="daily">${copy('dailyPlay')}</button></div>
       <div class="brain-lobby-note"><span class="brain-note-icon" aria-hidden="true">💡</span><p>${copy('arcadeIntro')}</p></div>
       <div class="brain-game-grid">${cards}</div>`;
     document.getElementById('brainGames')?.setAttribute('aria-label', copy('sectionLabel'));
@@ -213,10 +260,10 @@
     if (!game || !run) return renderLobby();
     const isFinished = run.finished;
     const progressPips = Array.from({ length: 4 }, (_, index) => `<span class="${index < (isFinished ? 4 : run.index) ? 'done' : ''}${index === run.index && !isFinished ? ' current' : ''}">${index < run.index || isFinished ? '✓' : index + 1}</span>`).join('');
-    const best = progress.best[game.id] || 0;
+    const best = run.finished ? run.previousBest : progress.best[game.id] || 0;
     app.innerHTML = `
-      <div class="brain-stage-heading"><button type="button" class="brain-back" data-brain-action="back">${copy('back')}</button><div class="brain-stage-title"><span class="brain-stage-icon ${game.color}" aria-hidden="true">${game.icon}</span><div><span class="brain-game-skill">${copy(game.skill)}</span><h2>${copy(game.title)}</h2></div></div><span class="brain-score-chip">🌟 ${copy('scoreChip', { score: run.score })}</span></div>
-      <div class="brain-coach-banner"><span aria-hidden="true">🗣️</span><div><strong>${copy('howToPlay')}</strong><p>${copy(game.how, { target: FOCUS_TARGET })}</p></div><button type="button" class="brain-hear-btn" data-brain-action="speak" aria-label="${copy(run.answered ? 'hearAgain' : 'hearIt')}">${copy(run.answered ? 'hearAgain' : 'hearIt')}</button></div>
+      <div class="brain-stage-heading"><button type="button" class="brain-back" data-brain-action="back">${copy('back')}</button><div class="brain-stage-title"><span class="brain-stage-icon ${game.color}" aria-hidden="true">${game.icon}</span><div><span class="brain-game-skill">${copy(game.skill)}</span><h2>${copy(game.title)}</h2></div></div><span class="brain-timer">⏱ <span id="brainTimer">${elapsedSeconds()}s</span></span><span class="brain-score-chip">🌟 ${copy('scoreChip', { score: run.score })}</span></div>
+      <div class="brain-coach-banner"><span aria-hidden="true">🗣️</span><div><strong>${copy('howToPlay')}</strong><p>${copy(GAMES.find((item) => item.id === (run.current.origin || activeGame)).how, { target: FOCUS_TARGET })}</p></div><button type="button" class="brain-hear-btn" data-brain-action="speak" aria-label="${copy(run.answered ? 'hearAgain' : 'hearIt')}">${copy(run.answered ? 'hearAgain' : 'hearIt')}</button></div>
       <div class="brain-round-progress"><div class="brain-round-pips">${progressPips}</div><span>${isFinished ? copy('roundComplete') : copy('challenge', { n: run.index + 1 })}</span></div>
       <div class="brain-playfield" id="brainPlayfield">${isFinished ? renderResults(game, best) : ''}</div>`;
     if (!isFinished) renderPuzzle(game);
@@ -228,7 +275,7 @@
     let html = '';
     if (puzzle.type === 'choice') {
       const isSequence = puzzle.prompt === 'whatNext';
-      html = `<div class="brain-question-card"><span class="brain-question-label">${copy('question', { n: run.index + 1 })}</span><h3>${copy(puzzle.prompt)}</h3><div class="brain-number-display${isSequence ? ' sequence' : ' equation'}">${puzzle.display.map((part) => `<span>${part}</span>`).join(isSequence ? '<i aria-hidden="true">→</i>' : '')}</div><div class="brain-answer-grid">${puzzle.options.map((option, index) => `<button type="button" class="brain-answer-option${run.answered ? option.value === puzzle.answer ? ' correct' : option.value === run.answered.value ? ' incorrect' : '' : ''}" data-brain-action="answer" data-answer-index="${index}" ${run.answered ? 'disabled' : ''}>${option.label}</button>`).join('')}</div></div>`;
+      html = `<div class="brain-question-card"><span class="brain-question-label">${copy('question', { n: run.index + 1 })}${puzzle.origin ? ` · ${copy(GAMES.find((item) => item.id === puzzle.origin).title)}` : ''}</span><h3>${copy(puzzle.prompt)}</h3><div class="brain-number-display${isSequence ? ' sequence' : ' equation'}">${puzzle.display.map((part) => `<span>${part}</span>`).join(isSequence ? '<i aria-hidden="true">→</i>' : '')}</div><div class="brain-answer-grid">${puzzle.options.map((option, index) => `<button type="button" class="brain-answer-option${run.answered ? option.value === puzzle.answer ? ' correct' : option.value === run.answered.value ? ' incorrect' : '' : ''}" data-brain-action="answer" data-answer-index="${index}" ${run.answered ? 'disabled' : ''}>${option.label}</button>`).join('')}</div></div>`;
     } else if (puzzle.type === 'memory') {
       const flashing = run.flashIndex >= 0 ? puzzle.sequence[run.flashIndex] : '';
       const shown = run.selected.length ? run.selected : [];
@@ -253,9 +300,14 @@
   }
 
   function renderResults(game, previousBest) {
-    const stars = run.score + 5;
+    const stars = run.awardedStars;
     const personalBest = run.score > previousBest;
-    return `<div class="brain-results"><div class="brain-result-spark" aria-hidden="true">🏆</div><p class="section-eyebrow">${copy('roundComplete')}</p><h3>${copy(game.title)}</h3><strong class="brain-result-score">${copy('roundScore', { score: run.score, stars })}</strong><p>${copy('correctCount', { correct: run.correct })}</p>${personalBest ? `<span class="brain-new-best">${copy('bestNew')}</span>` : ''}<div class="brain-result-growth"><span aria-hidden="true">${currentLevel().icon}</span><p>${copy('roundGrow')}</p></div><div class="brain-result-actions"><button type="button" class="brain-main-action" data-brain-action="again" data-game-id="${game.id}">${copy('playAgain')}</button><button type="button" class="brain-secondary-action" data-brain-action="back">${copy('pickAnother')}</button></div></div>`;
+    const meter = run.maxPossible ? Math.round((run.score / run.maxPossible) * 100) : 0;
+    return `<div class="brain-results"><div class="brain-result-spark" aria-hidden="true">🏆</div><p class="section-eyebrow">${copy('roundComplete')}</p><h3>${copy(game.title)}</h3><strong class="brain-result-score">${copy('roundScore', { score: run.score, stars })}</strong><p>${copy('correctCount', { correct: run.correct })}</p>${game.id === 'daily' ? `<div class="brain-mind-meter"><strong>${copy('dailyResult', { score: meter, seconds: run.elapsed })}</strong><small>${copy('dailyResultHint')}</small>${run.dailyBonus ? `<span>${copy('dailyBonus', { stars: run.dailyBonus })}</span>` : ''}</div>` : `<p>⏱ ${copy('timerLabel')}: ${run.elapsed}s</p>`}${personalBest ? `<span class="brain-new-best">${copy('bestNew')}</span>` : ''}<div class="brain-result-growth"><span aria-hidden="true">${currentLevel().icon}</span><p>${copy('roundGrow')}</p></div><div class="brain-result-actions"><button type="button" class="brain-main-action" data-brain-action="again" data-game-id="${game.id}">${copy('playAgain')}</button><button type="button" class="brain-secondary-action" data-brain-action="back">${copy('pickAnother')}</button></div></div>`;
+  }
+
+  function elapsedSeconds() {
+    return run ? Math.round(((run.finished ? run.finishedAt : performance.now()) - run.startedAt) / 1000) : 0;
   }
 
   function startGame(id) {
@@ -263,13 +315,21 @@
     if (!chosen) return;
     stopTimers();
     activeGame = id;
-    run = { index: 0, score: 0, correct: 0, current: makePuzzle(id, 0), answered: null, selected: [], showing: false, ready: false, hasShown: false, flashIndex: -1, finished: false };
+    run = { index: 0, score: 0, maxPossible: 0, correct: 0, current: makePuzzle(id, 0), answered: null, selected: [], showing: false, ready: false, hasShown: false, flashIndex: -1, finished: false, startedAt: performance.now(), puzzleStartedAt: performance.now(), timer: null };
+    run.timer = window.setInterval(() => {
+      const label = document.getElementById('brainTimer');
+      if (label) label.textContent = `${elapsedSeconds()}s`;
+    }, 250);
     render();
     document.getElementById('brainGames')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function makePuzzle(id, index) {
     const turn = progress.played * 2 + index;
+    if (id === 'daily') {
+      const origin = dailyOrder()[index];
+      return { ...makePuzzle(origin, index), origin };
+    }
     if (id === 'number') {
       const items = [
         { display: ['8', '+', '7'], answer: 15 }, { display: ['23', '−', '8'], answer: 15 },
@@ -292,8 +352,43 @@
     }
     if (id === 'memory') {
       const length = Math.min(7, 3 + index + Math.floor(progress.played / 3));
-      const sequence = Array.from({ length }, (_, position) => MEMORY_SYMBOLS[(turn + position * 3 + Math.floor(position / 2)) % MEMORY_SYMBOLS.length]);
+      const sequence = Array.from({ length }, () => MEMORY_SYMBOLS[Math.floor(Math.random() * MEMORY_SYMBOLS.length)]);
       return { type: 'memory', sequence };
+    }
+    if (id === 'symbol') {
+      const operations = [
+        { sign: '+', result: (a, b) => a + b },
+        { sign: '−', result: (a, b) => a - b },
+        { sign: '×', result: (a, b) => a * b },
+        { sign: '÷', result: (a, b) => a / b },
+      ];
+      const chosen = operations[turn % operations.length];
+      let a = 6 + (turn * 3) % 17;
+      let b = 2 + (turn * 5) % 7;
+      if (chosen.sign === '÷') a = b * (2 + turn % 5);
+      let result = chosen.result(a, b);
+      while (operations.filter((operation) => operation.result(a, b) === result).length !== 1) {
+        a += b;
+        result = chosen.result(a, b);
+      }
+      const explanations = Object.fromEntries(['en', 'pt', 'fr'].map((locale) => [locale, COPY[locale].symbolExplain.replaceAll('{a}', a).replaceAll('{b}', b).replaceAll('{sign}', chosen.sign).replaceAll('{result}', result)]));
+      return { type: 'choice', prompt: 'missingSign', display: [a, '?', b, '=', result], answer: chosen.sign, options: operations.map((operation) => ({ value: operation.sign, label: operation.sign })), explanations, explanation: explanations[lang] };
+    }
+    if (id === 'switch') {
+      const values = Array.from({ length: 4 }, (_, position) => 4 + ((turn * 13 + position * 17 + position * position * 3) % 48));
+      const largest = turn % 2 === 0;
+      const answer = largest ? Math.max(...values) : Math.min(...values);
+      const explanations = Object.fromEntries(['en', 'pt', 'fr'].map((locale) => [locale, COPY[locale].switchExplain.replaceAll('{answer}', answer).replaceAll('{rule}', COPY[locale][largest ? 'largestWord' : 'smallestWord'])]));
+      return { type: 'choice', prompt: largest ? 'pickLargest' : 'pickSmallest', display: [largest ? '↑' : '↓'], answer, options: values.map((value) => ({ value, label: String(value) })), explanations, explanation: explanations[lang] };
+    }
+    if (id === 'odd') {
+      const oddAnswer = turn % 2 === 0;
+      const base = 2 + (turn % 8) * 2;
+      const values = [base + (oddAnswer ? 0 : 1), base + 4 + (oddAnswer ? 0 : 1), base + 8 + (oddAnswer ? 0 : 1)];
+      const answer = base + 13 + (oddAnswer ? 0 : 1);
+      values.splice(turn % 4, 0, answer);
+      const explanations = Object.fromEntries(['en', 'pt', 'fr'].map((locale) => [locale, COPY[locale].oddExplain.replaceAll('{answer}', answer).replaceAll('{kind}', COPY[locale][oddAnswer ? 'oddWord' : 'evenWord'])]));
+      return { type: 'choice', prompt: 'oddOneOut', display: ['🔍'], answer, options: values.map((value) => ({ value, label: String(value) })), explanations, explanation: explanations[lang] };
     }
     const targetCount = 4 + index;
     const cells = Array.from({ length: 20 }, (_, i) => i < targetCount ? FOCUS_TARGET : FOCUS_DISTRACTORS[(i + turn) % FOCUS_DISTRACTORS.length]);
@@ -321,7 +416,9 @@
     const isCorrect = option.value === run.current.answer;
     run.answered = { isCorrect, value: option.value };
     run.answered.explanation = explanationForRun();
-    run.score += isCorrect ? 10 : 2;
+    const speedBonus = isCorrect && performance.now() - run.puzzleStartedAt < 8000 ? 2 : 0;
+    run.score += isCorrect ? 10 + speedBonus : 2;
+    run.maxPossible += 12;
     if (isCorrect) run.correct += 1;
     renderPuzzle(activeGame);
     document.querySelector('.brain-next-action')?.focus({ preventScroll: true });
@@ -337,7 +434,7 @@
     run.selected = [];
     renderPuzzle(activeGame);
     const flash = (index) => {
-      if (token !== memoryToken || !run || activeGame !== 'memory') return;
+      if (token !== memoryToken || !run || run.current.type !== 'memory') return;
       if (index >= run.current.sequence.length) {
         run.showing = false;
         run.ready = true;
@@ -368,6 +465,7 @@
       run.answered = { isCorrect, matched };
       run.answered.explanation = explanationForRun();
       run.score += isCorrect ? 10 : Math.max(2, Math.round((matched / run.current.sequence.length) * 8));
+      run.maxPossible += 10;
       if (isCorrect) run.correct += 1;
     }
     renderPuzzle(activeGame, { action: 'memory-pick', attribute: 'data-symbol-index', value: index });
@@ -398,6 +496,7 @@
     run.answered = { isCorrect, found, extra };
     run.answered.explanation = explanationForRun();
     run.score += isCorrect ? 10 : points;
+    run.maxPossible += 10;
     if (isCorrect) run.correct += 1;
     renderPuzzle(activeGame);
     document.querySelector('.brain-next-action')?.focus({ preventScroll: true });
@@ -411,6 +510,7 @@
     }
     run.index += 1;
     run.current = makePuzzle(activeGame, run.index);
+    run.puzzleStartedAt = performance.now();
     run.answered = null;
     run.selected = [];
     run.showing = false;
@@ -423,9 +523,22 @@
   function finishRound() {
     if (!run || run.finished) return;
     run.finished = true;
+    run.finishedAt = performance.now();
+    run.elapsed = elapsedSeconds();
+    window.clearInterval(run.timer);
+    const today = dayKey();
+    run.dailyBonus = activeGame === 'daily' && !progress.daily[today] ? 20 : 0;
+    run.awardedStars = run.score + 5 + run.dailyBonus;
     progress.played += 1;
-    progress.xp += run.score + 5;
+    progress.xp += run.awardedStars;
+    run.previousBest = progress.best[activeGame] || 0;
     progress.best[activeGame] = Math.max(progress.best[activeGame] || 0, run.score);
+    if (activeGame === 'daily') {
+      const previous = progress.daily[today];
+      progress.daily[today] = { score: Math.max(previous?.score || 0, run.score), seconds: Math.min(previous?.seconds || Infinity, run.elapsed) };
+      const dates = Object.keys(progress.daily).sort();
+      for (const date of dates.slice(0, Math.max(0, dates.length - 366))) delete progress.daily[date];
+    }
     saveProgress();
     render();
     document.querySelector('.brain-results')?.classList.add('celebrate');
@@ -459,12 +572,13 @@
   function stopTimers() {
     memoryToken += 1;
     window.clearTimeout(memoryTimer);
+    if (run?.timer) window.clearInterval(run.timer);
     window.speechSynthesis?.cancel();
   }
 
   function readCurrent() {
     if (!run || !activeGame) return;
-    const game = GAMES.find((item) => item.id === activeGame);
+    const game = GAMES.find((item) => item.id === (run.current.origin || activeGame));
     const text = run.answered ? `${run.answered.isCorrect ? copy('right') : copy('learn')} ${run.answered.explanation}` : copy(game.how, { target: FOCUS_TARGET });
     if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
       const note = document.querySelector('.brain-coach-banner p');

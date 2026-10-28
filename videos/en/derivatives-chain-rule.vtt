@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:04.450 --> 00:00:09.946
+A derivative measures how quickly a function changes at one point.
+
+00:00:13.650 --> 00:00:22.112
+For a nested function, use the chain rule: differentiate the outside rule, keep the
+
+00:00:22.112 --> 00:00:27.618
+inside, then multiply by the derivative of the inside.
+
+00:00:30.418 --> 00:00:37.258
+For sine of x squared, that gives cosine of x squared times two x.

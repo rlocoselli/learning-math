@@ -15,6 +15,7 @@ from gtts import gTTS
 from PIL import Image, ImageDraw, ImageFont
 
 from video_scenes import SCENES
+from captions import write_vtt
 
 
 ROOT = Path(__file__).resolve().parent
@@ -262,6 +263,7 @@ def build(topic: dict, lang: str, outpath: Path, narration: dict) -> float:
         raise RuntimeError(f"Narration for {topic['id']} did not fill every lesson step")
 
     speech_lengths = [audio_duration(clip) for clip in step_clips]
+    write_vtt(outpath.with_suffix(".vtt"), step_texts, speech_lengths)
     step_durations = [max(MIN_STEP_DUR, length + 2.8) for length in speech_lengths]
     slides = make_slides(topic, lang)
     durations = [INTRO_DUR, *step_durations, OUTRO_DUR]
