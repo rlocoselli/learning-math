@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PORT=8080
 
 WORKDIR /app
-COPY index.html styles.css app.js auth.js chess-game.js server.py ./
+COPY index.html styles.css app.js auth.js chess-game.js brain-games.js server.py ./
 COPY vendor/ ./vendor/
 COPY videos/ ./videos/
 

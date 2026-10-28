@@ -8,6 +8,7 @@ A multilingual math learning app for children and students, with short step-by-s
 - **Geometry lessons** that explain shapes, perimeter as a fence, area as covered space, circles, and triangle angles in small steps
 - **Adventure map** with themed learning worlds, cleared quests, a daily side quest with bonus stars, the next recommended stop, and badges; all topics remain open to explore
 - **Chess Quest** with a touch-friendly legal-move board, beginner/intermediate/advanced computer play, keyboard navigation, read-aloud rule explanations, four guided opening lines, and saved chess stars
+- **Brain Games** with short number, pattern, memory, and focus rounds, friendly instructions, answer-by-answer explanations, optional read-aloud tips, and saved progress
 - **AI practice rounds** with five multiple-choice questions, selectable learner style and difficulty, hints, worked explanations, and optional spoken answers
 - **AUDELA OIDC sign-in** using server-side authorization-code exchange; the client secret and AI key stay on the server
 - **Narrated MP4 explainer videos** with an original piano accompaniment, paced step-by-step explanations, searchable topics, KaTeX formulas, dark mode, and local progress
@@ -58,7 +59,7 @@ Requires Python 3, [Pillow](https://pillow.readthedocs.io/), [gTTS](https://gtts
 
 ## Structure
 
-- `index.html`, `styles.css`, `app.js`, `auth.js`, `chess-game.js` — student experience and browser-side state
+- `index.html`, `styles.css`, `app.js`, `auth.js`, `chess-game.js`, `brain-games.js` — student experience and browser-side state
 - `vendor/chess.js/` — bundled chess.js move rules and its BSD-2-Clause license, so chess works without a separate service
 - `server.py` — AUDELA OIDC callback/session and authenticated AI exercise endpoint
 - `Dockerfile`, `compose.yaml` — AUDELA Deploy container configuration

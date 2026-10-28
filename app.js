@@ -18,6 +18,7 @@ const UIStrings = {
     browseLessons: 'Choose a quest ↓',
     exploreVideos: 'Watch a video →',
     chessQuickLink: '♟ Play chess →',
+    brainGamesQuickLink: '🧠 Brain games →',
     videoEyebrow: 'New video lessons',
     videoLibraryTitle: 'See the idea. Then try it.',
     videoLibrarySubtitle: 'Watch a narrated, step-by-step lesson with a gentle piano soundtrack, then try the practice.',
@@ -155,6 +156,7 @@ const UIStrings = {
     browseLessons: 'Escolher missão ↓',
     exploreVideos: 'Assistir a um vídeo →',
     chessQuickLink: '♟ Jogar xadrez →',
+    brainGamesQuickLink: '🧠 Jogos de raciocínio →',
     videoEyebrow: 'Novas videoaulas',
     videoLibraryTitle: 'Veja a ideia. Depois pratique.',
     videoLibrarySubtitle: 'Assista a uma aula narrada, passo a passo, com piano suave; depois, pratique.',
@@ -292,6 +294,7 @@ const UIStrings = {
     browseLessons: 'Choisir une mission ↓',
     exploreVideos: 'Voir une vidéo →',
     chessQuickLink: '♟ Jouer aux échecs →',
+    brainGamesQuickLink: '🧠 Jeux de réflexion →',
     videoEyebrow: 'Nouvelles leçons vidéo',
     videoLibraryTitle: 'Voyez l’idée, puis essayez.',
     videoLibrarySubtitle: 'Suivez une leçon expliquée pas à pas, avec un piano doux, puis entraînez-vous.',
@@ -1860,6 +1863,7 @@ function showTopicDetail(topicId) {
   document.getElementById('levelNav').classList.add('hidden');
   document.getElementById('videoLibrary').classList.add('hidden');
   document.getElementById('chessHub').classList.add('hidden');
+  document.getElementById('brainGames').classList.add('hidden');
   document.getElementById('lessonBrowser').classList.add('hidden');
   document.getElementById('topicList').classList.add('hidden');
   document.getElementById('emptyState').classList.add('hidden');
@@ -2698,6 +2702,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('levelNav').classList.remove('hidden');
     document.getElementById('videoLibrary').classList.remove('hidden');
     document.getElementById('chessHub').classList.remove('hidden');
+    document.getElementById('brainGames').classList.remove('hidden');
     document.getElementById('lessonBrowser').classList.remove('hidden');
     currentTopic = null;
     document.getElementById('topicList').classList.remove('hidden');
