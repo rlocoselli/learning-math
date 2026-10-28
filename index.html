@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mathematics Mastery — free, multilingual step-by-step math lessons from arithmetic to university-level calculus." />
+  <meta name="description" content="Learning Studio brings together playful math lessons, chess and brain games for curious learners." />
   <meta name="theme-color" content="#4f46e5" />
-  <title>Mathematics Mastery — Step-by-Step Math Lessons</title>
+  <title>Learning Studio — Math, Chess & Brain Games</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,15 +20,15 @@
       <div class="brand">
         <span class="logo" aria-hidden="true">∑</span>
         <div class="brand-text">
-          <h1 data-i18n="appTitle">Mathematics Mastery</h1>
-          <span class="tagline" data-i18n="tagline">Math, explained simply.</span>
+          <h1 data-i18n="appTitle">Learning Studio</h1>
+          <span class="tagline" data-i18n="tagline">A curious place to learn and play.</span>
         </div>
       </div>
       <div class="header-actions">
         <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language" data-i18n-aria="languageLabel">
-          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸 English</button>
-          <button class="lang-btn" data-lang="pt" aria-label="Português">🇧🇷 Português</button>
-          <button class="lang-btn" data-lang="fr" aria-label="Français">🇫🇷 Français</button>
+          <button class="lang-btn active" data-lang="en" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="lang-name">English</span></button>
+          <button class="lang-btn" data-lang="pt" aria-label="Português"><span aria-hidden="true">🇧🇷</span><span class="lang-name">Português</span></button>
+          <button class="lang-btn" data-lang="fr" aria-label="Français"><span aria-hidden="true">🇫🇷</span><span class="lang-name">Français</span></button>
         </div>
         <div class="auth-widget">
           <span class="auth-status" id="authStatus" role="status" aria-live="polite" data-i18n="authSetupNeeded">Login needs setup in AUDELA Deploy</span>
@@ -41,6 +41,14 @@
       </div>
     </div>
   </header>
+
+  <nav class="learning-nav" aria-label="Learning areas" data-i18n-aria="learningAreasLabel">
+    <div class="learning-nav-inner">
+      <a class="learning-nav-link is-active" href="index.html" aria-current="page"><span class="learning-nav-icon" aria-hidden="true">∑</span><span data-i18n="navMath">Math</span></a>
+      <a class="learning-nav-link" href="chess.html"><span class="learning-nav-icon chess" aria-hidden="true">♞</span><span data-i18n="navChess">Chess</span></a>
+      <a class="learning-nav-link" href="brain.html"><span class="learning-nav-icon brain" aria-hidden="true">✦</span><span data-i18n="navBrain">Brain IQ</span></a>
+    </div>
+  </nav>
 
   <nav class="level-nav" id="levelNav" aria-label="Difficulty levels" data-i18n-aria="difficultyLabel">
     <div class="level-nav-inner">
@@ -62,8 +70,6 @@
           <div class="hero-actions">
             <a class="primary-btn hero-cta" href="#lessonBrowser" data-i18n="browseLessons">Browse lessons <span aria-hidden="true">↓</span></a>
             <a class="hero-link" href="#videoLibrary" data-i18n="exploreVideos">Watch a video <span aria-hidden="true">→</span></a>
-            <a class="hero-link chess-hero-link" href="#chessHub" data-i18n="chessQuickLink">♟ Play chess →</a>
-            <a class="hero-link brain-hero-link" href="#brainGames" data-i18n="brainGamesQuickLink">🧠 Brain games →</a>
           </div>
         </div>
       </div>
@@ -114,12 +120,36 @@
       <div class="math-board" id="mathBoard" aria-label="Math learning map" data-i18n-aria="boardTitle"></div>
     </section>
 
-    <section class="chess-hub" id="chessHub" aria-label="Chess learning and play">
-      <div id="chessApp" class="chess-app"></div>
+    <!-- Topic Cards -->
+    <section class="lesson-browser" id="lessonBrowser" aria-labelledby="topicsTitle">
+      <div class="section-heading browse-heading">
+        <div>
+          <p class="section-eyebrow" data-i18n="startHere">Find your next step</p>
+          <h2 class="section-title" id="topicsTitle"><span data-i18n="topics">Browse topics</span> <span class="count" id="topicCount">0</span></h2>
+          <p class="section-description" data-i18n="topicSubtitle">Pick a subject that feels useful today. You can go at your own pace.</p>
+        </div>
+      </div>
+      <label class="search-box" for="topicSearch">
+        <span aria-hidden="true">⌕</span>
+        <input type="search" id="topicSearch" autocomplete="off" data-i18n-placeholder="searchPlaceholder" data-i18n-aria="searchLabel" placeholder="Search lessons, e.g. fractions or graphs" />
+        <span class="search-shortcut" data-i18n="searchHint">15 lessons</span>
+      </label>
+      <section id="topicList" class="topic-list" aria-live="polite">
+      <!-- Populated by JS -->
+      </section>
     </section>
 
-    <section class="brain-games-hub" id="brainGames" aria-label="Brain games">
-      <div id="brainGamesApp" class="brain-games-app"></div>
+    <section class="video-library" id="videoLibrary" aria-labelledby="videoLibraryTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-eyebrow" data-i18n="videoEyebrow">Watch and learn</p>
+          <h2 class="section-title" id="videoLibraryTitle" data-i18n="videoLibraryTitle">Short videos. Clear ideas.</h2>
+          <p class="section-description" data-i18n="videoLibrarySubtitle">Press play for a quick blackboard lesson, or open a topic to keep learning.</p>
+        </div>
+        <span class="section-pill" id="videoCount">15 videos</span>
+      </div>
+      <section id="videoList" class="video-list" aria-label="Video lessons" data-i18n-aria="videoListLabel"></section>
+      <button class="video-more-btn hidden" id="showAllVideos" type="button"></button>
     </section>
 
     <section class="practice-studio" aria-labelledby="practiceTitle">
@@ -142,38 +172,6 @@
       </div>
       <p class="practice-status" id="practiceStatus" role="status" aria-live="polite" data-i18n="practiceStatusReady">Choose a topic to begin.</p>
       <div class="generated-exercises" id="generatedExercises" aria-live="polite"></div>
-    </section>
-
-    <section class="video-library" id="videoLibrary" aria-labelledby="videoLibraryTitle">
-      <div class="section-heading">
-        <div>
-          <p class="section-eyebrow" data-i18n="videoEyebrow">Watch and learn</p>
-          <h2 class="section-title" id="videoLibraryTitle" data-i18n="videoLibraryTitle">Short videos. Clear ideas.</h2>
-          <p class="section-description" data-i18n="videoLibrarySubtitle">Press play for a quick blackboard lesson, or open a topic to keep learning.</p>
-        </div>
-        <span class="section-pill" id="videoCount">15 videos</span>
-      </div>
-      <section id="videoList" class="video-list" aria-label="Video lessons" data-i18n-aria="videoListLabel"></section>
-      <button class="video-more-btn hidden" id="showAllVideos" type="button"></button>
-    </section>
-
-    <!-- Topic Cards -->
-    <section class="lesson-browser" id="lessonBrowser" aria-labelledby="topicsTitle">
-      <div class="section-heading browse-heading">
-        <div>
-          <p class="section-eyebrow" data-i18n="startHere">Find your next step</p>
-          <h2 class="section-title" id="topicsTitle"><span data-i18n="topics">Browse topics</span> <span class="count" id="topicCount">0</span></h2>
-          <p class="section-description" data-i18n="topicSubtitle">Pick a subject that feels useful today. You can go at your own pace.</p>
-        </div>
-      </div>
-      <label class="search-box" for="topicSearch">
-        <span aria-hidden="true">⌕</span>
-        <input type="search" id="topicSearch" autocomplete="off" data-i18n-placeholder="searchPlaceholder" data-i18n-aria="searchLabel" placeholder="Search lessons, e.g. fractions or graphs" />
-        <span class="search-shortcut" data-i18n="searchHint">15 lessons</span>
-      </label>
-      <section id="topicList" class="topic-list" aria-live="polite">
-      <!-- Populated by JS -->
-      </section>
     </section>
 
     <!-- Topic Detail View (hidden by default) -->
@@ -249,7 +247,5 @@
 
   <script src="app.js"></script>
   <script src="auth.js"></script>
-  <script type="module" src="chess-game.js"></script>
-  <script src="brain-games.js"></script>
 </body>
 </html>

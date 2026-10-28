@@ -1545,6 +1545,160 @@ body.no-scroll { overflow: hidden; }
   .chess-xp.xp-pop, .chess-turn-pill.is-thinking { animation: none; }
 }
 
+/* ---------- Learning Studio page navigation and focused hubs ---------- */
+.brand-link { color: inherit; text-decoration: none; }
+.brand-link .brand-text strong { font: 800 1.18rem/1.15 var(--font-display); letter-spacing: -.025em; }
+.brand-link:hover .brand-text strong { color: var(--primary-strong); }
+.learning-nav { padding: .42rem 1rem .58rem; border-top: 1px solid color-mix(in srgb, var(--border) 65%, transparent); }
+.learning-nav-inner { display: flex; width: fit-content; max-width: 100%; gap: .28rem; margin: 0 auto; overflow-x: auto; border: 1px solid var(--border); border-radius: 15px; padding: .27rem; background: color-mix(in srgb, var(--surface-2) 78%, transparent); scrollbar-width: none; }
+.learning-nav-inner::-webkit-scrollbar { display: none; }
+.learning-nav-link { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; gap: .48rem; border: 1px solid transparent; border-radius: 11px; padding: .42rem .92rem; color: var(--text-muted); font-size: .78rem; font-weight: 800; text-decoration: none; white-space: nowrap; transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition); }
+.learning-nav-link:hover { transform: translateY(-1px); background: var(--surface); color: var(--text); }
+.learning-nav-link.is-active { border-color: color-mix(in srgb, var(--primary) 17%, transparent); background: var(--surface); color: var(--primary-strong); box-shadow: var(--shadow-sm); }
+.learning-nav-icon { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; background: #eeecff; color: #5d53bd; font-size: 1rem; line-height: 1; }
+.learning-nav-icon.chess { background: #e3f3eb; color: #327b57; }
+.learning-nav-icon.brain { background: #f5eaff; color: #8653bd; }
+[data-theme="dark"] .learning-nav-link.is-active { border-color: #48405f; background: #24243a; color: #c9c2ff; }
+[data-theme="dark"] .learning-nav-icon { background: #302d50; color: #d0caff; }
+[data-theme="dark"] .learning-nav-icon.chess { background: #203c32; color: #a8e2c0; }
+[data-theme="dark"] .learning-nav-icon.brain { background: #3a2a4c; color: #e0bdff; }
+.experience-page { padding-top: 1.45rem; }
+.experience-hero { position: relative; display: grid; min-height: 352px; grid-template-columns: minmax(0, 1.2fr) minmax(250px, .8fr); align-items: center; gap: 1rem; overflow: hidden; margin: .1rem 0 1.75rem; border: 1px solid #dce7e1; border-radius: 27px; padding: clamp(1.25rem, 4vw, 2.65rem); background: radial-gradient(ellipse at 88% 10%, #e5f4eb 0, transparent 39%), linear-gradient(130deg, #fff 3%, #f3faf5 62%, #eaf7ef 100%); box-shadow: 0 19px 45px rgba(37, 86, 61, .09); }
+.experience-hero::before { position: absolute; right: 25%; bottom: -105px; width: 360px; height: 220px; border-radius: 50%; background: #fff8; content: ''; filter: blur(25px); }
+.brain-experience-hero { border-color: #e3d9f0; background: radial-gradient(ellipse at 90% 0%, #eee4ff 0, transparent 40%), linear-gradient(132deg, #fff 0%, #faf6ff 59%, #f0eaff 100%); box-shadow: 0 19px 45px rgba(91, 61, 142, .09); }
+[data-theme="dark"] .experience-hero { border-color: #30463a; background: radial-gradient(ellipse at 90% 0%, #203d31 0, transparent 44%), linear-gradient(132deg, #171e25 0%, #182a25 100%); box-shadow: 0 19px 45px rgba(0, 0, 0, .2); }
+[data-theme="dark"] .brain-experience-hero { border-color: #46385c; background: radial-gradient(ellipse at 90% 0%, #3b2b50 0, transparent 43%), linear-gradient(132deg, #1a1928 0%, #282039 100%); }
+.experience-hero-copy { position: relative; z-index: 1; max-width: 640px; }
+.experience-kicker { display: flex; align-items: center; gap: .48rem; margin: 0 0 .65rem; color: #3f8a61; font-size: .63rem; font-weight: 900; letter-spacing: .13em; }
+.experience-kicker > span:first-child { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 9px; background: #dff3e6; color: #338355; font-size: .95rem; letter-spacing: 0; }
+.brain-experience-hero .experience-kicker { color: #7750a4; }
+.brain-experience-hero .experience-kicker > span:first-child { background: #eee3ff; color: #8654bd; }
+[data-theme="dark"] .experience-kicker { color: #9bd9b1; }
+[data-theme="dark"] .experience-kicker > span:first-child { background: #244431; color: #a4e2b5; }
+[data-theme="dark"] .brain-experience-hero .experience-kicker { color: #d4afff; }
+[data-theme="dark"] .brain-experience-hero .experience-kicker > span:first-child { background: #432f58; color: #d8b5ff; }
+.experience-hero h1 { max-width: 610px; margin: 0; color: #182b20; font: 800 clamp(2.2rem, 4.8vw, 3.65rem)/1.04 var(--font-display); letter-spacing: -.055em; }
+.brain-experience-hero h1 { color: #2d2140; }
+[data-theme="dark"] .experience-hero h1, [data-theme="dark"] .brain-experience-hero h1 { color: var(--text); }
+.experience-subtitle { max-width: 590px; margin: .8rem 0 1.02rem; color: #52675b; font-size: .93rem; line-height: 1.72; }
+.brain-experience-hero .experience-subtitle { color: #655d71; }
+[data-theme="dark"] .experience-subtitle, [data-theme="dark"] .brain-experience-hero .experience-subtitle { color: var(--text-muted); }
+.experience-highlights { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.05rem; }
+.experience-highlights > span { display: inline-flex; align-items: center; gap: .34rem; border: 1px solid #dce9df; border-radius: 999px; padding: .33rem .52rem; background: #ffffffb8; color: #4d6655; font-size: .63rem; font-weight: 750; }
+.brain-experience-hero .experience-highlights > span { border-color: #e5dbf0; color: #6b5a7c; }
+.experience-highlights i { color: #4e9a6a; font-size: .55rem; font-style: normal; font-weight: 900; }
+.brain-experience-hero .experience-highlights i { color: #9162c3; }
+[data-theme="dark"] .experience-highlights > span { border-color: #385345; background: #1b2b23b8; color: #c0d5c6; }
+[data-theme="dark"] .brain-experience-hero .experience-highlights > span { border-color: #4a3c5d; background: #2a2236b8; color: #d4c2e3; }
+.experience-cta { display: inline-flex; min-height: 45px; align-items: center; gap: .7rem; border: 1px solid #367e53; border-radius: 13px; padding: .65rem .9rem; background: linear-gradient(135deg, #438e60, #2f7650); color: #fff; font-size: .74rem; font-weight: 850; text-decoration: none; box-shadow: 0 8px 17px #34835325; transition: transform var(--transition), box-shadow var(--transition); }
+.experience-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 22px #34835338; }
+.experience-cta > span:last-child { font-size: 1.05rem; }
+.brain-experience-hero .experience-cta { border-color: #7755b4; background: linear-gradient(135deg, #8362c1, #6a4aa7); box-shadow: 0 8px 17px #7455ab2a; }
+.brain-experience-hero .experience-cta:hover { box-shadow: 0 12px 22px #7455ab45; }
+.experience-art { position: relative; z-index: 1; display: grid; min-height: 265px; place-items: center; }
+.chess-art-board { position: relative; display: grid; width: min(238px, 68vw); aspect-ratio: 1; grid-template-columns: repeat(4, 1fr); overflow: hidden; transform: rotate(4deg); border: 8px solid #fff; border-radius: 21px; background: repeating-conic-gradient(#6b9a79 0 25%, #e9f1df 0 50%) 50% / 50% 50%; box-shadow: 0 22px 36px #31583c2e, inset 0 0 0 1px #ffffffad; }
+.chess-art-board span { display: grid; place-items: center; color: #244c35; font: 2.35rem/1 Georgia, serif; text-shadow: 0 2px 1px #fff8; }
+.chess-art-board span:nth-child(3n) { color: #faf9ef; text-shadow: 0 2px 2px #234b3680; }
+.chess-art-orbit { position: absolute; width: 285px; height: 152px; border: 1px solid #76ae8a6b; border-radius: 50%; transform: rotate(-27deg); }
+.chess-art-orbit.orbit-two { width: 312px; height: 188px; transform: rotate(35deg); border-color: #aacfb26b; }
+.chess-art-note { position: absolute; right: -2%; bottom: 4%; display: flex; align-items: center; gap: .42rem; max-width: 205px; border: 1px solid #dceadd; border-radius: 12px; padding: .55rem .65rem; background: #fffffff0; color: #4d6655; font-size: .61rem; font-weight: 800; box-shadow: 0 8px 18px #31583c19; }
+.chess-art-note > span:first-child { color: #d79c40; font-size: 1rem; }
+.brain-experience-art { min-height: 270px; }
+.brain-art-glow { position: absolute; width: 230px; height: 230px; border-radius: 50%; background: radial-gradient(circle, #e8d8ff 0, #ebdcff7a 48%, transparent 72%); filter: blur(4px); }
+.brain-art-orbit { position: absolute; width: 290px; height: 142px; border: 1px solid #a280c855; border-radius: 50%; transform: rotate(25deg); }
+.brain-art-orbit.orbit-two { width: 236px; height: 188px; transform: rotate(-35deg); border-color: #bb9bdd55; }
+.brain-art-core { position: relative; z-index: 1; display: grid; width: 125px; height: 125px; place-items: center; border: 1px solid #fff; border-radius: 38px; background: linear-gradient(145deg, #fff, #f0e7ff); font-size: 4.4rem; box-shadow: 0 18px 35px #8060ae36, inset 0 1px 0 #fff; transform: rotate(-8deg); }
+.brain-art-card { position: absolute; z-index: 2; display: flex; align-items: center; gap: .32rem; border: 1px solid #e5d9f3; border-radius: 13px; padding: .5rem .58rem; background: #fff; color: #614d7b; box-shadow: 0 10px 22px #73569b1b; font-weight: 850; }
+.brain-card-number { top: 8%; left: 0; transform: rotate(-8deg); font: 800 .88rem var(--font-display); }
+.brain-card-number i { color: #a27bcc; font-size: .72rem; font-style: normal; }
+.brain-card-number b { color: #9a6acc; }
+.brain-card-memory { right: 0; bottom: 21%; gap: .24rem; font-size: .84rem; transform: rotate(7deg); }
+.brain-card-memory i { margin-left: .1rem; color: #937fa7; font-size: .56rem; font-style: normal; }
+.brain-art-note { position: absolute; right: 0; bottom: 2%; border: 1px solid #e5d9f3; border-radius: 12px; padding: .48rem .6rem; background: #fff; color: #6b5a7c; font-size: .59rem; font-weight: 800; box-shadow: 0 8px 18px #73569b17; }
+.brain-art-note > span:first-child { color: #aa7bd0; }
+[data-theme="dark"] .chess-art-board { border-color: #26372f; box-shadow: 0 22px 36px #0005, inset 0 0 0 1px #ffffff1a; }
+[data-theme="dark"] .chess-art-note, [data-theme="dark"] .brain-art-card, [data-theme="dark"] .brain-art-note { border-color: #48405a; background: #262336f2; color: #d2c9dd; }
+[data-theme="dark"] .brain-art-core { border-color: #514364; background: linear-gradient(145deg, #342a45, #282237); }
+[data-theme="dark"] .brain-art-glow { background: radial-gradient(circle, #4a3262 0, #3a2b4c88 48%, transparent 72%); }
+.page-game-section { scroll-margin-top: 1rem; }
+.page-game-section.chess-hub { margin-top: .5rem; }
+.page-game-section.brain-games-hub { margin-top: .4rem; }
+.suite-footer { display: flex; align-items: center; justify-content: center; gap: .8rem 1.2rem; flex-wrap: wrap; }
+.suite-footer a { color: var(--primary-strong); font-size: .78rem; font-weight: 800; text-decoration: none; }
+.suite-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .learning-nav { padding: .35rem .65rem .48rem; }
+  .learning-nav-inner { width: 100%; justify-content: stretch; gap: .16rem; }
+  .learning-nav-link { flex: 1 1 0; min-width: 0; min-height: 40px; gap: .35rem; padding: .38rem .45rem; font-size: .7rem; }
+  .learning-nav-icon { width: 22px; height: 22px; border-radius: 7px; font-size: .86rem; }
+  .experience-page { padding: 1rem 1rem 1.5rem; }
+  .experience-hero { min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(185px, .65fr); gap: .4rem; padding: 1.2rem; }
+  .experience-hero h1 { font-size: clamp(2rem, 5.4vw, 2.8rem); }
+  .experience-subtitle { font-size: .8rem; line-height: 1.6; }
+  .experience-highlights > span { font-size: .58rem; }
+  .experience-art { min-height: 220px; }
+  .chess-art-board { width: min(190px, 37vw); }
+  .chess-art-board span { font-size: 1.85rem; }
+  .chess-art-orbit { width: 230px; height: 125px; }
+  .chess-art-orbit.orbit-two { width: 245px; height: 150px; }
+  .chess-art-note { right: -1%; bottom: 0; max-width: 170px; font-size: .55rem; }
+  .brain-experience-art { min-height: 220px; }
+  .brain-art-core { width: 102px; height: 102px; border-radius: 31px; font-size: 3.6rem; }
+  .brain-art-orbit { width: 230px; height: 116px; }
+  .brain-art-orbit.orbit-two { width: 205px; height: 150px; }
+  .brain-card-number { top: 3%; left: -2%; }
+  .brain-card-memory { right: -2%; bottom: 18%; }
+  .brain-art-note { right: -2%; bottom: -1%; font-size: .53rem; }
+}
+@media (max-width: 560px) {
+  .brand-link .brand-text strong { font-size: 1rem; }
+  .brand-link .tagline { font-size: .62rem; }
+  .suite-header .brand-link .tagline { display: none; }
+  .suite-header { padding: .48rem .65rem 0; }
+  .suite-header .header-inner { align-items: center; gap: .35rem; flex-wrap: nowrap; }
+  .suite-header .brand { gap: .48rem; min-width: 0; }
+  .suite-header .logo { width: 38px; height: 38px; border-radius: 12px; font-size: 1.2rem; }
+  .suite-header .header-actions { flex: 0 0 auto; gap: .35rem; flex-wrap: nowrap; }
+  .suite-header .lang-switcher { gap: .1rem; padding: .16rem; border-radius: 10px; }
+  .suite-header .lang-btn { min-width: 31px; padding: .3rem; font-size: .77rem; }
+  .suite-header .lang-name { display: none; }
+  .suite-header .theme-toggle { width: 36px; height: 36px; border-radius: 10px; }
+  .learning-nav-link { min-width: 0; gap: .24rem; padding-inline: .2rem; font-size: .62rem; }
+  .learning-nav-link > span:last-child { min-width: 0; overflow-wrap: anywhere; text-align: center; }
+  .experience-page { padding: .75rem .72rem 1.2rem; }
+  .experience-hero { grid-template-columns: minmax(0, 1fr); gap: .3rem; margin-bottom: 1rem; border-radius: 22px; padding: 1.05rem; }
+  .experience-hero h1 { max-width: 440px; font-size: clamp(2rem, 9vw, 2.75rem); }
+  .experience-subtitle { margin: .55rem 0 .75rem; font-size: .78rem; }
+  .experience-highlights { gap: .32rem; margin-bottom: .78rem; }
+  .experience-highlights > span { gap: .23rem; padding: .31rem .42rem; font-size: .54rem; }
+  .experience-highlights i { font-size: .48rem; }
+  .experience-cta { min-height: 42px; padding: .58rem .77rem; font-size: .69rem; }
+  .experience-art { min-height: 185px; }
+  .chess-art-board { width: min(176px, 48vw); }
+  .chess-art-board span { font-size: 1.75rem; }
+  .chess-art-orbit { width: 225px; height: 112px; }
+  .chess-art-orbit.orbit-two { width: 215px; height: 135px; }
+  .chess-art-note { right: 0; bottom: 0; }
+  .brain-experience-art { min-height: 190px; }
+  .brain-art-core { width: 100px; height: 100px; font-size: 3.4rem; }
+  .brain-art-card { padding: .42rem .48rem; }
+  .brain-card-number { left: 2%; }
+  .brain-card-memory { right: 2%; }
+  .brain-art-note { right: 0; bottom: -1%; }
+  .suite-footer { gap: .4rem; padding: 1.1rem .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .learning-nav-link, .experience-cta { transition: none; }
+}
+
+@media (max-width: 480px) {
+  .brand-text .tagline { display: none; }
+  .header-inner { align-items: center; }
+  .header-actions { gap: .35rem; }
+  .lang-name { display: none; }
+}
+
 @media (max-width: 980px) {
   .practice-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

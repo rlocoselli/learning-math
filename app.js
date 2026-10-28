@@ -5,20 +5,22 @@
 
 const UIStrings = {
   en: {
-    appTitle: 'Mathematics Mastery',
+    appTitle: 'Learning Studio',
     languageLabel: 'Language',
+    learningAreasLabel: 'Learning areas',
+    navMath: 'Math',
+    navChess: 'Chess',
+    navBrain: 'Brain IQ',
     toggleTheme: 'Toggle dark mode',
     difficultyLabel: 'Difficulty levels',
     searchLabel: 'Search topics',
     videoListLabel: 'Video lessons',
-    tagline: 'Math can be fun.',
+    tagline: 'A curious place to learn and play.',
     heroKicker: 'Your next math adventure starts here',
     heroTitle: 'Learn math. Earn stars.',
     heroSubtitle: 'Pick a short quest. Watch, learn, then try a question. No pressure, just progress.',
     browseLessons: 'Choose a quest ↓',
     exploreVideos: 'Watch a video →',
-    chessQuickLink: '♟ Play chess →',
-    brainGamesQuickLink: '🧠 Brain games →',
     videoEyebrow: 'New video lessons',
     videoLibraryTitle: 'See the idea. Then try it.',
     videoLibrarySubtitle: 'Watch a narrated, step-by-step lesson with a gentle piano soundtrack, then try the practice.',
@@ -143,20 +145,22 @@ const UIStrings = {
     languages: 'Languages',
   },
   pt: {
-    appTitle: 'Domine a Matemática',
+    appTitle: 'Estúdio de Aprendizagem',
     languageLabel: 'Idioma',
+    learningAreasLabel: 'Áreas de aprendizagem',
+    navMath: 'Matemática',
+    navChess: 'Xadrez',
+    navBrain: 'Jogos de raciocínio',
     toggleTheme: 'Alternar tema escuro',
     difficultyLabel: 'Níveis de dificuldade',
     searchLabel: 'Buscar temas',
     videoListLabel: 'Videoaulas',
-    tagline: 'Matemática pode ser divertida.',
+    tagline: 'Um lugar curioso para aprender e jogar.',
     heroKicker: 'Sua próxima aventura matemática começa aqui',
     heroTitle: 'Aprenda matemática. Ganhe estrelas.',
     heroSubtitle: 'Escolha uma missão curta. Assista, aprenda e responda. Sem pressão, só progresso.',
     browseLessons: 'Escolher missão ↓',
     exploreVideos: 'Assistir a um vídeo →',
-    chessQuickLink: '♟ Jogar xadrez →',
-    brainGamesQuickLink: '🧠 Jogos de raciocínio →',
     videoEyebrow: 'Novas videoaulas',
     videoLibraryTitle: 'Veja a ideia. Depois pratique.',
     videoLibrarySubtitle: 'Assista a uma aula narrada, passo a passo, com piano suave; depois, pratique.',
@@ -281,20 +285,22 @@ const UIStrings = {
     languages: 'Idiomas',
   },
   fr: {
-    appTitle: 'Maîtrise des Mathématiques',
+    appTitle: 'Studio des apprentissages',
     languageLabel: 'Langue',
+    learningAreasLabel: 'Domaines d’apprentissage',
+    navMath: 'Maths',
+    navChess: 'Échecs',
+    navBrain: 'Jeux cérébraux',
     toggleTheme: 'Activer le thème sombre',
     difficultyLabel: 'Niveaux de difficulté',
     searchLabel: 'Rechercher des sujets',
     videoListLabel: 'Leçons vidéo',
-    tagline: 'Les maths peuvent être amusantes.',
+    tagline: 'Un lieu curieux pour apprendre et jouer.',
     heroKicker: 'Votre prochaine aventure mathématique commence ici',
     heroTitle: 'Apprenez les maths. Gagnez des étoiles.',
     heroSubtitle: 'Choisissez une petite mission. Regardez, apprenez, puis répondez. Sans pression, à votre rythme.',
     browseLessons: 'Choisir une mission ↓',
     exploreVideos: 'Voir une vidéo →',
-    chessQuickLink: '♟ Jouer aux échecs →',
-    brainGamesQuickLink: '🧠 Jeux de réflexion →',
     videoEyebrow: 'Nouvelles leçons vidéo',
     videoLibraryTitle: 'Voyez l’idée, puis essayez.',
     videoLibrarySubtitle: 'Suivez une leçon expliquée pas à pas, avec un piano doux, puis entraînez-vous.',
@@ -1862,8 +1868,8 @@ function showTopicDetail(topicId) {
   document.getElementById('continueCard').classList.add('hidden');
   document.getElementById('levelNav').classList.add('hidden');
   document.getElementById('videoLibrary').classList.add('hidden');
-  document.getElementById('chessHub').classList.add('hidden');
-  document.getElementById('brainGames').classList.add('hidden');
+  document.getElementById('chessHub')?.classList.add('hidden');
+  document.getElementById('brainGames')?.classList.add('hidden');
   document.getElementById('lessonBrowser').classList.add('hidden');
   document.getElementById('topicList').classList.add('hidden');
   document.getElementById('emptyState').classList.add('hidden');
@@ -2701,8 +2707,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('homeHero').classList.remove('hidden');
     document.getElementById('levelNav').classList.remove('hidden');
     document.getElementById('videoLibrary').classList.remove('hidden');
-    document.getElementById('chessHub').classList.remove('hidden');
-    document.getElementById('brainGames').classList.remove('hidden');
+    document.getElementById('chessHub')?.classList.remove('hidden');
+    document.getElementById('brainGames')?.classList.remove('hidden');
     document.getElementById('lessonBrowser').classList.remove('hidden');
     currentTopic = null;
     document.getElementById('topicList').classList.remove('hidden');

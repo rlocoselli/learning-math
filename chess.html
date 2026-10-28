@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn chess with simple guides, opening ideas, and friendly computer games for every level." />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>Chess Quest — Learning Studio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♞</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="chess">
+  <header class="app-header suite-header">
+    <div class="header-inner">
+      <a class="brand brand-link" href="index.html" aria-label="Learning Studio home">
+        <span class="logo" aria-hidden="true">∑</span>
+        <span class="brand-text"><strong data-shell-copy="brandName">Learning Studio</strong><span class="tagline" data-shell-copy="tagline">A curious place to learn and play.</span></span>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switcher" role="group" aria-label="Language" data-shell-copy-aria="languageLabel">
+          <button class="lang-btn" data-lang="en" type="button" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="lang-name">English</span></button>
+          <button class="lang-btn" data-lang="pt" type="button" aria-label="Português"><span aria-hidden="true">🇧🇷</span><span class="lang-name">Português</span></button>
+          <button class="lang-btn" data-lang="fr" type="button" aria-label="Français"><span aria-hidden="true">🇫🇷</span><span class="lang-name">Français</span></button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-shell-copy-aria="toggleTheme" data-shell-copy-title="toggleTheme"><span class="theme-icon-moon">🌙</span><span class="theme-icon-sun">☀️</span></button>
+      </div>
+    </div>
+    <nav class="learning-nav" aria-label="Learning areas" data-shell-copy-aria="learningAreasLabel">
+      <div class="learning-nav-inner">
+        <a class="learning-nav-link" href="index.html"><span class="learning-nav-icon" aria-hidden="true">∑</span><span data-shell-copy="navMath">Math</span></a>
+        <a class="learning-nav-link is-active" href="chess.html" aria-current="page"><span class="learning-nav-icon chess" aria-hidden="true">♞</span><span data-shell-copy="navChess">Chess</span></a>
+        <a class="learning-nav-link" href="brain.html"><span class="learning-nav-icon brain" aria-hidden="true">✦</span><span data-shell-copy="navBrain">Brain IQ</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container experience-page">
+    <section class="experience-hero chess-experience-hero" aria-labelledby="pageTitle">
+      <div class="experience-hero-copy">
+        <p class="experience-kicker"><span>♟</span><span data-shell-copy="chessKicker">THINK AHEAD · LEARN TOGETHER</span></p>
+        <h1 id="pageTitle" data-shell-copy="chessHeroTitle">Every move opens a new idea.</h1>
+        <p class="experience-subtitle" data-shell-copy="chessHeroSubtitle">Learn the pieces, discover famous openings, and play a friendly computer that meets you where you are.</p>
+        <div class="experience-highlights"><span><i>01</i><span data-shell-copy="chessHighlightOne">Learn as you play</span></span><span><i>02</i><span data-shell-copy="chessHighlightTwo">Choose your challenge</span></span><span><i>03</i><span data-shell-copy="chessHighlightThree">Grow with every game</span></span></div>
+        <a class="experience-cta" href="#chessHub"><span data-shell-copy="chessCta">Start a friendly match</span><span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="experience-art chess-experience-art" aria-hidden="true">
+        <div class="chess-art-orbit orbit-one"></div><div class="chess-art-orbit orbit-two"></div>
+        <div class="chess-art-board"><span>♜</span><span></span><span>♝</span><span></span><span></span><span>♟</span><span></span><span>♞</span><span>♟</span><span></span><span>♙</span><span></span><span></span><span>♘</span><span></span><span>♖</span></div>
+        <div class="chess-art-note"><span>✦</span><span data-shell-copy="chessArtNote">A smart move starts with a curious mind.</span></div>
+      </div>
+    </section>
+
+    <section class="chess-hub page-game-section" id="chessHub" aria-label="Chess learning and play">
+      <div id="chessApp" class="chess-app"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer suite-footer"><p data-shell-copy="footer">Keep learning. Keep playing. Keep growing.</p><a href="index.html" data-shell-copy="footerMathLink">Back to the learning path →</a></footer>
+  <script src="site-shell.js"></script>
+  <script type="module" src="chess-game.js"></script>
+</body>
+</html>

@@ -1,6 +1,8 @@
-# Mathematics Mastery
+# Learning Studio
 
-A multilingual math learning app for children and students, with short step-by-step lessons, geometry explanations, explainer videos, browser text-to-speech, quizzes, and a playful progress map. Learners can sign in with AUDELA and generate topic-based practice rounds through an OpenAI-compatible API.
+A multilingual learning site for children and students, organized into separate Math, Chess, and Brain IQ pages with a shared menu. It includes short step-by-step math lessons, geometry explanations, explainer videos, browser text-to-speech, quizzes, friendly chess games, brain mini-games, and playful progress maps. Learners can sign in with AUDELA on the Math page and generate topic-based practice rounds through an OpenAI-compatible API.
+
+Open `/` or `index.html` for Math, `chess.html` for Chess, and `brain.html` for Brain IQ. The shared top menu moves between all three areas.
 
 ## Features
 
@@ -9,6 +11,7 @@ A multilingual math learning app for children and students, with short step-by-s
 - **Adventure map** with themed learning worlds, cleared quests, a daily side quest with bonus stars, the next recommended stop, and badges; all topics remain open to explore
 - **Chess Quest** with a touch-friendly legal-move board, beginner/intermediate/advanced computer play, keyboard navigation, read-aloud rule explanations, four guided opening lines, and saved chess stars
 - **Brain Games** with short number, pattern, memory, and focus rounds, friendly instructions, answer-by-answer explanations, optional read-aloud tips, and saved progress
+- **Separate learning areas** for Math, Chess, and Brain IQ, with a shared responsive menu, page-specific introductions, and consistent language and theme controls
 - **AI practice rounds** with five multiple-choice questions, selectable learner style and difficulty, hints, worked explanations, and optional spoken answers
 - **AUDELA OIDC sign-in** using server-side authorization-code exchange; the client secret and AI key stay on the server
 - **Narrated MP4 explainer videos** with an original piano accompaniment, paced step-by-step explanations, searchable topics, KaTeX formulas, dark mode, and local progress
@@ -59,7 +62,7 @@ Requires Python 3, [Pillow](https://pillow.readthedocs.io/), [gTTS](https://gtts
 
 ## Structure
 
-- `index.html`, `styles.css`, `app.js`, `auth.js`, `chess-game.js`, `brain-games.js` — student experience and browser-side state
+- `index.html`, `chess.html`, `brain.html`, `styles.css`, `app.js`, `site-shell.js`, `auth.js`, `chess-game.js`, `brain-games.js` — student experience and browser-side state
 - `vendor/chess.js/` — bundled chess.js move rules and its BSD-2-Clause license, so chess works without a separate service
 - `server.py` — AUDELA OIDC callback/session and authenticated AI exercise endpoint
 - `Dockerfile`, `compose.yaml` — AUDELA Deploy container configuration
